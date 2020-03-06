@@ -2,15 +2,14 @@
 @section('content')
 
 <div class="site-section py-0">
-      <div class="owl-carousel hero-slide owl-style">
-
+    <div class="owl-carousel hero-slide owl-style">
         <div class="site-section">
           <div class="container">
             <div class="half-post-entry d-block d-lg-flex bg-light">
               <div class="img-bg" style="background-image: url('frontend/images/big_img_1.jpg')"></div>
               <div class="contents">
                 <span class="caption">Editor's Pick</span>
-                <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+                <h2><a href="/blog">News Needs to Meet Its Audiences Where They Are</a></h2>
                 <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate vero obcaecati natus
                   adipisci necessitatibus eius, enim vel sit ad reiciendis. Enim praesentium magni delectus cum, tempore
                   deserunt aliquid quaerat culpa nemo veritatis, iste adipisci excepturi consectetur doloribus aliquam
@@ -33,7 +32,7 @@
               <div class="img-bg" style="background-image: url('frontend/images/big_img_1.jpg')"></div>
               <div class="contents">
                 <span class="caption">Editor's Pick</span>
-                <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+                <h2><a href="/blog">News Needs to Meet Its Audiences Where They Are</a></h2>
                 <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate vero obcaecati natus
                   adipisci necessitatibus eius, enim vel sit ad reiciendis. Enim praesentium magni delectus cum, tempore
                   deserunt aliquid quaerat culpa nemo veritatis, iste adipisci excepturi consectetur doloribus aliquam
@@ -70,7 +69,7 @@
               <div class="col-md-6">
                 <div class="post-entry-1">
                   <a href="post-single.html"><img src="frontend/images/img_h_1.jpg" alt="Image" class="img-fluid"></a>
-                  <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+                  <h2><a href="/blog">News Needs to Meet Its Audiences Where They Are</a></h2>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque,
                     voluptatum quam quibusdam.</p>
                   <div class="post-meta">
@@ -84,7 +83,7 @@
                 <div class="post-entry-2 d-flex bg-light">
                   <div class="thumbnail" style="background-image: url('frontend/images/img_v_1.jpg')"></div>
                   <div class="contents">
-                    <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+                    <h2><a href="/blog">News Needs to Meet Its Audiences Where They Are</a></h2>
                     <div class="post-meta">
                       <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
                       <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span
@@ -96,7 +95,7 @@
                 <div class="post-entry-2 d-flex">
                   <div class="thumbnail" style="background-image: url('frontend/images/img_v_2.jpg')"></div>
                   <div class="contents">
-                    <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+                    <h2><a href="/blog">News Needs to Meet Its Audiences Where They Are</a></h2>
                     <div class="post-meta">
                       <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
                       <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span
@@ -108,7 +107,7 @@
                 <div class="post-entry-2 d-flex">
                   <div class="thumbnail" style="background-image: url('frontend/images/img_v_3.jpg')"></div>
                   <div class="contents">
-                    <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+                    <h2><a href="/blog">News Needs to Meet Its Audiences Where They Are</a></h2>
                     <div class="post-meta">
                       <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
                       <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span
@@ -127,7 +126,7 @@
             <div class="trend-entry d-flex">
               <div class="number align-self-start">01</div>
               <div class="trend-contents">
-                <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+                <h2><a href="/blog">News Needs to Meet Its Audiences Where They Are</a></h2>
                 <div class="post-meta">
                   <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
                   <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span
@@ -139,7 +138,7 @@
             <div class="trend-entry d-flex">
               <div class="number align-self-start">02</div>
               <div class="trend-contents">
-                <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+                <h2><a href="/blog">News Needs to Meet Its Audiences Where They Are</a></h2>
                 <div class="post-meta">
                   <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
                   <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span
@@ -151,7 +150,7 @@
             <div class="trend-entry d-flex">
               <div class="number align-self-start">03</div>
               <div class="trend-contents">
-                <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+                <h2><a href="/blog">News Needs to Meet Its Audiences Where They Are</a></h2>
                 <div class="post-meta">
                   <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
                   <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span
@@ -163,7 +162,7 @@
             <div class="trend-entry d-flex">
               <div class="number align-self-start">04</div>
               <div class="trend-contents">
-                <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+                <h2><a href="/blog">News Needs to Meet Its Audiences Where They Are</a></h2>
                 <div class="post-meta">
                   <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
                   <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span
@@ -188,7 +187,7 @@
           <div class="img-bg" style="background-image: url('frontend/images/big_img_1.jpg')"></div>
           <div class="contents">
             <span class="caption">Editor's Pick</span>
-            <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+            <h2><a href="/blog">News Needs to Meet Its Audiences Where They Are</a></h2>
             <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate vero obcaecati natus
               adipisci necessitatibus eius, enim vel sit ad reiciendis. Enim praesentium magni delectus cum, tempore
               deserunt aliquid quaerat culpa nemo veritatis, iste adipisci excepturi consectetur doloribus aliquam
@@ -215,7 +214,7 @@
             <div class="post-entry-2 d-flex">
               <div class="thumbnail" style="background-image: url('frontend/images/img_v_1.jpg')"></div>
               <div class="contents">
-                <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+                <h2><a href="/blog">News Needs to Meet Its Audiences Where They Are</a></h2>
                 <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus
                   praesentium neque, voluptatum quam quibusdam.</p>
                 <div class="post-meta">
@@ -228,7 +227,7 @@
             <div class="post-entry-2 d-flex">
               <div class="thumbnail" style="background-image: url('frontend/images/img_v_2.jpg')"></div>
               <div class="contents">
-                <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+                <h2><a href="/blog">News Needs to Meet Its Audiences Where They Are</a></h2>
                 <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus
                   praesentium neque, voluptatum quam quibusdam.</p>
                 <div class="post-meta">
@@ -241,7 +240,7 @@
             <div class="post-entry-2 d-flex">
               <div class="thumbnail" style="background-image: url('frontend/images/img_v_3.jpg')"></div>
               <div class="contents">
-                <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+                <h2><a href="/blog">News Needs to Meet Its Audiences Where They Are</a></h2>
                 <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus
                   praesentium neque, voluptatum quam quibusdam.</p>
                 <div class="post-meta">
@@ -259,7 +258,7 @@
             <div class="post-entry-2 d-flex">
               <div class="thumbnail" style="background-image: url('frontend/images/img_v_1.jpg')"></div>
               <div class="contents">
-                <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+                <h2><a href="/blog">News Needs to Meet Its Audiences Where They Are</a></h2>
                 <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus
                   praesentium neque, voluptatum quam quibusdam.</p>
                 <div class="post-meta">
@@ -272,7 +271,7 @@
             <div class="post-entry-2 d-flex">
               <div class="thumbnail" style="background-image: url('frontend/images/img_v_2.jpg')"></div>
               <div class="contents">
-                <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+                <h2><a href="/blog">News Needs to Meet Its Audiences Where They Are</a></h2>
                 <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus
                   praesentium neque, voluptatum quam quibusdam.</p>
                 <div class="post-meta">
@@ -285,7 +284,7 @@
             <div class="post-entry-2 d-flex">
               <div class="thumbnail" style="background-image: url('frontend/images/img_v_3.jpg')"></div>
               <div class="contents">
-                <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+                <h2><a href="/blog">News Needs to Meet Its Audiences Where They Are</a></h2>
                 <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus
                   praesentium neque, voluptatum quam quibusdam.</p>
                 <div class="post-meta">
@@ -312,7 +311,7 @@
             <div class="post-entry-2 d-flex">
               <div class="thumbnail order-md-2" style="background-image: url('frontend/images/img_h_4.jpg')"></div>
               <div class="contents order-md-1 pl-0">
-                <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+                <h2><a href="/blog">News Needs to Meet Its Audiences Where They Are</a></h2>
                 <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus
                   praesentium neque, voluptatum quam quibusdam.</p>
                 <div class="post-meta">
@@ -326,7 +325,7 @@
             <div class="post-entry-2 d-flex">
               <div class="thumbnail order-md-2" style="background-image: url('frontend/images/img_h_3.jpg')"></div>
               <div class="contents order-md-1 pl-0">
-                <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+                <h2><a href="/blog">News Needs to Meet Its Audiences Where They Are</a></h2>
                 <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus
                   praesentium neque, voluptatum quam quibusdam.</p>
                 <div class="post-meta">
@@ -341,7 +340,7 @@
               <div class="thumbnail order-md-2" style="background-image: url('images/img_h_3.jpg')"></div>
               <div class="contents order-md-1 pl-0">
                 <span class="caption mb-4 d-block">Editor's Pick</span>
-                <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+                <h2><a href="/blog">News Needs to Meet Its Audiences Where They Are</a></h2>
                 <p class="mb-3">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus
                   praesentium neque, voluptatum quam quibusdam.</p>
                 <div class="post-meta">
@@ -360,7 +359,7 @@
             <div class="trend-entry d-flex">
               <div class="number align-self-start">01</div>
               <div class="trend-contents">
-                <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+                <h2><a href="/blog">News Needs to Meet Its Audiences Where They Are</a></h2>
                 <div class="post-meta">
                   <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
                   <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span
@@ -372,7 +371,7 @@
             <div class="trend-entry d-flex">
               <div class="number align-self-start">02</div>
               <div class="trend-contents">
-                <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+                <h2><a href="/blog">News Needs to Meet Its Audiences Where They Are</a></h2>
                 <div class="post-meta">
                   <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
                   <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span
@@ -384,7 +383,7 @@
             <div class="trend-entry d-flex">
               <div class="number align-self-start">03</div>
               <div class="trend-contents">
-                <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+                <h2><a href="/blog">News Needs to Meet Its Audiences Where They Are</a></h2>
                 <div class="post-meta">
                   <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
                   <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span
@@ -396,7 +395,7 @@
             <div class="trend-entry d-flex pl-0">
               <div class="number align-self-start">04</div>
               <div class="trend-contents">
-                <h2><a href="blog-single.html">News Needs to Meet Its Audiences Where They Are</a></h2>
+                <h2><a href="/blog">News Needs to Meet Its Audiences Where They Are</a></h2>
                 <div class="post-meta">
                   <span class="d-block"><a href="#">Dave Rogers</a> in <a href="#">News</a></span>
                   <span class="date-read">Jun 14 <span class="mx-1">&bullet;</span> 3 min read <span
