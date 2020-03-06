@@ -68,7 +68,7 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="post-entry-1">
-                  <a href="post-single.html"><img src="frontend/images/img_h_1.jpg" alt="Image" class="img-fluid"></a>
+                  <a href="/blog"><img src="frontend/images/img_h_1.jpg" alt="Image" class="img-fluid"></a>
                   <h2><a href="/blog">News Needs to Meet Its Audiences Where They Are</a></h2>
                   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi temporibus praesentium neque,
                     voluptatum quam quibusdam.</p>
