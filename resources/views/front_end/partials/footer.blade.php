@@ -1,25 +1,27 @@
 <footer>
     <!-- Footer Start-->
-    <div class="footer-area footer-bg footer-padding">
+    <div class="footer-area footer-bg">
         <div class="container">
-            <div class="row d-flex justify-content-between">
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6">
-                   <div class="single-footer-caption mb-50">
-                     <div class="single-footer-caption mb-30">
-                         <div class="footer-tittle">
-                             <h4>About Us</h4>
-                             <div class="footer-pera">
-                                 <p>Heaven fruitful doesn't over lesser days appear creeping seasons so behold bearing</p>
-                            </div>
-                         </div>
-                     </div>
-                      <!-- logo -->
-                      <div class="footer-logo">
-                        <a href="index.html"><img src="assets/img/logo/logo2_footer.png" alt=""></a>
-                      </div>
-                   </div>
+            <div class="row d-flex justify-content-between pt-5">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                    <div class="single-footer-caption mb-50">
+                        <div class="footer-tittle">
+                            <h4>Công ty cổ phần Hương Giang</h4>
+                            <ul>
+                                <li>
+                                <p><span><i class="fa fa-home" aria-hidden="true"></i>
+                                </span> Lot CN07, Zone B, Phong Dien IZ, Phong Dien Town, Phong Dien Distrist, Thua Thien Hue Province, Vietnam.</p>
+                                </li>
+                                <li><a href="#"><span><i class="fa fa-phone" aria-hidden="true"></i>
+                                </span> +84.2343.595.695</a></li>
+                                <li><a href="#"><span><i class="fa fa-envelope" aria-hidden="true"></i>
+                                </span> huonggiangfrit@gmail.com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
                 </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                {{-- <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                     <div class="single-footer-caption mb-50">
                         <div class="footer-tittle">
                             <h4>Contact Info</h4>
@@ -33,8 +35,8 @@
                             </ul>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-5">
+                </div> --}}
+                {{-- <div class="col-xl-3 col-lg-3 col-md-3 col-sm-5">
                     <div class="single-footer-caption mb-50">
                         <div class="footer-tittle">
                             <h4>Important Link</h4>
@@ -47,16 +49,16 @@
                             </ul>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
+                </div> --}}
+                {{-- <div class="col-xl-3 col-lg-3 col-md-4 col-sm-5">
                     <div class="single-footer-caption mb-50">
                         <div class="footer-tittle">
                             <h4>Newsletter</h4>
                             <div class="footer-pera footer-pera2">
                              <p>Heaven fruitful doesn't over lesser in days. Appear creeping seasons</p>
-                         </div>
-                         <!-- Form -->
-                         <div class="footer-form" >
+                         </div> --}}
+                <!-- Form -->
+                {{-- <div class="footer-form" >
                              <div id="mc_embed_signup">
                                  <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
                                  method="get" class="subscribe_form relative mail_part">
@@ -71,23 +73,25 @@
                                  </form>
                              </div>
                          </div>
-                        </div>
-                    </div>
-                </div>
+                        </div> --}}
+                {{-- </div>
+                </div> --}}
             </div>
         </div>
     </div>
     <!-- footer-bottom aera -->
-    <div class="footer-bottom-area footer-bg">
+    {{-- <div class="footer-bottom-area footer-bg">
         <div class="container">
             <div class="footer-border">
                  <div class="row d-flex justify-content-between align-items-center">
                      <div class="col-xl-10 col-lg-10 ">
-                         <div class="footer-copy-right">
-                             <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                         </div>
+                         <div class="footer-copy-right"> --}}
+    <p>
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        {{-- Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a> --}}
+        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+    </p>
+    {{-- </div>
                      </div>
                      <div class="col-xl-2 col-lg-2">
                          <div class="footer-social f-right">
@@ -100,6 +104,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                  </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Footer End-->
 </footer>

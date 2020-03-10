@@ -1,3 +1,4 @@
+
 <header>
     <!-- Header Start -->
    <div class="header-area">
@@ -25,25 +26,25 @@
                 <div class="container">
                     <div class="row align-items-center">
                         <!-- Logo -->
-                        <div class="col-xl-2 col-lg-1 col-md-1">
+                        <div class="col-xl-1 col-lg-1 col-md-1">
                             <div class="logo">
                             <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
                             </div>
                         </div>
-                        <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="col-xl-11 col-lg-11 col-md-11">
                             <!-- Main-menu -->
-                            <div class="main-menu f-right d-none d-lg-block">
+                            <div class="main-menu d-none d-lg-block">
 
                                 @include('front_end.partials.navbar')
 
                             </div>
                         </div>             
-                        <div class="col-xl-2 col-lg-3 col-md-3">
+                        {{-- <div class="col-xl-2 col-lg-3 col-md-3">
                             <!-- Header-btn -->
                             <div class="header-btn d-none d-lg-block">
                                 <a href="#" class="get-btn">Get A QUOTE</a>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- Mobile Menu -->
                         <div class="col-12">
                             <div class="mobile_menu d-block d-lg-none"></div>

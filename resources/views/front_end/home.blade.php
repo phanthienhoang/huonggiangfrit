@@ -308,24 +308,4 @@
 </div>
 <!-- David Droga End -->
 
-<!-- Want To Work Start -->
-<div class="wantToWork-area w-padding">
-    <div class="container">
-        <div class="row d-flex align-items-end">
-            <div class="col-xl-6 col-lg-8 col-md-8">
-                <div class="wantToWork-caption">
-                    <h2>Want To Work<br> With Us? Hit The Button.</h2>
-                </div>
-            </div>
-            <div class="col-xl-6 col-lg-4 col-md-4">
-                <div class="wantToWork-btn f-right">
-                    <a href="#" class="white-btn">Let’s Work Toghter</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Want To Work End -->
-
 @endsection
