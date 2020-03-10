@@ -5,43 +5,40 @@
 @section('content')
 
 <!-- Safe Industery Start -->
+
+
 <div class="safe-industery-area section-padd-top30">
     <div class="container">
         <div class="row">
-            <div class="col-xl-6 col-lg-6 col-md pr-0">
+            <div class="col-xl-7 col-lg-7 col-md pr-0">
                 <div class="safe-caption pt-10 mb-40">
-                    <h2>Safe IndusterySolutions That Saves our Valuable Time and mony!</h2>
-                    <p class="safe-pera-one">Logisti Group is a representative logistics operator providing full range
-                        of service in the sphere of customs clearance and transportation worldwide for any type of
-                        cargo.</p>
-                    <p class="safe-pera-two">Lorem ipsum dolor sit amet, consectetur ipis adipisicing elit, sed do
-                        eiusmod tempor incididunt ut labore et dolore magna oris aliqua. Ut enim ad minim veniam, quis
-                        nostrud.</p>
-                    <p class="safe-pera-three"> exercitation ullamco laboris nisi ut aliquip ex ea commodo nsequat. Duis
-                        aute irure dolor in repr.</p>
+                    <h2>VỀ CHÚNG TÔI</h2>
+                    <p class="safe-pera-one">Công ty Cổ phần Frit Hương Giang là đơn vị chuyên sản xuất các mặt hàng thủy tinh và các sản phẩm từ thủy tinh, trong đó sản xuất các loại men Frit là mặt hàng chủ yếu</p>
+                    <p class="safe-pera-two">Công ty Cổ phần Frit Hương Giang tọa lạc tại Khu B, KCN Phong Điền, 
+                        thị trấn Phong Điền, huyện Phong Điền, tỉnh Thừa Thiên Huế, Việt Nam với diện tích hơn 3,6 hecta, 
+                        công ty thành lập vào ngày 03 tháng 01 năm 2019, 
+                        là chủ đầu tư dự án nhà máy sản xuất men Frit với công suất 20,000 tấn sản phẩm/năm. 
+                        Là đơn vị mới thành lập, nhưng chúng tôi chắc lọc được các giá trị cốt lõi trong sản xuất frit, 
+                        kết hợp với đầu tư đồng bộ trang thiết bị hiện đại để tạo ra các sản phẩm đáp ứng yêu cầu chất lượng của Khách hàng</p>
+                        <h4>Dây chuyền công nghệ, thiết bị hiện đại:</h4>
+
+                    <p class="safe-pera-three"> 
+Các sản phẩm của Công ty Cổ phần Frit Hương Giang được sản xuất dựa trên nguyên liệu chất lượng, chọn lọc, trải qua quá trình vận hành tuân thủ mọi quy chuẩn sản xuất nghiêm ngặt đảm bảo chất lượng ổn định cho sản phẩm.
+Áp dụng công nghệ lò hóa khí than tiết kiệm nhiên liệu, máy móc hiện đại nhằm tiết kiệm chi phí sản xuất, nâng cao năng suất, chất lượng sản phẩm, bảo vệ môi trường. Vì thế, các sản phẩm luôn đạt chất lượng với giá cả hợp lí.
+</p>
                     <!-- btn -->
-                    <a href="industries.html" class="btn">Our Services</a>
+                    <a href="industries.html" class="btn">Xem thêm</a>
                 </div>
             </div>
-            <div class="col-xl-5 offset-xl-1 col-lg-6 pl-0">
-                <div class="safe-caption-right">
-                    <div class="safe-img">
-                        <img src="assets/img/safe_industery/safe_industery_1.jpg" alt="">
+            <div class="col-xl-4 col-lg-4 pl-0">
+                    <div class="">
+                        <img src="assets/img/safe_industery/frit.jpg" width=500px>
+                    </div>
+
+                    <div class="">
+                        <img src="assets/img/safe_industery/frit.jpg" width=500px>
                     </div>
                     <!-- img TOP caption -->
-                    <div class="safe-alert-box">
-                        <div class="row">
-                            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 d-none d-sm-block">
-
-                                <div class="safe-alert" data-background="assets/img/safe_industery/color_bg.png">
-                                    <img src="assets/img/icon/aleart_icon.png" alt="">
-                                    <h4>Our Mission</h4>
-                                    <p>Quis ipsum suspendisse ultrices gravidae Risus commodo.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

@@ -1873,9 +1873,9 @@ hr {
     .main-header .main-menu ul li a {
       color: #021a47;
       font-weight: 500;
-      padding: 28px 19px;
+      padding: 20px 15px;
       display: block;
-      font-size: 16px;
+      font-size: 14px;
       position: relative;
       -webkit-transition: all 0.3s ease-out 0s;
       -moz-transition: all 0.3s ease-out 0s;
@@ -1928,7 +1928,7 @@ hr {
   padding: 10px 19px; }
 
 .header-sticky.sticky-bar.sticky .main-menu ul > li > a {
-  padding: 20px 20px; }
+  padding: 20px 15px; }
 
 .slicknav_menu .slicknav_icon-bar {
   background-color: #f27420 !important; }

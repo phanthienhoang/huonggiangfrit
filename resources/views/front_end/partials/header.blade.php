@@ -7,31 +7,32 @@
                <div class="container">
                    <div class="col-xl-12">
                     <div class="row d-flex justify-content-between align-items-center">
-                        <div class="header-info-left">
-                            <ul>     
-                                <li>+880166 253 232</li>
-                                <li>info@domain.com </li>
-                            </ul>
-                        </div>
                         <div class="header-info-right">
                             <ul>     
-                                <li>Mon - Fri: 9:00 - 19:00 / Closed on Weekends</li>
+                                <li>HUONG GIANG FRIT JOINT STOCK COMPANY</li>
                             </ul>
                         </div>
+                        <div class="header-info-left">
+                            <ul>     
+                                <li>+84.2343.595.695</li>
+                                <li>huonggiangfrit@gmail.com</li>
+                            </ul>
+                        </div>
+                    
                    </div>
                    </div>
                </div>
             </div>
            <div class="header-bottom  header-sticky">
-                <div class="container">
+                <div class="">
                     <div class="row align-items-center">
                         <!-- Logo -->
-                        <div class="col-xl-1 col-lg-1 col-md-1">
-                            <div class="logo">
-                            <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                        <div class="col-xl-2 col-lg-2 col-md-2">
+                            <div class="logo" style="margin-left:20px">
+                                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
                             </div>
                         </div>
-                        <div class="col-xl-11 col-lg-11 col-md-11">
+                        <div class="col-xl-10 col-lg-10 col-md-10">
                             <!-- Main-menu -->
                             <div class="main-menu d-none d-lg-block">
 
