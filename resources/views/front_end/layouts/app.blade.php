@@ -18,7 +18,10 @@
     </div>
     <!-- Preloader Start -->
 
+
     @include('front_end.partials.header')
+
+    @include('front_end.partials.slider')
 
     <main>
 
