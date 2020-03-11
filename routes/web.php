@@ -16,3 +16,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('front_end.home');
 });
+
+Auth::routes();
+
+Route::name('admin.')->prefix('admin')->group(function () {
+    Route::get('/', function () {
+        if (Auth::user()) {
+            return redirect('admin/dashboard');
+        }
+        return view('auth.login');
+    })->name('login');
+
+    Route::get('dashboard', 'HomeController@index')->name('dashboard');
+
+});
+// Route::get('/admin', 'HomeController@index')->name('home');
