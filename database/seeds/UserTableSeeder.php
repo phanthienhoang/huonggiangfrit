@@ -18,6 +18,7 @@ class UserTableSeeder extends Seeder
 
         $user->name = 'Admin';
         $user->email = 'admin@gmail.com';
+        $user->role = 1 ;
         $user->password = Hash::make('admin');
         $user->remember_token = Str::random(10);
 
