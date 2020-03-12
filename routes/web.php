@@ -29,5 +29,7 @@ Route::name('admin.')->prefix('admin')->group(function () {
 
     Route::get('dashboard', 'HomeController@index')->name('dashboard');
 
+    Route::resource('shareholders', 'ShareHoldersController');
+
 });
 // Route::get('/admin', 'HomeController@index')->name('home');

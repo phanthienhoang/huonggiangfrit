@@ -13,12 +13,12 @@ class CreateShareholdersTable extends Migration
      */
     public function up()
     {
-        // Schema::create('shareholders', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->tinyInteger('status');
-        //     $table->softDeletes();
-        //     $table->timestamps();
-        // });
+        Schema::create('shareholders', function (Blueprint $table) {
+            $table->id();
+            $table->tinyInteger('status');
+            $table->softDeletes();
+            $table->timestamps();
+        });
     }
 
     /**
@@ -28,6 +28,6 @@ class CreateShareholdersTable extends Migration
      */
     public function down()
     {
-        // Schema::dropIfExists('shareholders');
+        Schema::dropIfExists('shareholders');
     }
 }

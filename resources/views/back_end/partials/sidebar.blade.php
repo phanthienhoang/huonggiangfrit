@@ -15,35 +15,53 @@
       </li>
       <li class="nav-item">
         <a href="#" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
-          <i class="nav-icon fas fa-th"></i>
+          <i class="fas fa-circle nav-icon"></i>
           <p>
-            Bảng 1
+            Catalogue
           </p>
         </a>
       </li>
-      <li
-        class="nav-item has-treeview {{ Request::segment(2) === '#' || Request::segment(2) === '#' || Request::segment(2) === '#' ? 'menu-open' : null }}">
-        <a href="#" class="nav-link">
-          <i class="nav-icon fa fa-fw fa-cubes"></i>
+
+      <li class="nav-item">
+        <a href="#" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+          <i class="fas fa-circle nav-icon"></i>
           <p>
-            Bảng 2
-            <i class="right fas fa-angle-left"></i>
+            Sản phẩm
           </p>
         </a>
-        <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="#" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Bảng 2 con</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Bảng 2 con 2</p>
-            </a>
-          </li>
-        </ul>
+      </li>
+
+      <li class="nav-item">
+        <a href="#" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+          <i class="fas fa-circle nav-icon"></i>
+          <p>
+            Tin tức
+          </p>
+        </a>
+      </li>
+      <li class="nav-item">
+      <a href="{{route('admin.shareholders.index')}}" class="nav-link {{ Request::segment(2) === 'shareholders' ? 'active' : null }}">
+          <i class="fas fa-circle nav-icon"></i>
+          <p>
+            Quan hệ cổ đông
+          </p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+          <i class="fas fa-circle nav-icon"></i>
+          <p>
+            Thư viện ảnh
+          </p>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+          <i class="fas fa-circle nav-icon"></i>
+          <p>
+            Tuyển dụng
+          </p>
+        </a>
       </li>
     </ul>
   </nav>
