@@ -32,4 +32,13 @@ Route::name('admin.')->prefix('admin')->group(function () {
     Route::resource('shareholders', 'ShareHoldersController');
 
 });
-// Route::get('/admin', 'HomeController@index')->name('home');
+
+
+// Route::get('adminlte',function(){
+//     return view('back_end.dashboard');
+// });
+Route::get('/admin', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
