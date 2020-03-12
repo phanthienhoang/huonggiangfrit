@@ -13,6 +13,9 @@
           </p>
         </a>
       </li>
+      <!-- ========================================================================================================================== -->
+<!-- ========================================================================================================================== -->
+
       <li class="nav-item">
         <a href="#" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
           <i class="nav-icon fas fa-th"></i>
@@ -45,6 +48,115 @@
           </li>
         </ul>
       </li>
+      <!-- ========================================================================================================================== -->
+<!-- ========================================================================================================================== -->
+
+      <li
+        class="nav-item has-treeview {{ Request::segment(2) === '#' || Request::segment(2) === '#' || Request::segment(2) === '#' ? 'menu-open' : null }}">
+        <a href="#" class="nav-link">
+          <i class="nav-icon fa fa-fw fa-cubes"></i>
+          <p>
+            Tin tức
+            <i class="right fas fa-angle-left"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="#" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+              <i class="far fa-circle nav-icon"></i>
+              <p>CRUD TIN TỨC</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Danh sách Tin Tức</p>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- ========================================================================================================================== -->
+<!-- ========================================================================================================================== -->
+
+      <li
+        class="nav-item has-treeview {{ Request::segment(2) === '#' || Request::segment(2) === '#' || Request::segment(2) === '#' ? 'menu-open' : null }}">
+        <a href="#" class="nav-link">
+          <i class="nav-icon fa fa-fw fa-cubes"></i>
+          <p>
+            Loại Tin tức
+            <i class="right fas fa-angle-left"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="#" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+              <i class="far fa-circle nav-icon"></i>
+              <p>CRUD</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Danh sách Thể Loại</p>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- ========================================================================================================================== -->
+<!-- ========================================================================================================================== -->
+
+      <li
+        class="nav-item has-treeview {{ Request::segment(2) === '#' || Request::segment(2) === '#' || Request::segment(2) === '#' ? 'menu-open' : null }}">
+        <a href="#" class="nav-link">
+          <i class="nav-icon fa fa-fw fa-cubes"></i>
+          <p>
+           Sản Phẩm
+            <i class="right fas fa-angle-left"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="#" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+              <i class="far fa-circle nav-icon"></i>
+              <p>CRUD</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+              <i class="far fa-circle nav-icon"></i>
+              <p>List</p>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!-- ========================================================================================================================== -->
+
+<!-- ========================================================================================================================== -->
+      <li
+        class="nav-item has-treeview {{ Request::segment(2) === '#' || Request::segment(2) === '#' || Request::segment(2) === '#' ? 'menu-open' : null }}">
+        <a href="#" class="nav-link">
+          <i class="nav-icon fa fa-fw fa-cubes"></i>
+          <p>
+           Loại Sản Phẩm
+            <i class="right fas fa-angle-left"></i>
+          </p>
+        </a>
+        <ul class="nav nav-treeview">
+          <li class="nav-item">
+            <a href="#" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+              <i class="far fa-circle nav-icon"></i>
+              <p>CRUD</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+              <i class="far fa-circle nav-icon"></i>
+              <p>List</p>
+            </a>
+          </li>
+        </ul>
+      </li>
+      
     </ul>
   </nav>
   <!-- /.sidebar-menu -->
