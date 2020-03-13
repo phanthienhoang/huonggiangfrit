@@ -15,12 +15,13 @@ class CreateProductTransTable extends Migration
     {
         Schema::create('product_trans', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('content');
-            $table->longText('images');
-            $table->text('description');
+            $table->string('name')->default('');
+            $table->text('content')->nullable();
+            $table->longText('images')->nullable();
+            $table->text('description')->nullable();
             $table->string('locale');
-            $table->unsignedBigInteger('product_id')->unique();
+            $table->unsignedBigInteger('product_id');
+            $table->unique(['product_id', 'locale']);
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();
         });
