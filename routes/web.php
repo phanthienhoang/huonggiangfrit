@@ -30,7 +30,7 @@ Route::name('admin.')->prefix('admin')->group(function () {
 
     Route::resource('products', 'ProductsController');
 
-    Route::get('category', 'Category_Product\CategoryController@index')->middleware('locale');
+    Route::get('category', 'Category_Product\CategoryController@index')->name('category')->middleware('locale');
 
 });
 
