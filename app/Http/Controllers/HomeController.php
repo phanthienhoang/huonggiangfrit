@@ -25,6 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         return view('back_end.dashboard');
+
     }
 
     public function changeLanguage($language)

@@ -26,11 +26,12 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form role="form">
+                    <form role="form" action="{{ route('admin.products.store') }}" method="POST">
+                        @csrf
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="title">Tên sản phẩm</label>
-                                <input type="text" name="title" class="form-control" id="title"
+                                <input type="text" name="name" class="form-control" id="title"
                                     placeholder="Nhập tiêu đề">
                             </div>
                             <div class="form-group">
@@ -41,26 +42,16 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Sản phẩm</label>
-                                        <select name="product_id" class="custom-select">
-                                            <option value="">SP 1</option>
-                                            <option value="">SP 2</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <label>Loại sản phẩm</label>
-                                        <select name="category_id" class="custom-select">
-                                            <option value="">Loại 1</option>
-                                            <option value="">Loại 2</option>
-                                        </select>
-                                    </div>
-                                </div>
+                                <label>Loại sản phẩm</label>
+                                <select name="category_id" class="custom-select">
+                                    <option value="">Loại 1</option>
+                                    <option value="">Loại 2</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="description">Mô tả</label>
-                                <textarea name="description" id="description" cols="30" rows="3" class="form-control"></textarea>
+                                <textarea name="description" id="description" cols="30" rows="3"
+                                    class="form-control"></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">File input</label>

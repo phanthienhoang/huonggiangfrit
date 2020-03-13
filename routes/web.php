@@ -10,6 +10,8 @@
 |
 */
 
+use Illuminate\Support\Facades\App;
+
 Route::get('/', function () {
     return view('front_end.home');
 });

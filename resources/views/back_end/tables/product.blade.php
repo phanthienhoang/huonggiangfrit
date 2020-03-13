@@ -41,14 +41,55 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach (App\Product::all() as $product)
                                 <tr>
-                                    <td>Sản phẩm 1</td>
+                                    <td> @foreach ($product->productTranslates as $item)
+                                        @if (empty($item->name))
+                                        @else
+                                        <li>{{$item->name}}</li>
+                                        @endif
+                                        @endforeach
+                                    </td>
                                     <td>Loại 1</td>
-                                    <td style="max-width: 100px">Lorem ipsum dolor sit amet consectetur adipisicing
-                                        elit. Doloremque libero quia mollitia porro accusamus provident. </td>
-                                    <td> 4</td>
-                                    <td>X</td>
+                                    <div>
+                                        <td style="max-width: 200px;">
+                                            @foreach ($product->productTranslates as $item)
+                                            @if (empty($item->description))
+                                            @else
+                                            <li class="text-truncate">{{$item->description}}</li>
+                                            @endif
+                                            @endforeach
+                                        </td>
+                                    </div>
+                                    <td>
+                                        @foreach ($product->productTranslates as $item)
+                                        @if (empty($item->image))
+                                        @else
+                                        <li>{{$item->image}}</li>
+                                        @endif
+                                        @endforeach
+                                    </td>
+                                    <td>
+                                        <div class="d-inline-block">
+                                            <a href="#" class="btn btn-primary"><i class="fa fa-eye"></i> View</a>
+                                            <div class="dropdown d-inline-block">
+                                                <button class="btn btn-warning dropdown-toggle" type="button"
+                                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                                                    aria-expanded="false"><i class="fa fa-edit"></i>
+                                                </button>
+                                                <div class="dropdown-menu bg-warning"
+                                                    aria-labelledby="dropdownMenuButton">
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('admin.products.edit', $product->translation('en')->first()->id) }}">Eng</a>
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('admin.products.edit', $product->translation('vi')->first()->id) }}">Vi</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
                                 </tr>
+                                @endforeach
+
                             </tbody>
                         </table>
                     </div>
