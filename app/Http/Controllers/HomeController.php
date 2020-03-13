@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App;
+use Session;
 class HomeController extends Controller
 {
     /**
@@ -24,5 +25,13 @@ class HomeController extends Controller
     public function index()
     {
         return view('back_end.dashboard');
+
+    }
+
+    public function changeLanguage($language)
+    {
+        session(['language' => $language]);
+        // App::setLocale('vi');
+        return redirect()->back();
     }
 }
