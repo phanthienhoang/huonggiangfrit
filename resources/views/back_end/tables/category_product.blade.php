@@ -42,18 +42,21 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <thead class="bg-primary">
                                 <tr>
-                                    <th>Tên Loại sản phẩm</th>
-                                    <!-- <th></th> -->
+                                    <th>Loại sản phẩm</th>
+                                    <th>Ảnh</th>
+                                    <th>contents</th>
+                                    <th>category_id</th>
                                     <th>locale</th>
                                 </tr>
                             </thead>
-                            
                             <tbody>
                             
                                 @foreach($kq as $key => $value)
                                     <tr>
                                         <td><?= $value['name'] ?></td>
-                                        <!-- <td><?= $value['category_id'] ?></td> -->
+                                        <td><?= $value['images'] ?></td>
+                                        <td><?= $value['contents'] ?></td>
+                                        <td><?= $value['category_id'] ?></td>
                                         <td><?= $value['locale'] ?></td>
                                     </tr>
                                 @endforeach

@@ -17,9 +17,7 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function __construct(){
-        $this->langualge = session('language', 'en');
-    }
+   
 
     public function getTranslation($locale)
     {
@@ -28,7 +26,9 @@ class CategoryController extends Controller
 
 
     public function index()
-    {
+    {   
+
+
         // App::setLocale('vi');
         // $englishtext = $this->getTranslation('en');
         // $vietnamtext = $this->getTranslation('vi');
