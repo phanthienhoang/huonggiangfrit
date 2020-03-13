@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,4 +28,13 @@ Route::name('admin.')->prefix('admin')->group(function () {
 
     Route::resource('products', 'ProductsController');
 
+    Route::get('category', 'Category_Product\CategoryController@index')->middleware('locale');
+
 });
+
+Route::get('change-language/{language}', 'HomeController@changeLanguage')
+->name('user.change-language')->middleware('locale');
+
+
+    
+
