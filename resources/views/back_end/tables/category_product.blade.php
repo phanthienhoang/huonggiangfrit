@@ -8,16 +8,23 @@
             <div class="col-sm-12">
                 <h1 class="m-0 text-dark">Sản phẩm
                     <div class=" float-right">
-                        <a href="{{ route('admin.products.create')}}" type="button" id="create_room_type"
+                        <a href="{{ route('admin.category.create')}}" type="button" id="create_room_type"
                             class="btn btn-primary"><i class="fa fa-plus"></i>Thêm sản phẩm mới</a>
                     </div>
 
-                    <div class=" float-right">
+                    <!-- <div class=" float-right">
                         <a href="{{ route('user.change-language',['en'])}}">English</a>
                     </div>
 
                     <div class=" float-right">
                         <a href="{{ route('user.change-language',['vi'])}}">Vietnam</a>
+                    </div> -->
+
+                    <div class="float-right">
+                        <a href="{{ route('user.change-language',['en'])}}" ><img src='/assets/icon-en.png'/></a>
+                    </div>
+                    <div class="float-right">
+                        <a href="{{ route('user.change-language',['vi'])}}" ><img src='/assets/icon-vn.png'/></a>
                     </div>
                 </h1>
             </div>
@@ -44,28 +51,45 @@
                                 <tr>
                                     <th>Loại sản phẩm</th>
                                     <th>Ảnh</th>
-                                    <th>contents</th>
-                                    <th>category_id</th>
-                                    <th>locale</th>
+                                    <th>mô tả</th>
+                                    <!-- <th>nội dung</th> -->
+                                    <!-- <th>locale</th> -->
+                                    <th>action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                            
                                 @foreach($kq as $key => $value)
                                     <tr>
                                         <td><?= $value['name'] ?></td>
-                                        <td><?= $value['images'] ?></td>
-                                        <td><?= $value['contents'] ?></td>
-                                        <td><?= $value['category_id'] ?></td>
-                                        <td><?= $value['locale'] ?></td>
+                                        <td><img src='<?=$value['images']?>' width=100px  height=100px /></td>
+                                        <td><?= $value['description'] ?></td>
+                                        <!-- <td><div><?= $value['contents']?></div></td> -->
+                                        <!-- <td><?= $value['locale'] ?></td> -->
+                                        <td>
+                                        <div class="row">
+                                                <div class="col">
+                                                    <a href="{{route('admin.category.edit', $value->id)}}"
+                                                       class="btn bg-warning">Update</a>
+                                                </div>
+                                                <div class="col">
+                                                    <form
+                                                        action="#"
+                                                        method="post">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <input type="submit" onclick="return confirm('bạn có thực sự muốn xóa')" class="btn bg-danger text-dark"
+                                                               value=" Delete&nbsp">
+                                                    </form>
+                                                </div>
+                                                <div class="col">
+                                                    <a  href="{{route('admin.category.show', $value->id)}}" class="btn bg-info">&nbspDetail&nbsp&nbsp</a>
+                                                </div>
+                                            </div>
+                                        </td>
                                     </tr>
                                 @endforeach
-                           
-                              
-                           
                             </tbody>
                         </table>
-
                     </div>
                     <!-- /.card-body -->
                 </div>
