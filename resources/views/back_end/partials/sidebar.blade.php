@@ -62,7 +62,7 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="#" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+            <a href="{{route('admin.category_new.index')}}" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
               <i class="far fa-circle nav-icon"></i>
               <p>CRUD TIN TỨC</p>
             </a>
@@ -89,7 +89,7 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="#" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+            <a href="{{route('admin.category_new.index')}}" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
               <i class="far fa-circle nav-icon"></i>
               <p>CRUD</p>
             </a>

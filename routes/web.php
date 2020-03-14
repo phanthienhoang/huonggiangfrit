@@ -29,6 +29,8 @@ Route::name('admin.')->prefix('admin')->group(function () {
     Route::get('dashboard', 'HomeController@index')->name('dashboard');
 
     Route::resource('products', 'ProductsController');
+    Route::resource('category_new', 'Category_newController');
+
 
     
 // =======================================================================================================================>>>
