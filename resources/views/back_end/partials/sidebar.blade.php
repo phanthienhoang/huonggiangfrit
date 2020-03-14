@@ -95,7 +95,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+            <a href="admin/category" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
               <i class="far fa-circle nav-icon"></i>
               <p>Danh sách Thể Loại</p>
             </a>
@@ -149,7 +149,7 @@
             </a>
           </li>
           <li class="nav-item">
-          <a href="" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+          <a href="{{route('admin.category')}}" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
               <i class="far fa-circle nav-icon"></i>
               <p>List</p>
             </a>

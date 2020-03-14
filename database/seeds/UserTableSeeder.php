@@ -23,5 +23,15 @@ class UserTableSeeder extends Seeder
         $user->remember_token = Str::random(10);
 
         $user->save();
+
+        $user = new User();
+
+        $user->name = 'Hoàng codegym';
+        $user->email = 'codegym@gmail.com';
+        $user->role = 1 ;
+        $user->password = Hash::make('admin');
+        $user->remember_token = Str::random(10);
+
+        $user->save();
     }
 }

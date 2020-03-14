@@ -16,6 +16,10 @@ class CreateCategoryProductTransTable extends Migration
         Schema::create('category_product_trans', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->longText('images')->nullable();
+            $table->text('description')->nullable();
+            $table->longText('contents');
+            $table->boolean('status')->default(1);
             $table->string('locale');
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('category_products')->onDelete('cascade');
