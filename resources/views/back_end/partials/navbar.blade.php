@@ -21,9 +21,19 @@
     </div>
   </form>
 
+  <!-- ===================================CHANGE LANGUEGE=============================================== -->
+  <div class="float-right">
+    <a href="{{ route('user.change-language',['en'])}}" ><img src='/assets/icon-en.png'/></a>
+  </div>
+  <div class="float-right">
+    <a href="{{ route('user.change-language',['vi'])}}" ><img src='/assets/icon-vn.png'/></a>
+  </div>
+  
+
+  <!-- ================================================================================================== -->
+
   <!-- Right navbar links -->
   <ul class="navbar-nav ml-auto">
-
     <li class="nav-item dropdown">
       <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
         aria-haspopup="true" aria-expanded="false" v-pre>

@@ -48,13 +48,16 @@ class CategoryController extends Controller
    
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new resource.,
      *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-        //
+        $category_product = Category_product::all();
+
+        // dd($category_product);
+        return view('back_end.forms.category_product.create',compact('category_product'));
     }
 
     /**
@@ -64,8 +67,42 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $category_product = new Category_product;
+        $input = $request->input('online');
+        $category_product->online=$input;
+        $category_product->save();
+
+        $last_id =$category_product->id;
+        
+
+        $atribute = $request->all();
+        $image=base64_encode(file_get_contents($request->file("images")));
+        $atribute['images']="data:image/jpg;base64,".$image;
+        $atribute['category_id']=$last_id;
+
+        if($atribute['locale']=='vi'){
+            Category_product_tran::create($atribute);
+            $atribute['locale']='en';
+            $atribute['status']=0;
+            $atribute['name']='null';
+            $atribute['description']='null';
+            $atribute['contents']='null';
+            Category_product_tran::create($atribute);
+        }else{
+            Category_product_tran::create($atribute);
+            $atribute['locale']='vi';
+            $atribute['status']=0;
+            $atribute['name']='null';
+            $atribute['description']='null';
+            $atribute['contents']='null';
+            Category_product_tran::create($atribute);
+        }
+
+      
+
+        return redirect()->route('admin.category');
+
     }
 
     /**
@@ -76,7 +113,8 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        //
+        $atribute = Category_product_tran::findOrFail($id);
+        return view('back_end.showdetail.detailCategoryProduct',compact(['atribute']));
     }
 
     /**
@@ -87,7 +125,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $atribute = Category_product_tran::findOrFail($id);
+        return view('back_end.forms.category_product.edit',compact(['atribute']));
     }
 
     /**
@@ -99,7 +138,18 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $atribute = $request->all();
+        if ($request->hasFile('images')) {
+            $image=base64_encode(file_get_contents($request->file("images")));
+            $atribute['images']="data:image/jpg;base64,".$image;
+        }
+
+        $product = Category_product_tran::find($id);
+
+        $product->update($atribute);
+
+        return redirect()->route('admin.category');
+
     }
 
     /**
