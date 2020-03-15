@@ -41,50 +41,29 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (App\Product::all() as $product)
+                                @foreach ($products as $product)
                                 <tr>
-                                    <td> @foreach ($product->productTranslates as $item)
-                                        @if (empty($item->name))
-                                        @else
-                                        <li>{{$item->name}}</li>
-                                        @endif
-                                        @endforeach
-                                    </td>
-                                    <td>Loại 1</td>
+                                    <td>{{ $product->name }}</td>
+                                <td>{{ $product->product->category_product->translation(Session::get('language'))->first()->name}}</td>
                                     <div>
                                         <td style="max-width: 200px;">
-                                            @foreach ($product->productTranslates as $item)
-                                            @if (empty($item->description))
-                                            @else
-                                            <li class="text-truncate">{{$item->description}}</li>
-                                            @endif
-                                            @endforeach
+                                            {{ $product->description }}
                                         </td>
                                     </div>
-                                    <td>
-                                        @foreach ($product->productTranslates as $item)
-                                        @if (empty($item->image))
-                                        @else
-                                        <li>{{$item->image}}</li>
-                                        @endif
-                                        @endforeach
-                                    </td>
+                                    <td><img src="{{ $product->images }}" width=100px height=100px /></td>
                                     <td>
                                         <div class="d-inline-block">
-                                            <a href="#" class="btn btn-primary"><i class="fa fa-eye"></i> View</a>
-                                            <div class="dropdown d-inline-block">
-                                                <button class="btn btn-warning dropdown-toggle" type="button"
-                                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                                    aria-expanded="false"><i class="fa fa-edit"></i>
-                                                </button>
-                                                <div class="dropdown-menu bg-warning"
-                                                    aria-labelledby="dropdownMenuButton">
-                                                    <a class="dropdown-item"
-                                                        href="{{ route('admin.products.edit', $product->translation('en')->first()->id) }}">Eng</a>
-                                                    <a class="dropdown-item"
-                                                        href="{{ route('admin.products.edit', $product->translation('vi')->first()->id) }}">Vi</a>
-                                                </div>
-                                            </div>
+                                            <a href="{{ route('admin.products.show', $product->id) }}"
+                                                class="btn btn-primary"><i class="fa fa-eye"></i> View</a>
+                                            <a href="{{ route('admin.products.edit', $product->id) }}"
+                                                class="btn btn-warning"><i class="fa fa-edit"></i> Edit</a>
+                                            <form class="d-inline"
+                                                action="{{route('admin.products.destroy',$product->id)}}" method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <input type="submit" onclick="return confirm('bạn có thực sự muốn xóa')"
+                                                    class="btn bg-danger text-dark" value="Xóa">
+                                            </form>
                                         </div>
                                     </td>
                                 </tr>
