@@ -17,7 +17,7 @@ class Product extends Model
 
     public function category_product()
     {
-        return $this->belongsTo('App\Category_product');
+        return $this->belongsTo('App\Category_product', 'category_id');
     }
 
     public function productTranslates()

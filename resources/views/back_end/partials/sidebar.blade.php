@@ -116,13 +116,13 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="#" class="nav-link {{ Request::segment(3) === 'create' ? 'active' : null }}">
+          <a href="{{ route('admin.products.create') }}" class="nav-link {{ Request::segment(3) === '#' ? 'active' : null }}">
               <i class="far fa-circle nav-icon"></i>
               <p>CRUD</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('admin.products.index')}}" class="nav-link {{ Request::segment(3) === null ? 'active' : null }}">
+            <a href="{{ route('admin.products.index')}}" class="nav-link {{ Request::segment(3) === '#' ? 'active' : null }}">
               <i class="far fa-circle nav-icon"></i>
               <p>List</p>
             </a>
@@ -143,13 +143,13 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="#" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+          <a href="{{route('admin.category-products.create')}}" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
               <i class="far fa-circle nav-icon"></i>
               <p>CRUD</p>
             </a>
           </li>
           <li class="nav-item">
-          <a href="{{route('admin.category')}}" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+          <a href="{{route('admin.category-products.index')}}" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
               <i class="far fa-circle nav-icon"></i>
               <p>List</p>
             </a>

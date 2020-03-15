@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Category_product;
 use App\Category_product_tran;
 use App\Language;
-use App;
+use Illuminate\Support\Facades\App;
 
 class CategoryController extends Controller
 {
@@ -17,35 +17,21 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-   
-
-    public function getTranslation($locale)
-    {
-        return Category_product_tran::where('locale',$locale)->get();
-    }
-
 
     public function index()
-    {   
-
-
-        // App::setLocale('vi');
-        // $englishtext = $this->getTranslation('en');
-        // $vietnamtext = $this->getTranslation('vi');
-        // dd(App::getLocale());
-        // dd($this->langualge);
-        if (App::getLocale() == "en") {
-            $kq = $this->getTranslation('en');
+    {
+        if(session()->has('language')){
+            $language = session()->get('language');
         } else {
-            $kq = $this->getTranslation('vi');
+            $language = App::getLocale();
         }
 
-        // dd(App::getLocale());
-        // dd($englishtext);
-        return view('back_end.tables.category_product',compact(['kq']));
+        $categoryProducts = Category_product_tran::where('locale', $language)->get();
+
+        return view('back_end.tables.category_product', compact('categoryProducts'));
     }
 
-   
+
 
     /**
      * Show the form for creating a new resource.,
@@ -54,10 +40,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $category_product = Category_product::all();
-
-        // dd($category_product);
-        return view('back_end.forms.category_product.create',compact('category_product'));
+        return view('back_end.forms.category_product.create');
     }
 
     /**
@@ -67,42 +50,20 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
-        $category_product = new Category_product;
-        $input = $request->input('online');
-        $category_product->online=$input;
-        $category_product->save();
+    {
+        $attributes = $this->validateAttribute();
 
-        $last_id =$category_product->id;
-        
+        $categoryProduct = Category_product::create(['online' => 1]);
 
-        $atribute = $request->all();
-        $image=base64_encode(file_get_contents($request->file("images")));
-        $atribute['images']="data:image/jpg;base64,".$image;
-        $atribute['category_id']=$last_id;
-
-        if($atribute['locale']=='vi'){
-            Category_product_tran::create($atribute);
-            $atribute['locale']='en';
-            $atribute['status']=0;
-            $atribute['name']='null';
-            $atribute['description']='null';
-            $atribute['contents']='null';
-            Category_product_tran::create($atribute);
-        }else{
-            Category_product_tran::create($atribute);
-            $atribute['locale']='vi';
-            $atribute['status']=0;
-            $atribute['name']='null';
-            $atribute['description']='null';
-            $atribute['contents']='null';
-            Category_product_tran::create($atribute);
+        if (request()->has('images')) {
+            $image = 'data:image/png;base64,' . base64_encode(file_get_contents(request('images')));
+            $attributes = array_replace($this->validateAttribute(), ['images' => $image]);
         }
 
-      
+        $categoryProduct->translation(request('locale'))->update($attributes);
 
-        return redirect()->route('admin.category');
 
+        return redirect()->route('admin.category-products.index');
     }
 
     /**
@@ -113,8 +74,8 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        $atribute = Category_product_tran::findOrFail($id);
-        return view('back_end.showdetail.detailCategoryProduct',compact(['atribute']));
+        $categoryProduct = Category_product_tran::findOrFail($id);
+        return view('back_end.showdetail.detailCategoryProduct', compact('categoryProduct'));
     }
 
     /**
@@ -125,8 +86,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $atribute = Category_product_tran::findOrFail($id);
-        return view('back_end.forms.category_product.edit',compact(['atribute']));
+        $categoryProduct = Category_product_tran::findOrFail($id);
+        return view('back_end.forms.category_product.edit', compact(['categoryProduct']));
     }
 
     /**
@@ -136,20 +97,20 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        $atribute = $request->all();
-        if ($request->hasFile('images')) {
-            $image=base64_encode(file_get_contents($request->file("images")));
-            $atribute['images']="data:image/jpg;base64,".$image;
+        $attributes = $this->validateAttribute();
+
+        $categoryProduct = Category_product_tran::find($id);
+
+        if (request()->has('images')) {
+            $image = 'data:image/png;base64,' . base64_encode(file_get_contents(request('images')));
+            $attributes = array_replace($this->validateAttribute(), ['images' => $image]);
         }
 
-        $product = Category_product_tran::find($id);
+        $categoryProduct->update($attributes);
 
-        $product->update($atribute);
-
-        return redirect()->route('admin.category');
-
+        return redirect()->route('admin.category-products.index');
     }
 
     /**
@@ -160,6 +121,19 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Category_product_tran::destroy($id);
+
+        return redirect(route('admin.category-products.index'));
+    }
+
+    public function validateAttribute()
+    {
+        return request()->validate([
+            'name' => 'required',
+            'contents' => 'required',
+            'description' => 'required',
+            'images' => 'nullable',
+            'locale' => 'required'
+        ]);
     }
 }
