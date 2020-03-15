@@ -77,10 +77,13 @@ class CategoryController extends Controller
         
 
         $atribute = $request->all();
-        $image=base64_encode(file_get_contents($request->file("images")));
-        $atribute['images']="data:image/jpg;base64,".$image;
-        $atribute['category_id']=$last_id;
 
+        if ($request->hasFile('images')) {
+            $image=base64_encode(file_get_contents($request->file("images")));
+            $atribute['images']="data:image/jpg;base64,".$image;
+        }
+
+        $atribute['category_id']=$last_id;
         if($atribute['locale']=='vi'){
             Category_product_tran::create($atribute);
             $atribute['locale']='en';
@@ -144,9 +147,9 @@ class CategoryController extends Controller
             $atribute['images']="data:image/jpg;base64,".$image;
         }
 
-        $product = Category_product_tran::find($id);
+        $product_trans = Category_product_tran::find($id);
 
-        $product->update($atribute);
+        $product_trans->update($atribute);
 
         return redirect()->route('admin.category');
 
@@ -160,6 +163,13 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product_trans = Category_product_tran::find($id);
+        $id_delete = $product_trans['category_id'];
+        // dd($id_delete);
+
+        $cate_product = Category_product::find($id_delete);
+        // dd($cate_product);
+        $cate_product->delete();
+        return redirect()->route('admin.category');
     }
 }

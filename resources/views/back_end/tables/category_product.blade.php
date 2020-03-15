@@ -73,11 +73,11 @@
                                                 </div>
                                                 <div class="col">
                                                     <form
-                                                        action="#"
+                                                        action="{{route('admin.category.destroy', $value->id)}}"
                                                         method="post">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <input type="submit" onclick="return confirm('bạn có thực sự muốn xóa')" class="btn bg-danger text-dark"
+                                                        <input type="submit" onclick="return confirm('thao tác này sẽ xóa luôn cả phần Anh và Việt tương ứng')" class="btn bg-danger text-dark"
                                                                value=" Delete&nbsp">
                                                     </form>
                                                 </div>

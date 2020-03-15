@@ -42,8 +42,7 @@ Route::name('admin.')->prefix('admin')->group(function () {
     Route::get('category/show/{id}', 'Category_Product\CategoryController@show')->name('category.show');
     Route::get('category/edit/{id}', 'Category_Product\CategoryController@edit')->name('category.edit');
     Route::put('category/update/{id}', 'Category_Product\CategoryController@update')->name('category.update');
-
-
+    Route::delete('category/destroy/{id}', 'Category_Product\CategoryController@destroy')->name('category.destroy');
 
 
 });
