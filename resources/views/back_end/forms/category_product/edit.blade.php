@@ -1,6 +1,5 @@
 @extends('back_end.layouts.app')
 @section('title', 'Form')
-
 @section('content_header')
 <div class="content-header">
     <div class="container-fluid">
@@ -12,9 +11,7 @@
     </div>
 </div>
 @endsection
-
 @section('content')
-
 <section class="content">
     <div class="container-fluid">
         <div class="row">
@@ -81,8 +78,6 @@
                                     </textarea>
                             </div>
                         </div>
-                        <!-- /.card-body -->
-
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Submit</button>
                             <a class="btn btn-secondary" href="{{route('admin.products.index')}}"><i
@@ -90,7 +85,6 @@
                         </div>
                     </form>
                 </div>
-                <!-- /.card -->
             </div>
         </div>
     </div>

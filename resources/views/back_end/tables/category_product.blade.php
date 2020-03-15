@@ -58,6 +58,35 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @foreach($kq as $key => $value)
+                                    <tr>
+                                        <td><?= $value['name'] ?></td>
+                                        <td><img src='<?=$value['images']?>' width=100px  height=100px /></td>
+                                        <td><?= $value['description'] ?></td>
+                                        <!-- <td><div><?= $value['contents']?></div></td> -->
+                                        <!-- <td><?= $value['locale'] ?></td> -->
+                                        <td>
+                                        <div class="row">
+                                                <div class="col">
+                                                    <a href="{{route('admin.category.edit', $value->id)}}"
+                                                       class="btn bg-warning">Update</a>
+                                                </div>
+                                                <div class="col">
+                                                    <form
+                                                        action="{{route('admin.category.destroy', $value->id)}}"
+                                                        method="post">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <input type="submit" onclick="return confirm('thao tác này sẽ xóa luôn cả phần Anh và Việt tương ứng')" class="btn bg-danger text-dark"
+                                                               value=" Delete&nbsp">
+                                                    </form>
+                                                </div>
+                                                <div class="col">
+                                                    <a  href="{{route('admin.category.show', $value->id)}}" class="btn bg-info">&nbspDetail&nbsp&nbsp</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
                                 @foreach($categoryProducts as $categoryProduct)
                                 <tr>
                                     <td><?= $categoryProduct['name'] ?></td>

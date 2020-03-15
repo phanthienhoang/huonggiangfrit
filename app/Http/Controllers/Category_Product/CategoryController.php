@@ -50,6 +50,41 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
+
+    {   
+        $category_product = new Category_product;
+        $input = $request->input('online');
+        $category_product->online=$input;
+        $category_product->save();
+
+        $last_id =$category_product->id;
+        
+
+        $atribute = $request->all();
+
+        if ($request->hasFile('images')) {
+            $image=base64_encode(file_get_contents($request->file("images")));
+            $atribute['images']="data:image/jpg;base64,".$image;
+        }
+
+        $atribute['category_id']=$last_id;
+        if($atribute['locale']=='vi'){
+            Category_product_tran::create($atribute);
+            $atribute['locale']='en';
+            $atribute['status']=0;
+            $atribute['name']='null';
+            $atribute['description']='null';
+            $atribute['contents']='null';
+            Category_product_tran::create($atribute);
+        }else{
+            Category_product_tran::create($atribute);
+            $atribute['locale']='vi';
+            $atribute['status']=0;
+            $atribute['name']='null';
+            $atribute['description']='null';
+            $atribute['contents']='null';
+            Category_product_tran::create($atribute);
+
     {
         $attributes = $this->validateAttribute();
 
@@ -58,6 +93,7 @@ class CategoryController extends Controller
         if (request()->has('images')) {
             $image = 'data:image/png;base64,' . base64_encode(file_get_contents(request('images')));
             $attributes = array_replace($this->validateAttribute(), ['images' => $image]);
+
         }
 
         $categoryProduct->translation(request('locale'))->update($attributes);
@@ -101,6 +137,11 @@ class CategoryController extends Controller
     {
         $attributes = $this->validateAttribute();
 
+
+        $product_trans = Category_product_tran::find($id);
+
+        $product_trans->update($atribute);
+
         $categoryProduct = Category_product_tran::find($id);
 
         if (request()->has('images')) {
@@ -121,6 +162,14 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
+  $product_trans = Category_product_tran::find($id);
+        $id_delete = $product_trans['category_id'];
+        // dd($id_delete);
+
+        $cate_product = Category_product::find($id_delete);
+        // dd($cate_product);
+        $cate_product->delete();
+        return redirect()->route('admin.category');
         Category_product_tran::destroy($id);
 
         return redirect(route('admin.category-products.index'));
