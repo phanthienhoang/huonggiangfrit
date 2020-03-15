@@ -28,13 +28,14 @@ Route::name('admin.')->prefix('admin')->group(function () {
 
     Route::get('dashboard', 'HomeController@index')->name('dashboard');
 
-    Route::resource('products', 'ProductsController');
+    Route::resource('products', 'ProductController');
     Route::resource('category_new', 'Category_newController');
 
 
     
 // =======================================================================================================================>>>
 // =======================================================================================================================>>>
+
 
     Route::get('category', 'Category_Product\CategoryController@index')->name('category')->middleware('locale');
     Route::get('category/create', 'Category_Product\CategoryController@create')->name('category.create');
@@ -44,6 +45,8 @@ Route::name('admin.')->prefix('admin')->group(function () {
     Route::put('category/update/{id}', 'Category_Product\CategoryController@update')->name('category.update');
     Route::delete('category/destroy/{id}', 'Category_Product\CategoryController@destroy')->name('category.destroy');
 
+    Route::resource('category-products', 'Category_Product\CategoryController');
+    
 
 });
 

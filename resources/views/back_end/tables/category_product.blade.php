@@ -8,7 +8,7 @@
             <div class="col-sm-12">
                 <h1 class="m-0 text-dark">Sản phẩm
                     <div class=" float-right">
-                        <a href="{{ route('admin.category.create')}}" type="button" id="create_room_type"
+                        <a href="{{ route('admin.category-products.create')}}" type="button" id="create_room_type"
                             class="btn btn-primary"><i class="fa fa-plus"></i>Thêm sản phẩm mới</a>
                     </div>
 
@@ -21,10 +21,10 @@
                     </div> -->
 
                     <div class="float-right">
-                        <a href="{{ route('user.change-language',['en'])}}" ><img src='/assets/icon-en.png'/></a>
+                        <a href="{{ route('user.change-language',['en'])}}"><img src='/assets/icon-en.png' /></a>
                     </div>
                     <div class="float-right">
-                        <a href="{{ route('user.change-language',['vi'])}}" ><img src='/assets/icon-vn.png'/></a>
+                        <a href="{{ route('user.change-language',['vi'])}}"><img src='/assets/icon-vn.png' /></a>
                     </div>
                 </h1>
             </div>
@@ -87,6 +87,30 @@
                                             </div>
                                         </td>
                                     </tr>
+                                @foreach($categoryProducts as $categoryProduct)
+                                <tr>
+                                    <td><?= $categoryProduct['name'] ?></td>
+                                    <td><img src='<?=$categoryProduct['images']?>' width=100px height=100px /></td>
+                                    <td><?= $categoryProduct['description'] ?></td>
+                                    <!-- <td><div><?= $categoryProduct['contents']?></div></td> -->
+                                    <!-- <td><?= $categoryProduct['locale'] ?></td> -->
+                                    <td>
+                                        <div class="d-inline-block">
+                                            <a href="{{ route('admin.category-products.show', $categoryProduct->id) }}"
+                                                class="btn btn-primary"><i class="fa fa-eye"></i> View</a>
+                                            <a href="{{ route('admin.category-products.edit', $categoryProduct->id) }}"
+                                                class="btn btn-warning"><i class="fa fa-edit"></i> Edit</a>
+                                            <form class="d-inline"
+                                                action="{{route('admin.category-products.destroy',$categoryProduct->id)}}"
+                                                method="post">
+                                                @csrf
+                                                @method('DELETE')
+                                                <input type="submit" onclick="return confirm('bạn có thực sự muốn xóa')"
+                                                    class="btn bg-danger text-dark" value="Xóa">
+                                            </form>
+                                        </div>
+                                    </td>
+                                </tr>
                                 @endforeach
                             </tbody>
                         </table>

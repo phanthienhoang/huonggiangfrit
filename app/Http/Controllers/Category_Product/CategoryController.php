@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Category_product;
 use App\Category_product_tran;
 use App\Language;
-use App;
+use Illuminate\Support\Facades\App;
 
 class CategoryController extends Controller
 {
@@ -17,35 +17,21 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-   
-
-    public function getTranslation($locale)
-    {
-        return Category_product_tran::where('locale',$locale)->get();
-    }
-
 
     public function index()
-    {   
-
-
-        // App::setLocale('vi');
-        // $englishtext = $this->getTranslation('en');
-        // $vietnamtext = $this->getTranslation('vi');
-        // dd(App::getLocale());
-        // dd($this->langualge);
-        if (App::getLocale() == "en") {
-            $kq = $this->getTranslation('en');
+    {
+        if(session()->has('language')){
+            $language = session()->get('language');
         } else {
-            $kq = $this->getTranslation('vi');
+            $language = App::getLocale();
         }
 
-        // dd(App::getLocale());
-        // dd($englishtext);
-        return view('back_end.tables.category_product',compact(['kq']));
+        $categoryProducts = Category_product_tran::where('locale', $language)->get();
+
+        return view('back_end.tables.category_product', compact('categoryProducts'));
     }
 
-   
+
 
     /**
      * Show the form for creating a new resource.,
@@ -54,10 +40,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $category_product = Category_product::all();
-
-        // dd($category_product);
-        return view('back_end.forms.category_product.create',compact('category_product'));
+        return view('back_end.forms.category_product.create');
     }
 
     /**
@@ -67,6 +50,7 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
+
     {   
         $category_product = new Category_product;
         $input = $request->input('online');
@@ -100,12 +84,22 @@ class CategoryController extends Controller
             $atribute['description']='null';
             $atribute['contents']='null';
             Category_product_tran::create($atribute);
+
+    {
+        $attributes = $this->validateAttribute();
+
+        $categoryProduct = Category_product::create(['online' => 1]);
+
+        if (request()->has('images')) {
+            $image = 'data:image/png;base64,' . base64_encode(file_get_contents(request('images')));
+            $attributes = array_replace($this->validateAttribute(), ['images' => $image]);
+
         }
 
-      
+        $categoryProduct->translation(request('locale'))->update($attributes);
 
-        return redirect()->route('admin.category');
 
+        return redirect()->route('admin.category-products.index');
     }
 
     /**
@@ -116,8 +110,8 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
-        $atribute = Category_product_tran::findOrFail($id);
-        return view('back_end.showdetail.detailCategoryProduct',compact(['atribute']));
+        $categoryProduct = Category_product_tran::findOrFail($id);
+        return view('back_end.showdetail.detailCategoryProduct', compact('categoryProduct'));
     }
 
     /**
@@ -128,8 +122,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $atribute = Category_product_tran::findOrFail($id);
-        return view('back_end.forms.category_product.edit',compact(['atribute']));
+        $categoryProduct = Category_product_tran::findOrFail($id);
+        return view('back_end.forms.category_product.edit', compact(['categoryProduct']));
     }
 
     /**
@@ -139,20 +133,25 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        $atribute = $request->all();
-        if ($request->hasFile('images')) {
-            $image=base64_encode(file_get_contents($request->file("images")));
-            $atribute['images']="data:image/jpg;base64,".$image;
-        }
+        $attributes = $this->validateAttribute();
+
 
         $product_trans = Category_product_tran::find($id);
 
         $product_trans->update($atribute);
 
-        return redirect()->route('admin.category');
+        $categoryProduct = Category_product_tran::find($id);
 
+        if (request()->has('images')) {
+            $image = 'data:image/png;base64,' . base64_encode(file_get_contents(request('images')));
+            $attributes = array_replace($this->validateAttribute(), ['images' => $image]);
+        }
+
+        $categoryProduct->update($attributes);
+
+        return redirect()->route('admin.category-products.index');
     }
 
     /**
@@ -163,7 +162,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $product_trans = Category_product_tran::find($id);
+  $product_trans = Category_product_tran::find($id);
         $id_delete = $product_trans['category_id'];
         // dd($id_delete);
 
@@ -171,5 +170,19 @@ class CategoryController extends Controller
         // dd($cate_product);
         $cate_product->delete();
         return redirect()->route('admin.category');
+        Category_product_tran::destroy($id);
+
+        return redirect(route('admin.category-products.index'));
+    }
+
+    public function validateAttribute()
+    {
+        return request()->validate([
+            'name' => 'required',
+            'contents' => 'required',
+            'description' => 'required',
+            'images' => 'nullable',
+            'locale' => 'required'
+        ]);
     }
 }
