@@ -45,11 +45,8 @@
                             <div class="form-group">
                                 <label>Chọn ngôn ngữ</label>
                                 <select name="locale" class="custom-select">
-                                    @if (Session::get('language') === 'vi')
                                     <option value="vi">Tiếng Việt</option>
-                                    @else
                                     <option value="en">Tiếng Anh</option>
-                                    @endif
                                 </select>
                             </div>
                             <div class="form-group">

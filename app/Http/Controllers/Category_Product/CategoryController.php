@@ -131,7 +131,6 @@ class CategoryController extends Controller
         foreach($cate_product->category_product_tran as $key=>$value){
             $value->delete();
         }
-       
         return redirect(route('admin.category-products.index'));
     }
 }
