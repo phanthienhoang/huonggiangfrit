@@ -99,8 +99,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $categoryProduct = Category_product_tran::findOrFail($id);
-        return view('back_end.forms.category_product.edit',compact(['categoryProduct']));
+        $atribute = Category_product_tran::findOrFail($id);
+        return view('back_end.forms.category_product.edit',compact(['atribute']));
     }
     /**
      * Update the specified resource in storage.
@@ -118,6 +118,10 @@ class CategoryController extends Controller
         }
         $product = Category_product_tran::find($id);
         $product->update($atribute);
+        $message = "update thành công";
+
+        Session::flash('create-success',$message);
+
         return redirect()->route('admin.category-products.index');
     }
     /**

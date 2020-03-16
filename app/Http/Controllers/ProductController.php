@@ -98,7 +98,9 @@ class ProductController extends Controller
         }
 
         $product->update($attributes);
+        $message = "update thành công";
 
+        Session::flash('create-success',$message);
         return redirect(route('admin.products.index'));
     }
 
