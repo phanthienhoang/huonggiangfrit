@@ -39,23 +39,41 @@
                             <div class="form-group">
                                 <label>Chọn ngôn ngữ</label>
                                 <select name="locale" class="custom-select">
-                                    @if (Session::get('language') === 'vi')
-                                    <option value="vi">Tiếng Việt</option>
-                                    @else
-                                    <option value="en">Tiếng Anh</option>
-                                    @endif
+                                    <option value="vi" {{$product->locale == 'vi' ? 'selected' : null}}>Tiếng Việt</option>
+                                    <option value="en" {{$product->locale == 'en' ? 'selected' : null}}>Tiếng Anh</option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Loại sản phẩm</label>
                                 <select name="category_id" class="custom-select">
-                                    @foreach (App\Category_product::all() as $item)
-                                    @if (!empty($item->translation(Session::get('language'))->first()->name))
-                                    <option value="{{$item->id}}">
-                                        {{ $item->translation(Session::get('language'))->first()->name }}</option>
-                                    @endif
+                                    @foreach (App\Category_product_tran::all() as $item)
+                                    <option value="{{$item->category_id}}"
+                                        {{$product->product->category_id === $item->category_id ? 'active' : null }}>
+                                        {{ $item->name }}</option>
                                     @endforeach
                                 </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="title">Code</label>
+                                <input type="text" name="code" class="form-control" id="title"
+                                value="{{$product->code}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="title">Price</label>
+                                <input type="text" name="price" class="form-control" id="title"
+                                 value="{{$product->price}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="title">Feature</label>
+                                <input type="text" name="features" class="form-control" id="title" value="{{$product->features}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="title">Line graphs of frit thermal expansion</label>
+                                <input type="text" name="line_graph" class="form-control" id="title" value="{{$product->line_graph}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="title">Flattening curve and characteristic temperatures</label>
+                                <input type="text" name="flattening_curve" class="form-control" id="title" value="{{$product->flattening_curve}}">
                             </div>
                             <div class="form-group">
                                 <label for="description">Mô tả</label>

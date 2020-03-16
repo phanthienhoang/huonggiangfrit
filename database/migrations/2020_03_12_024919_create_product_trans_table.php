@@ -15,10 +15,15 @@ class CreateProductTransTable extends Migration
     {
         Schema::create('product_trans', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->default('');
-            $table->text('content')->nullable();
-            $table->longText('images')->nullable();
-            $table->text('description')->nullable();
+            $table->string('name');
+            $table->string('code');
+            $table->string('price')->default('Contact us');
+            $table->string('features');
+            $table->string('line_graph');
+            $table->string('flattening_curve');
+            $table->text('content');
+            $table->longText('images');
+            $table->text('description');
             $table->string('locale');
             $table->unsignedBigInteger('product_id');
             $table->unique(['product_id', 'locale']);

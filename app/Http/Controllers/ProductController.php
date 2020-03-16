@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category_product_tran;
 use App\Product;
 use App\Product_trans;
 use Illuminate\Http\Request;
@@ -14,15 +15,26 @@ class ProductController extends Controller
         $this->middleware('auth');
     }
 
+    public function getTranslation($locale)
+    {
+        return Product_trans::where('locale', $locale)->get();
+    }
+
     public function index()
     {
-        if (session()->has('language')) {
-            $language = session()->get('language');
+        if (App::getLocale() == "en") {
+            $products  = $this->getTranslation('en');
         } else {
-            $language = App::getLocale();
+            $products  = $this->getTranslation('vi');
         }
 
-        $products = Product_trans::where('locale', $language)->get();
+        // if (session()->has('language')) {
+        //     $language = session()->get('language');
+        // } else {
+        //     $language = App::getLocale();
+        // }
+
+        // $products = Product_trans::where('locale', $language)->get();
 
         return view('back_end.tables.product', compact('products'));
     }
@@ -32,17 +44,32 @@ class ProductController extends Controller
         return view('back_end.forms.products.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        $attributes = $this->validateAttribute();
+        // $this->validateAttribute();
 
         $product = Product::create(['online' => 1, 'category_id' => request('category_id')]);
-        if (request()->has('images')) {
-            $image = 'data:image/png;base64,' . base64_encode(file_get_contents(request('images')));
-            $attributes = array_replace($this->validateAttribute(), ['images' => $image]);
+
+        $attributes = $request->except(['category_id']);
+
+        $attributes['images'] = 'data:image/png;base64,' . base64_encode(file_get_contents(request('images')));
+        if ($attributes['locale'] == 'vi') {
+            $product->productTranslates()->create($attributes);
+            $attributes['locale'] = 'en';
+            $attributes['name'] = 'null';
+            $attributes['description'] = 'null';
+            $attributes['content'] = 'null';
+            $product->productTranslates()->create($attributes);
+        } else {
+            $product->productTranslates()->create($attributes);
+            $attributes['locale'] = 'vi';
+            $attributes['name'] = 'null';
+            $attributes['description'] = 'null';
+            $attributes['content'] = 'null';
+            $product->productTranslates()->create($attributes);
         }
 
-        $product->translation(request('locale'))->update($attributes);
+        // $product->translation(request('locale'))->update($attributes);
 
 
         return redirect()->route('admin.products.index');
@@ -83,6 +110,17 @@ class ProductController extends Controller
         Product_trans::destroy($id);
 
         return redirect(route('admin.products.index'));
+    }
+
+    public function getCategory(){
+
+        $locale = request('locale');
+
+        $data = Category_product_tran::where('locale', $locale)->get();
+
+        if(request()->ajax()){
+            return response()->json($data);
+        }
     }
 
     public function validateAttribute()

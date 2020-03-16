@@ -17,7 +17,7 @@ class Category_product extends Model
 
     public function product()
     {
-        return $this->hasMany('App\Product');
+        return $this->hasMany('App\Product', $this->foreignKey);
     }
 
     // public static function boot()

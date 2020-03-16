@@ -28,7 +28,8 @@ Route::name('admin.')->prefix('admin')->group(function () {
 
     Route::get('dashboard', 'HomeController@index')->name('dashboard');
 
-    Route::resource('products', 'ProductController');
+    Route::get('products/categories', 'ProductController@getCategory')->name('getCategory');
+    Route::resource('products', 'ProductController')->middleware('locale');
     Route::resource('category_new', 'Category_newController');
 
 
