@@ -46,7 +46,7 @@
                                 @foreach ($products as $product)
                                 <tr>
                                     <td>{{ $product->name }}</td>
-                                <td></td>
+                                <td>{{ $product->product->category_product->category_product_tran->where('locale', Session::get('language'))->first()->name}}</td>
                                     <div>
                                         <td style="max-width: 200px;">
                                             {{ $product->description }}
