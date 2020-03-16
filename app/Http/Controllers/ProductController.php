@@ -7,6 +7,8 @@ use App\Product;
 use App\Product_trans;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
+
 
 use function GuzzleHttp\Promise\all;
 
@@ -62,6 +64,7 @@ class ProductController extends Controller
             $attributes['description'] = 'null';
             $attributes['content'] = 'null';
             $product->productTranslates()->create($attributes);
+            $message = "Tạo mới thành công! xin hãy cập nhập ngôn ngữ tiếng anh";
         } else {
             $product->productTranslates()->create($attributes);
             $attributes['locale'] = 'vi';
@@ -69,11 +72,12 @@ class ProductController extends Controller
             $attributes['description'] = 'null';
             $attributes['content'] = 'null';
             $product->productTranslates()->create($attributes);
+            $message = "create-success ! please update vietnam language";
         }
 
         // $product->translation(request('locale'))->update($attributes);
 
-
+        Session::flash('create-success',$message);
         return redirect()->route('admin.products.index');
     }
 

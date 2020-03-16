@@ -11,20 +11,6 @@
                         <a href="{{ route('admin.category-products.create')}}" type="button" id="create_room_type"
                             class="btn btn-primary"><i class="fa fa-plus"></i>Thêm sản phẩm mới</a>
                     </div>
-
-                    <!-- <div class=" float-right">
-                        <a href="{{ route('user.change-language',['en'])}}">English</a>
-                    </div>
-                    <div class=" float-right">
-                        <a href="{{ route('user.change-language',['vi'])}}">Vietnam</a>
-                    </div> -->
-
-                    <div class="float-right">
-                        <a href="{{ route('user.change-language',['en'])}}"><img src='/assets/icon-en.png' /></a>
-                    </div>
-                    <div class="float-right">
-                        <a href="{{ route('user.change-language',['vi'])}}"><img src='/assets/icon-vn.png' /></a>
-                    </div>
                 </h1>
             </div>
         </div>
@@ -33,8 +19,9 @@
 @endsection
 
 @section('content')
-
-
+@if(Session::has('create-success'))
+    <h1><div id='banner_session' style="text-align:center" class="text-primary">{{ Session::get('create-success')}}</div></h1>
+@endif
 <section class="content">
     <div class="container-fluid">
         <div class="row">
@@ -112,5 +99,8 @@
           }]
       });
     });
+    setTimeout(() => {
+            document.getElementById('banner_session').style.display = 'none';  
+    }, 4000);
 </script>
 @endpush

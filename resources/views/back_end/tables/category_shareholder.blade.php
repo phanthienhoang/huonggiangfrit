@@ -8,7 +8,7 @@
                 <div class="col-sm-12">
                     <h1 class="m-0 text-dark">Tin tức
                         <div class=" float-right">
-                            <a href="{{ route('admin.category_new.create')}}" type="button" id="create_room_type"
+                            <a href="{{ route('admin.category-shareholder.create')}}" type="button" id="create_room_type"
                                class="btn btn-primary"><i class="fa fa-plus"></i>Thêm Tin tức mới</a>
                         </div>
                     </h1>
@@ -25,38 +25,41 @@
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Danh sách tin tức</h3>
+                            <h3 class="card-title">Danh sách loại tin tức cổ đông</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead class="bg-primary">
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Tên loại tin tức</th>
-                                    <th>online</th>
+                                    <th>Title</th>
+                                    <th>ngôn ngữ</th>
+                                    <th>status</th>
                                     <th class="action text-center">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($category_news as $category_new)
+                                @foreach($atributes as $atribute)
                                     <tr>
-                                        <td>{{$category_new->id}}</td>
-                                        <td>{{$category_new->name}}</td>
-                                        <td>{{$category_new->online}}</td>
+                                        <td>{{$atribute->title}}</td>
+                                        <td>{{$atribute->locale}}</td>
+                                        @if($atribute->status==1)
+                                            <td>Hiện</td>
+                                        @else
+                                            <td>Ẩn</td>
+                                        @endif
                                         <td>
                                             <div class="row">
                                                 <div class="col">
-                                                    <a href="{{route('admin.category_new.edit', $category_new->id)}}"
+                                                    <a href="{{route('admin.category-shareholder.edit', $atribute->id)}}"
                                                        class="btn bg-warning">Sửa</a>
                                                 </div>
                                                 <div class="col">
                                                     <form
-                                                        action="{{route('admin.category_new.destroy',$category_new->id)}}"
+                                                        action="{{route('admin.category-shareholder.destroy',$atribute->id)}}"
                                                         method="post">
                                                         @csrf
                                                         @method('DELETE')
@@ -65,7 +68,7 @@
                                                     </form>
                                                 </div>
                                                 <div class="col">
-                                                    <a href="#" class="btn bg-info">chi tiết</a>
+                                                    <a href="{{route('admin.category-shareholder.show',$atribute->id)}}" class="btn bg-info">chi tiết</a>
                                                 </div>
                                             </div>
                                         </td>
@@ -102,6 +105,7 @@
                 }]
             });
         });
+
         setTimeout(() => {
             document.getElementById('banner_session').style.display = 'none';  
         }, 4000);
