@@ -22,11 +22,15 @@
   </form>
 
   <!-- ===================================CHANGE LANGUEGE=============================================== -->
-  <div class="float-right">
-    <a href="{{ route('user.change-language',['en'])}}" ><img src='/assets/icon-en.png'/></a>
-  </div>
-  <div class="float-right">
-    <a href="{{ route('user.change-language',['vi'])}}" ><img src='/assets/icon-vn.png'/></a>
+  <div style="margin:auto;" id="language_id">
+    <!-- <select name="" id="">
+       <option value="Tiếng ANH">  <a style='a:visited:color:red' href="{{ route('user.change-language',['en'])}}" ><img src='/assets/icon-en.png'/>Tiếng ANh</a>
+      </option>
+      <option value="Tiếng ANH">  <a style='a:visited:color:red' href="{{ route('user.change-language',['en'])}}" ><img src='/assets/icon-en.png'/>Tiếng Việt</a>
+      </option>
+    </select> -->
+    <a style='a:visited:color:red' href="{{ route('user.change-language',['en'])}}" ><img src='/assets/icon-en.png'/></a>
+    <a style='a:visited:color:red' href="{{ route('user.change-language',['vi'])}}" ><img src='/assets/icon-vn.png'/></a>
   </div>
   
 

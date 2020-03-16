@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Loại sản phẩm</h1>
+                <h1 class="m-0 text-dark">Cổ đông</h1>
             </div>
         </div>
     </div>
@@ -22,7 +22,7 @@
                 <!-- general form elements -->
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Thêm loại sản phẩm</h3>
+                        <h3 class="card-title">Thêm tin tức cổ đông</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
@@ -44,17 +44,14 @@
                             </div>
                             <div class="form-group">
                                 <label>Chọn ngôn ngữ</label>
-                                <select name="locale" id='locale' class="custom-select">
+                                <select name="locale" id='locale' class="custom-select language">
                                     <option value="vi">Tiếng Việt</option>
                                     <option value="en">Tiếng Anh</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Chọn thể loại</label>
-                                <select name="locale" class="custom-select">
-                                @foreach($category_Shareholders as $category_Shareholder)
-                                    <option value="{{$category_Shareholder->category_id}}">{{$category_Shareholder->title}}</option>
-                                @endforeach
+                                <label>loại sản phẩm</label>
+                                <select name="category" class="custom-select category">
                                 </select>
                             </div>
                             <div class="form-group">
@@ -120,8 +117,47 @@
                 image_holder.show();
                 reader.readAsDataURL($(this)[0].files[0]);
         } else {
-                    alert("This browser does not support FileReader.");
+                alert("This browser does not support FileReader.");
         }
     })
+
+    $('.language').on('change', function(){
+        let locale = $('.language').val();
+        
+        $.ajax({
+            url: "{{route('admin.getShareholderCategory')}}",
+            method: 'GET',
+            data:{
+                'locale': locale
+            },
+            success:function(data) {
+                $('.category').empty()
+                $.each(data, function(i,v){
+                    $('.category').append(
+                        `<option value="${v.category_id}">${v.title}</option>`
+                    )
+            })            }
+        })
+    })
+
+    $(document).ready(function(){
+        let locale = $('.language').val();
+    $.ajax({
+            url: "{{route('admin.getShareholderCategory')}}",
+            method: 'GET',
+            data:{
+                'locale': locale
+            },
+            success:function(data) {
+                console.log(data)
+                $('.category').empty()
+                $.each(data, function(i,v){
+                    $('.category').append(
+                        `<option value="${v.category_id}">${v.title}</option>`
+                    )
+                })
+            }
+        })
+    });
 </script>
 @endpush

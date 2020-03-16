@@ -6,6 +6,8 @@ use App\Shareholder;
 use App\Category_Shareholder_Tran;
 use App\Shareholder_Tran;
 use App;
+use Illuminate\Support\Facades\Session;
+
 
 class ShareHolderController extends Controller
 {
@@ -35,8 +37,7 @@ class ShareHolderController extends Controller
     public function create()
     {
         $shareholder = Shareholder::all();
-        $category_Shareholders = Category_Shareholder_Tran::all();
-        return view('back_end.forms.Shareholder.create',compact(['shareholder','category_Shareholders']));
+        return view('back_end.forms.Shareholder.create',compact('shareholder'));
     }
     /**
      * Store a newly created resource in storage.
@@ -46,27 +47,42 @@ class ShareHolderController extends Controller
      */
     public function store(Request $request)
     {   
-        $category_Shareholder = new Category_Shareholder;
+        $shareholder = new Shareholder;
         $input = $request->input('online');
-        $category_Shareholder->online=$input;
-        $category_Shareholder->save();
-        $last_id =$category_Shareholder->id;
+        $shareholder->online=$input;
+        $shareholder->category_id=$request->input('category');
+        $shareholder->save();
+
+        $last_id =$shareholder->id;
+
         $atribute = $request->all();
-        $atribute['category_id']=$last_id;
+        if ($request->hasFile('images')) {
+            $image=base64_encode(file_get_contents($request->file("images")));
+            $atribute['images']="data:image/jpg;base64,".$image;
+        }
+        $atribute['shareholder_id']=$last_id;
+        // dd($atribute);
         if($atribute['locale']=='vi'){
-            Category_Shareholder_Tran::create($atribute);
+            Shareholder_Tran::create($atribute);
             $atribute['locale']='en';
             $atribute['status']=0;
-            $atribute['title']='null';
-            Category_Shareholder_Tran::create($atribute);
+            $atribute['title']='please update english';
+            $atribute['contents']='please update english';
+            Shareholder_Tran::create($atribute);
+            $message = "Tạo mới thành công! xin hãy cập nhập ngôn ngữ tiếng anh";
         }else{
-            Category_Shareholder_Tran::create($atribute);
+            Shareholder_Tran::create($atribute);
             $atribute['locale']='vi';
             $atribute['status']=0;
-            $atribute['title']='null';
-            Category_Shareholder_Tran::create($atribute);
+            $atribute['title']='cập nhập bài viết tiếng việt';
+            $atribute['contents']='cập nhập bài viết tiếng việt';
+            Shareholder_Tran::create($atribute);
+            $message = "create-success ! please update vietnam language";
+
         }
-        return redirect()->route('admin.category-shareholder.index');
+        Session::flash('create-success',$message);
+
+        return redirect()->route('admin.shareholder.index');
     }
     /**
      * Display the specified resource.
@@ -86,8 +102,8 @@ class ShareHolderController extends Controller
      */
     public function edit($id)
     {
-        $atribute = Category_Shareholder_Tran::findOrFail($id);
-        return view('back_end.forms.Category_Shareholder.edit',compact(['atribute']));
+        $atribute = Shareholder_Tran::findOrFail($id);
+        return view('back_end.forms.shareholder.edit',compact(['atribute']));
     }
     /**
      * Update the specified resource in storage.
@@ -99,11 +115,9 @@ class ShareHolderController extends Controller
     public function update(Request $request, $id)
     {
         $atribute = $request->all();
-        $product = Category_Shareholder_Tran::find($id);
-        // dd($product);
+        $product = Shareholder_Tran::find($id);
         $product->update($atribute);
-        // dd($product->update($atribute));
-        return redirect()->route('admin.category-shareholder.index');
+        return redirect()->route('admin.shareholder.index');
     }
     /**
      * Remove the specified resource from storage.
@@ -112,20 +126,30 @@ class ShareHolderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        $category_Shareholder_Tran = Category_Shareholder_Tran::find($id);
+    {   
 
-        $category_id = $category_Shareholder_Tran['category_id'];
+        $shareholder_Tran = Shareholder_Tran::find($id);
+        $shareholder_id = $shareholder_Tran['shareholder_id'];
 
-        $category_Shareholder = Category_Shareholder::find($category_id);
+        $shareholder = Shareholder::find($shareholder_id);
 
-        // dd($category_Shareholder);
+        $shareholder ->delete();
 
-        $category_Shareholder ->delete();
-
-        foreach($category_Shareholder->category_shareholder_tran as $key=>$value){
+        foreach($shareholder->Shareholder_Translates as $key=>$value){
             $value->delete();
         }
-        return redirect(route('admin.category-shareholder.index'));
+
+        return redirect(route('admin.shareholder.index'));
     }
+
+    public function getShareholderCategory(){
+
+        $locale = request('locale');
+        $data = Category_Shareholder_Tran::where('locale', $locale)->get();
+
+        if(request()->ajax()){
+            return response()->json($data);
+        }
+    }
+
 }

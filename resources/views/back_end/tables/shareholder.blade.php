@@ -6,10 +6,10 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1 class="m-0 text-dark">Tin tức
+                    <h1 class="m-0 text-dark">Cổ đông
                         <div class=" float-right">
                             <a href="{{ route('admin.shareholder.create')}}" type="button" id="create_room_type"
-                               class="btn btn-primary"><i class="fa fa-plus"></i>Thêm Tin tức mới</a>
+                               class="btn btn-primary"><i class="fa fa-plus"></i>Thêm cổ đông mới</a>
                         </div>
                     </h1>
                 </div>
@@ -17,16 +17,18 @@
         </div>
     </div>
 @endsection
-
+   
 @section('content')
-
+@if(Session::has('create-success'))
+    <h1><div id='banner_session' style="text-align:center" class="text-primary">{{ Session::get('create-success')}}</div></h1>
+@endif  
     <section class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            <h3 class="card-title">Danh sách loại tin tức cổ đông</h3>
+                            <h3 class="card-title">Quan hệ cổ đông</h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
@@ -45,9 +47,15 @@
                                 @foreach($atributes as $atribute)
                                     <tr>
                                         <td>{{$atribute->title}}</td>
-                                        <td>{{$atribute->images}}</td>
+                                        <td><img src="{{ $atribute->images }}" width=100px height=100px /></td>
+                                        <!-- <td>{{$atribute->images}}</td> -->
                                         <td>{{$atribute->contents}}</td>
-                                        <td>{{$atribute->status}}</td>
+
+                                        @if($atribute->status==1)
+                                            <td>Hiện</td>
+                                        @else
+                                            <td>Ẩn</td>
+                                        @endif
                                         <td>{{$atribute->locale}}</td>
                                         <td>
                                             <div class="row">
@@ -103,5 +111,8 @@
                 }]
             });
         });
+        setTimeout(() => {
+            document.getElementById('banner_session').style.display = 'none';  
+        }, 4000);
     </script>
 @endpush

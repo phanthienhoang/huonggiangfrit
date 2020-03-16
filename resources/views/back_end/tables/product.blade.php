@@ -19,7 +19,9 @@
 @endsection
 
 @section('content')
-
+@if(Session::has('create-success'))
+    <h1><div id='banner_session' style="text-align:center" class="text-primary">{{ Session::get('create-success')}}</div></h1>
+@endif  
 <section class="content">
     <div class="container-fluid">
         <div class="row">
@@ -99,5 +101,8 @@
           }]
       });
     });
+    setTimeout(() => {
+            document.getElementById('banner_session').style.display = 'none';  
+        }, 4000);
 </script>
 @endpush

@@ -6,6 +6,8 @@ use App\Category_product;
 use App\Category_product_tran;
 use App\Language;
 use App;
+use Illuminate\Support\Facades\Session;
+
 class CategoryController extends Controller
 {
     /**
@@ -63,6 +65,7 @@ class CategoryController extends Controller
             $atribute['description']='null';
             $atribute['contents']='null';
             Category_product_tran::create($atribute);
+            $message = "Tạo mới thành công! xin hãy cập nhập ngôn ngữ tiếng anh";
         }else{
             Category_product_tran::create($atribute);
             $atribute['locale']='vi';
@@ -71,7 +74,10 @@ class CategoryController extends Controller
             $atribute['description']='null';
             $atribute['contents']='null';
             Category_product_tran::create($atribute);
+            $message = "create-success ! please update vietnam language";
         }
+
+        Session::flash('create-success',$message);
         return redirect()->route('admin.category-products.index');
     }
     /**
