@@ -35,59 +35,85 @@
                                 <label for="title">Tên sản phẩm</label>
                                 <input type="text" name="name" class="form-control" id="title"
                                     value="{{$product->name}}">
+                                @error('name')
+                                <p class="text-danger">{{ $errors->first('name') }}</p>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label>Chọn ngôn ngữ</label>
-                                <select name="locale" class="custom-select">
-                                    <option value="vi" {{$product->locale == 'vi' ? 'selected' : null}}>Tiếng Việt</option>
-                                    <option value="en" {{$product->locale == 'en' ? 'selected' : null}}>Tiếng Anh</option>
+                                <select name="locale" class="custom-select language">
+                                    <option value="vi" {{$product->locale == 'vi' ? 'selected' : null}}>Tiếng Việt
+                                    </option>
+                                    <option value="en" {{$product->locale == 'en' ? 'selected' : null}}>Tiếng Anh
+                                    </option>
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Loại sản phẩm</label>
-                                <select name="category_id" class="custom-select">
-                                    @foreach (App\Category_product_tran::all() as $item)
-                                    <option value="{{$item->category_id}}"
-                                        {{$product->product->category_id === $item->category_id ? 'active' : null }}>
-                                        {{ $item->name }}</option>
-                                    @endforeach
-                                </select>
+                                <input type="hidden" id="category-product" value="{{$product->product->category_id}}">
+                                <select name="category_id" class="custom-select category"></select>
                             </div>
                             <div class="form-group">
                                 <label for="title">Code</label>
                                 <input type="text" name="code" class="form-control" id="title"
-                                value="{{$product->code}}">
+                                    value="{{$product->code}}">
+                                @error('code')
+                                <p class="text-danger">{{ $errors->first('code') }}</p>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="title">Price</label>
                                 <input type="text" name="price" class="form-control" id="title"
-                                 value="{{$product->price}}">
+                                    value="{{$product->price}}">
+                                @error('price')
+                                <p class="text-danger">{{ $errors->first('price') }}</p>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="title">Feature</label>
-                                <input type="text" name="features" class="form-control" id="title" value="{{$product->features}}">
+                                <input type="text" name="features" class="form-control" id="title"
+                                    value="{{$product->features}}">
+                                @error('features')
+                                <p class="text-danger">{{ $errors->first('features') }}</p>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="title">Line graphs of frit thermal expansion</label>
-                                <input type="text" name="line_graph" class="form-control" id="title" value="{{$product->line_graph}}">
+                                <input type="text" name="line_graph" class="form-control" id="title"
+                                    value="{{$product->line_graph}}">
+                                @error('line_graph')
+                                <p class="text-danger">{{ $errors->first('line_graph') }}</p>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="title">Flattening curve and characteristic temperatures</label>
-                                <input type="text" name="flattening_curve" class="form-control" id="title" value="{{$product->flattening_curve}}">
+                                <input type="text" name="flattening_curve" class="form-control" id="title"
+                                    value="{{$product->flattening_curve}}">
+                                @error('flattening_curve')
+                                <p class="text-danger">{{ $errors->first('flattening_curve') }}</p>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="description">Mô tả</label>
                                 <textarea name="description" id="description" cols="30" rows="3"
                                     class="form-control">{{$product->description}}</textarea>
+                                @error('description')
+                                <p class="text-danger">{{ $errors->first('description') }}</p>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputFile">File input</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" name="images" class="custom-file-input" id="inputFile">
                                         <label class="custom-file-label" for="inputFile">Choose file</label>
+                                        <input type="file" name="images"
+                                            class="custom-file-input @error('images') is-invalid @enderror"
+                                            id="inputFile" value="{{$product->images}}">
                                     </div>
                                 </div>
+                                @error('images')
+                                <p class="text-danger">{{ $errors->first('images') }}</p>
+                                @enderror
                                 <div class="mt-2">
                                     @if (!empty($product->images))
                                     <img class="w-25 img" src="{{$product->images}}" alt="">
@@ -99,6 +125,9 @@
                                 <label for="description">Nội dung</label>
                                 <textarea class="textarea" name="content" placeholder="Nhập nội dung"
                                     style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{$product->content}}</textarea>
+                                @error('content')
+                                <p class="text-danger">{{ $errors->first('content') }}</p>
+                                @enderror
                             </div>
                         </div>
                         <!-- /.card-body -->
@@ -148,5 +177,48 @@
                     alert("This browser does not support FileReader.");
         }
     })
+
+    $('.language').on('change', function(){
+        let locale = $('.language').val();
+        $.ajax({
+            url: "{{route('admin.getCategory')}}",
+            method: 'GET',
+            data:{
+                'locale': locale
+            },
+            success:function(data) {
+                $('.category').empty()
+                $.each(data, function(i,v){
+                    $('.category').append(
+                        `<option value="${v.category_id}">${v.name}</option>`
+                    )
+                    if($('.category').find(`option[value=${v.category_id}]`).val() === $('#category-product').val()){
+                        $('.category').find(`option[value=${v.category_id}]`).attr('selected', true)
+                    }                })            
+                }
+        })
+    })
+
+    $(document).ready(function(){
+        let locale = $('.language').val();
+    $.ajax({
+            url: "{{route('admin.getCategory')}}",
+            method: 'GET',
+            data:{
+                'locale': locale
+            },
+            success:function(data) {
+                $('.category').empty()
+                $.each(data, function(i,v){
+                    $('.category').append(
+                        `<option value="${v.category_id}">${v.name}</option>`
+                    )
+                    if($('.category').find(`option[value=${v.category_id}]`).val() === $('#category-product').val()){
+                        $('.category').find(`option[value=${v.category_id}]`).attr('selected', true)
+                    } 
+                    })
+                }
+        })
+    });
 </script>
 @endpush

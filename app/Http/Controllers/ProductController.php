@@ -8,6 +8,8 @@ use App\Product_trans;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
+use function GuzzleHttp\Promise\all;
+
 class ProductController extends Controller
 {
     public function __construct()
@@ -46,7 +48,7 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
-        // $this->validateAttribute();
+        $this->validateAttribute();
 
         $product = Product::create(['online' => 1, 'category_id' => request('category_id')]);
 
@@ -84,13 +86,15 @@ class ProductController extends Controller
 
     public function update($id)
     {
-        $attributes = $this->validateAttribute();
+        $this->validateAttribute();
 
         $product = Product_trans::find($id);
 
+        $attributes = request()->except('category_id');;
+
         if (request()->has('images')) {
-            $image = 'data:image/png;base64,' . base64_encode(file_get_contents(request('images')));
-            $attributes = array_replace($this->validateAttribute(), ['images' => $image]);
+            // $image = 'data:image/png;base64,' . base64_encode(file_get_contents(request('images')));
+            $attributes['images'] = 'data:image/png;base64,' . base64_encode(file_get_contents(request('images')));
         }
 
         $product->update($attributes);
@@ -127,9 +131,14 @@ class ProductController extends Controller
     {
         return request()->validate([
             'name' => 'required',
+            'code' => 'required',
+            'price' => 'required',
+            'features' => 'required',
+            'line_graph' => 'required',
+            'flattening_curve' => 'required',
             'content' => 'required',
             'description' => 'required',
-            'images' => 'nullable',
+            'images' => 'nullable|image',
             'locale' => 'required'
         ]);
     }

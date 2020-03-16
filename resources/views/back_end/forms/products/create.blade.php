@@ -32,8 +32,12 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="title">Tên sản phẩm</label>
-                                <input type="text" name="name" class="form-control" id="title"
-                                    placeholder="Nhập tên sản phẩm">
+                                <input type="text" name="name"
+                                    class="form-control @error('name') is-invalid @enderror" id="title"
+                                    placeholder="Nhập tên sản phẩm" value="{{ old('name') }}">
+                                @error('name')
+                                <p class="text-danger">{{ $errors->first('name') }}</p>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label>Chọn ngôn ngữ</label>
@@ -44,49 +48,62 @@
                             </div>
                             <div class="form-group">
                                 <label>Loại sản phẩm</label>
-                                {{-- <div class="category">
-
-                                </div> --}}
-                                <select name="category_id" class="custom-select category">
-                                    {{-- @foreach (App\Category_product_tran::all() as $item)
-                                    <option value="{{$item->category_id}}">
-                                    {{ $item->name }}</option>
-                                    @endforeach --}}
-                                </select>
+                                <select name="category_id" class="custom-select category"></select>
                             </div>
                             <div class="form-group">
                                 <label for="title">Code</label>
                                 <input type="text" name="code" class="form-control" id="title"
-                                    placeholder="Nhập code sản phẩm">
+                                    placeholder="Nhập code sản phẩm" value="{{ old('code') }}">
+                                @error('code')
+                                <p class="text-danger">{{ $errors->first('code') }}</p>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="title">Price</label>
                                 <input type="text" name="price" class="form-control" id="title"
-                                    placeholder="Nhập giá sản phẩm">
+                                    placeholder="Nhập giá sản phẩm" value="{{ old('price') }}">
+                                @error('price')
+                                <p class="text-danger">{{ $errors->first('price') }}</p>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="title">Feature</label>
-                                <input type="text" name="features" class="form-control" id="title">
+                                <input type="text" name="features" class="form-control" id="title"
+                                    value="{{ old('features') }}">
+                                @error('features')
+                                <p class="text-danger">{{ $errors->first('features') }}</p>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="title">Line graphs of frit thermal expansion</label>
-                                <input type="text" name="line_graph" class="form-control" id="title">
+                                <input type="text" name="line_graph" class="form-control" id="title"
+                                    value="{{ old('line_graph') }}">
+                                @error('line_graph')
+                                <p class="text-danger">{{ $errors->first('line_graph') }}</p>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="title">Flattening curve and characteristic temperatures</label>
-                                <input type="text" name="flattening_curve" class="form-control" id="title">
+                                <input type="text" name="flattening_curve" class="form-control" id="title"
+                                    value="{{ old('flattening_curve') }}">
+                                @error('flattening_curve')
+                                <p class="text-danger">{{ $errors->first('flattening_curve') }}</p>
+                                @enderror
                             </div>
 
                             <div class="form-group">
                                 <label for="description">Mô tả</label>
                                 <textarea name="description" id="description" cols="30" rows="3"
-                                    class="form-control"></textarea>
+                                    class="form-control">{{ old('description') }}</textarea>
+                                @error('description')
+                                <p class="text-danger">{{ $errors->first('description') }}</p>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="inputFile">File input</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" name="images" class="custom-file-input" id="inputFile">
+                                        <input type="file" name="images" class="custom-file-input @error('images') is-invalid @enderror" id="inputFile">
                                         <label class="custom-file-label" for="inputFile">Choose file</label>
                                     </div>
                                 </div>
@@ -97,7 +114,10 @@
                             <div class="form-group">
                                 <label for="description">Nội dung</label>
                                 <textarea class="textarea" name="content"
-                                    style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                    style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ old('content') }}</textarea>
+                                @error('content')
+                                <p class="text-danger">{{ $errors->first('content') }}</p>
+                                @enderror
                             </div>
                         </div>
                         <!-- /.card-body -->
@@ -120,6 +140,7 @@
 @push('style')
 
 <link rel="stylesheet" href="/backend/plugins/summernote/summernote-bs4.css">
+{{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.0/css/bulma.min.css"> --}}
 
 @endpush
 
