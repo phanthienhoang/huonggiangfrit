@@ -46,6 +46,10 @@ Route::name('admin.')->prefix('admin')->group(function () {
     // Route::delete('category/destroy/{id}', 'Category_Product\CategoryController@destroy')->name('category.destroy');
 
     Route::resource('category-products', 'Category_Product\CategoryController')->middleware('locale');
+    Route::resource('category-shareholder', 'Category_ShareHolder\CateShareHolderController')->middleware('locale');
+    Route::resource('shareholder', 'Category_ShareHolder\ShareHolderController')->middleware('locale');
+
+
     
 
 });
