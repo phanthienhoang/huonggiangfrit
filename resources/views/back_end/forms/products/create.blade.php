@@ -108,7 +108,7 @@
                                     <div class="custom-file">
                                         <input type="file" name="images"
                                             class="custom-file-input @error('images') is-invalid @enderror"
-                                    id="inputFile" value="{{ old('description')}}">
+                                    id="inputFile" value="{{ old('images')}}">
                                         <label class="custom-file-label" for="inputFile">Choose file</label>
                                     </div>
                                 </div>

@@ -49,7 +49,7 @@
                                         <td>{{$atribute->title}}</td>
                                         <td><img src="{{ $atribute->images }}" width=100px height=100px /></td>
                                         <!-- <td>{{$atribute->images}}</td> -->
-                                        <td>{{$atribute->contents}}</td>
+                                        <td>{!! $atribute->contents !!}</td>
 
                                         @if($atribute->status==1)
                                             <td>Hiện</td>

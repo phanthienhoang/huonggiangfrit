@@ -60,17 +60,17 @@ class ProductController extends Controller
         if ($attributes['locale'] == 'vi') {
             $product->productTranslates()->create($attributes);
             $attributes['locale'] = 'en';
-            $attributes['name'] = 'null';
-            $attributes['description'] = 'null';
-            $attributes['content'] = 'null';
+            $attributes['name'] = 'please update english';
+            $attributes['description'] = 'please update english';
+            $attributes['content'] = 'please update english';
             $product->productTranslates()->create($attributes);
             $message = "Tạo mới thành công! xin hãy cập nhập ngôn ngữ tiếng anh";
         } else {
             $product->productTranslates()->create($attributes);
             $attributes['locale'] = 'vi';
-            $attributes['name'] = 'null';
-            $attributes['description'] = 'null';
-            $attributes['content'] = 'null';
+            $attributes['name'] = 'cập nhập bài viết tiếng việt';
+            $attributes['description'] = 'cập nhập bài viết tiếng việt';
+            $attributes['content'] = 'cập nhập bài viết tiếng việt';
             $product->productTranslates()->create($attributes);
             $message = "create-success ! please update vietnam language";
         }

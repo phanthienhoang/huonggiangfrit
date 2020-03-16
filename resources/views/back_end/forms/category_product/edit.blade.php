@@ -23,15 +23,18 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form role="form" action="{{ route('admin.category-products.update',$atribute->id) }}"
-                        method="POST" enctype="multipart/form-data">
+                    <form role="form" action="{{ route('admin.category-products.update',$atribute->id) }}" method="POST"
+                        enctype="multipart/form-data">
                         @csrf
                         @method("PUT")
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="title">Tên loại sản phẩm</label>
-                                <input type="text" name="name" value="{{$atribute->name}}" class="form-control"
-                                    id="title" placeholder="Nhập tiêu đề">
+                                <input type="text" name="name" value="{{$atribute->name}}" class="form-control @error('name') is-invalid @enderror"
+                                    id="title">
+                                @error('name')
+                                <p class="text-danger">{{ $errors->first('name') }}</p>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label>Chọn trạng thái</label>
@@ -44,9 +47,11 @@
                                 <label>Chọn ngôn ngữ</label>
                                 <select name="locale" class="custom-select">
                                     @if (Session::get('language') === 'vi')
-                                    <option value="vi">Tiếng Việt</option>
+                                    <option value="vi" {{$atribute->locale == 'vi' ? 'selected' : null}}>Tiếng Việt
+                                    </option>
                                     @else
-                                    <option value="en">Tiếng Anh</option>
+                                    <option value="en" {{$atribute->locale == 'en' ? 'selected' : null}}>Tiếng Anh
+                                    </option>
                                     @endif
                                 </select>
                             </div>
@@ -54,18 +59,23 @@
                             <div class="form-group">
                                 <label for="description">Mô tả</label>
                                 <textarea name="description" value="" id="description" cols="30" rows="3"
-                                    class="form-control">{{$atribute->description}}</textarea>
+                                    class="form-control @error('description') is-invalid @enderror">{{$atribute->description}}</textarea>
+                                @error('description')
+                                <p class="text-danger">{{ $errors->first('description') }}</p>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="inputFile">File input</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" name="images" class="custom-file-input"
-                                            id="inputFile">
+                                        <input type="file" name="images" class="custom-file-input @error('images') is-invalid @enderror" id="inputFile">
                                         <label class="custom-file-label" for="inputFile">Choose file</label>
                                     </div>
+                                    @error('images')
+                                    <p class="text-danger">{{ $errors->first('images') }}</p>
+                                    @enderror
                                     <div class="mt-2">
-                                    <img class="w-25 img" src="{{ $atribute->images }}" alt="">
+                                        <img class="w-25 img" src="{{ $atribute->images }}" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -73,9 +83,11 @@
                                 <label for="description">Nội dung</label>
                                 <textarea class="textarea" name="contents" placeholder="Nhập nội dung" value=""
                                     style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
-
                                     {{$atribute->contents}}
                                     </textarea>
+                                @error('content')
+                                <p class="text-danger">{{ $errors->first('content') }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="card-footer">

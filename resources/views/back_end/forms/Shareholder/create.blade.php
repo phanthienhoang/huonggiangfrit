@@ -32,8 +32,12 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="title">tiêu đề</label>
-                                <input type="text" name="title" class="form-control" id="title"
-                                    placeholder="Nhập tiêu đề">
+                                <input type="text" name="title"
+                                    class="form-control @error('title') is-invalid @enderror" id="title"
+                                    placeholder="Nhập tiêu đề" value="{{ old('title') }}">
+                                @error('title')
+                                <p class="text-danger">{{ $errors->first('title') }}</p>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label>Chọn trạng thái</label>
@@ -50,7 +54,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>loại sản phẩm</label>
+                                <label>Loại cổ đông</label>
                                 <select name="category" class="custom-select category">
                                 </select>
                             </div>
@@ -58,19 +62,26 @@
                                 <label for="inputFile">File input</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" name="images" class="custom-file-input"
-                                            id="inputFile">
+                                        <input type="file" name="images"
+                                            class="custom-file-input @error('images') is-invalid @enderror"
+                                            id="inputFile" value="{{ old('description')}}">
                                         <label class="custom-file-label" for="inputFile">Choose file</label>
                                     </div>
-                                    <div class="mt-2">
-                                        <img class="w-25 img" src="" alt="">
-                                    </div>
+                                </div>
+                                @error('images')
+                                <p class="text-danger">{{ $errors->first('images') }}</p>
+                                @enderror
+                                <div class="mt-2">
+                                    <img class="w-25 img" src="" alt="">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="contents">Nội dung</label>
-                                <textarea class="textarea" name="contents"
-                                    style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
+                                <label for="description">Nội dung</label>
+                                <textarea class="textarea @error('contents') is-invalid @enderror" name="contents"
+                                    style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ old('contents') }}</textarea>
+                                @error('contents')
+                                <p class="text-danger">{{ $errors->first('contents') }}</p>
+                                @enderror
                             </div>
                         </div>
                         <!-- /.card-body -->
@@ -149,7 +160,6 @@
                 'locale': locale
             },
             success:function(data) {
-                console.log(data)
                 $('.category').empty()
                 $.each(data, function(i,v){
                     $('.category').append(

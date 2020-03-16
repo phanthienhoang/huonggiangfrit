@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Loại sản phẩm</h1>
+                <h1 class="m-0 text-dark">Cổ đông</h1>
             </div>
         </div>
     </div>
@@ -22,20 +22,22 @@
                 <!-- general form elements -->
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Thêm loại sản phẩm</h3>
+                        <h3 class="card-title">Sửa tin tức cổ đông</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form role="form" action="{{ route('admin.category-products.store') }}" method="POST"
+                    <form role="form" action="{{ route('admin.shareholder.update', $atribute->id) }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
+                        @method('PATCH')
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="title">Tên loại sản phẩm</label>
-                                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
-                                    id="title" placeholder="Nhập tiêu đề" value="{{ old('name') }}">
-                                @error('name')
-                                <p class="text-danger">{{ $errors->first('name') }}</p>
+                                <label for="title">tiêu đề</label>
+                                <input type="text" name="title"
+                                    class="form-control @error('title') is-invalid @enderror" id="title"
+                                    placeholder="Nhập tiêu đề" value="{{ $atribute->title}}">
+                                @error('title')
+                                <p class="text-danger">{{ $errors->first('title') }}</p>
                                 @enderror
                             </div>
                             <div class="form-group">
@@ -47,18 +49,15 @@
                             </div>
                             <div class="form-group">
                                 <label>Chọn ngôn ngữ</label>
-                                <select name="locale" class="custom-select">
-                                    <option value="vi">Tiếng Việt</option>
-                                    <option value="en">Tiếng Anh</option>
+                                <select name="locale" id='locale' class="custom-select language">
+                                    <option value="vi" {{ $atribute->locale == 'vi' ? 'selected' : null }}>Tiếng Việt</option>
+                                    <option value="en" {{ $atribute->locale == 'en' ? 'selected' : null }}>Tiếng Anh</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="description">Mô tả</label>
-                                <textarea name="description" id="description" cols="30" rows="3"
-                                    class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
-                                @error('description')
-                                <p class="text-danger">{{ $errors->first('description') }}</p>
-                                @enderror
+                                <label>Loại cổ đông</label>
+                                <select name="category" class="custom-select category">
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="inputFile">File input</label>
@@ -66,7 +65,7 @@
                                     <div class="custom-file">
                                         <input type="file" name="images"
                                             class="custom-file-input @error('images') is-invalid @enderror"
-                                            id="inputFile" value="{{ old('images')}}">
+                                            id="inputFile" value="{{ old('description')}}">
                                         <label class="custom-file-label" for="inputFile">Choose file</label>
                                     </div>
                                 </div>
@@ -74,13 +73,13 @@
                                 <p class="text-danger">{{ $errors->first('images') }}</p>
                                 @enderror
                                 <div class="mt-2">
-                                    <img class="w-25 img" src="" alt="">
+                                <img class="w-25 img" src="{{ $atribute->images }}" alt="">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="description">Nội dung</label>
                                 <textarea class="textarea @error('contents') is-invalid @enderror" name="contents"
-                                    style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ old('content') }}</textarea>
+                                    style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ $atribute->contents }}</textarea>
                                 @error('contents')
                                 <p class="text-danger">{{ $errors->first('contents') }}</p>
                                 @enderror
@@ -130,8 +129,46 @@
                 image_holder.show();
                 reader.readAsDataURL($(this)[0].files[0]);
         } else {
-                    alert("This browser does not support FileReader.");
+                alert("This browser does not support FileReader.");
         }
     })
+
+    $('.language').on('change', function(){
+        let locale = $('.language').val();
+        
+        $.ajax({
+            url: "{{route('admin.getShareholderCategory')}}",
+            method: 'GET',
+            data:{
+                'locale': locale
+            },
+            success:function(data) {
+                $('.category').empty()
+                $.each(data, function(i,v){
+                    $('.category').append(
+                        `<option value="${v.category_id}">${v.title}</option>`
+                    )
+            })            }
+        })
+    })
+
+    $(document).ready(function(){
+        let locale = $('.language').val();
+    $.ajax({
+            url: "{{route('admin.getShareholderCategory')}}",
+            method: 'GET',
+            data:{
+                'locale': locale
+            },
+            success:function(data) {
+                $('.category').empty()
+                $.each(data, function(i,v){
+                    $('.category').append(
+                        `<option value="${v.category_id}">${v.title}</option>`
+                    )
+                })
+            }
+        })
+    });
 </script>
 @endpush
