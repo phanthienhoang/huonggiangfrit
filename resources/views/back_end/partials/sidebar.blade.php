@@ -6,7 +6,7 @@
       <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
       <li class="nav-item has-treeview">
-        <a href="/admin/dashboard" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+        <a href="/admin" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
           <i class="nav-icon fas fa-tachometer-alt"></i>
           <p>
             Dashboard
@@ -15,6 +15,11 @@
       </li>
       <!-- ========================================================================================================================== -->
       <!-- ========================================================================================================================== -->
+
+      
+      <!-- ========================================================================================================================== -->
+      <!-- ========================================================================================================================== -->
+
       <li
         class="nav-item has-treeview {{ Request::segment(2) === '#' || Request::segment(2) === '#' || Request::segment(2) === '#' ? 'menu-open' : null }}">
         <a href="#" class="nav-link">
