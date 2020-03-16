@@ -20,35 +20,35 @@ class Category_product extends Model
         return $this->hasMany('App\Product');
     }
 
-    public static function boot()
-    {
-        parent::boot();
+    // public static function boot()
+    // {
+    //     parent::boot();
 
-        static::deleting(function ($category_product) {
-            foreach ($category_product->category_product_tran as $cate) {
-                $cate->delete();
-            }
-        });
+    //     static::deleting(function ($category_product) {
+    //         foreach ($category_product->category_product_tran as $cate) {
+    //             $cate->delete();
+    //         }
+    //     });
 
-        static::created(function ($category_product) {
-            $languages = Config::get('languages.supported');
-            foreach ($languages as $language) {
-                $category_product->translation()->create(['locale' => $language]);
-            }
-        });
-    }
+    //     static::created(function ($category_product) {
+    //         $languages = Config::get('languages.supported');
+    //         foreach ($languages as $language) {
+    //             $category_product->translation()->create(['locale' => $language]);
+    //         }
+    //     });
+    // }
 
     public function category_product_tran()
     {
         return $this->hasMany('App\Category_product_tran', $this->foreignKey);
     }
 
-    public function translation($language = null)
-    {
-        if ($language === null) {
-            $language = App::getLocale();
-        }
+    // public function translation($language = null)
+    // {
+    //     if ($language === null) {
+    //         $language = App::getLocale();
+    //     }
 
-        return $this->hasMany(Category_product_tran::class, $this->foreignKey)->where('locale', $language);
-    }
+    //     return $this->hasMany(Category_product_tran::class, $this->foreignKey)->where('locale', $language);
+    // }
 }
