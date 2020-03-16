@@ -97,7 +97,6 @@ class ProductController extends Controller
         $attributes = request()->except('category_id');;
 
         if (request()->has('images')) {
-            // $image = 'data:image/png;base64,' . base64_encode(file_get_contents(request('images')));
             $attributes['images'] = 'data:image/png;base64,' . base64_encode(file_get_contents(request('images')));
         }
 

@@ -32,9 +32,8 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="title">Tên sản phẩm</label>
-                                <input type="text" name="name"
-                                    class="form-control @error('name') is-invalid @enderror" id="title"
-                                    placeholder="Nhập tên sản phẩm" value="{{ old('name') }}">
+                                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
+                                    id="title" placeholder="Nhập tên sản phẩm" value="{{ old('name') }}">
                                 @error('name')
                                 <p class="text-danger">{{ $errors->first('name') }}</p>
                                 @enderror
@@ -52,15 +51,16 @@
                             </div>
                             <div class="form-group">
                                 <label for="title">Code</label>
-                                <input type="text" name="code" class="form-control" id="title"
-                                    placeholder="Nhập code sản phẩm" value="{{ old('code') }}">
+                                <input type="text" name="code" class="form-control @error('code') is-invalid @enderror"
+                                    id="title" placeholder="Nhập code sản phẩm" value="{{ old('code') }}">
                                 @error('code')
                                 <p class="text-danger">{{ $errors->first('code') }}</p>
                                 @enderror
                             </div>
                             <div class="form-group">
                                 <label for="title">Price</label>
-                                <input type="text" name="price" class="form-control" id="title"
+                                <input type="text" name="price"
+                                    class="form-control @error('price') is-invalid @enderror" id="title"
                                     placeholder="Nhập giá sản phẩm" value="{{ old('price') }}">
                                 @error('price')
                                 <p class="text-danger">{{ $errors->first('price') }}</p>
@@ -68,7 +68,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="title">Feature</label>
-                                <input type="text" name="features" class="form-control" id="title"
+                                <input type="text" name="features"
+                                    class="form-control @error('features') is-invalid @enderror" id="title"
                                     value="{{ old('features') }}">
                                 @error('features')
                                 <p class="text-danger">{{ $errors->first('features') }}</p>
@@ -76,7 +77,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="title">Line graphs of frit thermal expansion</label>
-                                <input type="text" name="line_graph" class="form-control" id="title"
+                                <input type="text" name="line_graph"
+                                    class="form-control @error('line_graph') is-invalid @enderror" id="title"
                                     value="{{ old('line_graph') }}">
                                 @error('line_graph')
                                 <p class="text-danger">{{ $errors->first('line_graph') }}</p>
@@ -84,7 +86,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="title">Flattening curve and characteristic temperatures</label>
-                                <input type="text" name="flattening_curve" class="form-control" id="title"
+                                <input type="text" name="flattening_curve"
+                                    class="form-control @error('flattening_curve') is-invalid @enderror" id="title"
                                     value="{{ old('flattening_curve') }}">
                                 @error('flattening_curve')
                                 <p class="text-danger">{{ $errors->first('flattening_curve') }}</p>
@@ -94,7 +97,7 @@
                             <div class="form-group">
                                 <label for="description">Mô tả</label>
                                 <textarea name="description" id="description" cols="30" rows="3"
-                                    class="form-control">{{ old('description') }}</textarea>
+                                    class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
                                 @error('description')
                                 <p class="text-danger">{{ $errors->first('description') }}</p>
                                 @enderror
@@ -103,17 +106,22 @@
                                 <label for="inputFile">File input</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" name="images" class="custom-file-input @error('images') is-invalid @enderror" id="inputFile">
+                                        <input type="file" name="images"
+                                            class="custom-file-input @error('images') is-invalid @enderror"
+                                    id="inputFile" value="{{ old('description')}}">
                                         <label class="custom-file-label" for="inputFile">Choose file</label>
                                     </div>
                                 </div>
+                                @error('images')
+                                <p class="text-danger">{{ $errors->first('images') }}</p>
+                                @enderror
                                 <div class="mt-2">
                                     <img class="w-25 img" src="" alt="">
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="description">Nội dung</label>
-                                <textarea class="textarea" name="content"
+                                <textarea class="textarea @error('content') is-invalid @enderror" name="content"
                                     style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ old('content') }}</textarea>
                                 @error('content')
                                 <p class="text-danger">{{ $errors->first('content') }}</p>
