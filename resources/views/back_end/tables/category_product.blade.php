@@ -76,7 +76,7 @@
                                                 @csrf
                                                 @method('DELETE')
                                                 <input type="submit" onclick="return confirm('bạn có thực sự muốn xóa')"
-                                                    class="btn bg-danger text-dark" value="Xóa">
+                                                    class="btn bg-danger text-dark" value="Xóa&nbsp&nbsp&nbsp&nbsp"/>
                                             </form>
                                         </div>
                                     </td>
