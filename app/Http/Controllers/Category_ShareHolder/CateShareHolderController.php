@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Category_Shareholder;
 use App\Category_Shareholder_Tran;
 use App;
+use Illuminate\Support\Facades\Session;
 
 class CateShareHolderController extends Controller
 {
@@ -57,13 +58,17 @@ class CateShareHolderController extends Controller
             $atribute['status']=0;
             $atribute['title']='null';
             Category_Shareholder_Tran::create($atribute);
+            $message = "Tạo mới thành công! xin hãy cập nhập ngôn ngữ tiếng anh";
         }else{
             Category_Shareholder_Tran::create($atribute);
             $atribute['locale']='vi';
             $atribute['status']=0;
             $atribute['title']='null';
             Category_Shareholder_Tran::create($atribute);
+            $message = "create-success ! please update vietnam language";
         }
+
+        Session::flash('create-success',$message);
         return redirect()->route('admin.category-shareholder.index');
     }
     /**

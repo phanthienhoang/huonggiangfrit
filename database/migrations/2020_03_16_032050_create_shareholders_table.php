@@ -16,8 +16,8 @@ class CreateShareholdersTable extends Migration
         Schema::create('shareholders', function (Blueprint $table) {
             $table->id();
             $table->boolean('online')->default(1);
-            $table->unsignedBigInteger('category_shareholder_id');
-            $table->foreign('category_shareholder_id')->references('id')->on('category__shareholders')->onDelete('cascade');
+            $table->unsignedBigInteger('category_id');
+            $table->foreign('category_id')->references('id')->on('category__shareholders')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });

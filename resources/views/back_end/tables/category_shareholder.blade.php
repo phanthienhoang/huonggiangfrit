@@ -19,7 +19,9 @@
 @endsection
 
 @section('content')
-
+@if(Session::has('create-success'))
+    <h1><div id='banner_session' style="text-align:center" class="text-primary">{{ Session::get('create-success')}}</div></h1>
+@endif  
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -44,7 +46,11 @@
                                     <tr>
                                         <td>{{$atribute->title}}</td>
                                         <td>{{$atribute->locale}}</td>
-                                        <td>{{$atribute->status}}</td>
+                                        @if($atribute->status==1)
+                                            <td>Hiện</td>
+                                        @else
+                                            <td>Ẩn</td>
+                                        @endif
                                         <td>
                                             <div class="row">
                                                 <div class="col">
@@ -99,5 +105,9 @@
                 }]
             });
         });
+
+        setTimeout(() => {
+            document.getElementById('banner_session').style.display = 'none';  
+        }, 4000);
     </script>
 @endpush

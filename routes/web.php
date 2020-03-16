@@ -45,10 +45,12 @@ Route::name('admin.')->prefix('admin')->group(function () {
     // Route::get('category/edit/{id}', 'Category_Product\CategoryController@edit')->name('category.edit');
     // Route::put('category/update/{id}', 'Category_Product\CategoryController@update')->name('category.update');
     // Route::delete('category/destroy/{id}', 'Category_Product\CategoryController@destroy')->name('category.destroy');
+    Route::get('shareholder/categories', 'Category_ShareHolder\ShareHolderController@getShareholderCategory')->name('getShareholderCategory');
 
     Route::resource('category-products', 'Category_Product\CategoryController')->middleware('locale');
     Route::resource('category-shareholder', 'Category_ShareHolder\CateShareHolderController')->middleware('locale');
     Route::resource('shareholder', 'Category_ShareHolder\ShareHolderController')->middleware('locale');
+   
 
 
     
