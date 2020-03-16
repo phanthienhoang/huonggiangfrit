@@ -17,6 +17,7 @@ class CategoryController extends Controller
     {
         return Category_product_tran::where('locale',$locale)->get();
     }
+
     public function index()
     {   
         if (App::getLocale() == "en") {
@@ -92,8 +93,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $atribute = Category_product_tran::findOrFail($id);
-        return view('back_end.forms.category_product.edit',compact(['atribute']));
+        $categoryProduct = Category_product_tran::findOrFail($id);
+        return view('back_end.forms.category_product.edit',compact(['categoryProduct']));
     }
     /**
      * Update the specified resource in storage.
@@ -111,7 +112,7 @@ class CategoryController extends Controller
         }
         $product = Category_product_tran::find($id);
         $product->update($atribute);
-        return redirect()->route('admin.category');
+        return redirect()->route('admin.category-products.index');
     }
     /**
      * Remove the specified resource from storage.
@@ -131,6 +132,12 @@ class CategoryController extends Controller
         foreach($cate_product->category_product_tran as $key=>$value){
             $value->delete();
         }
+
+        foreach($cate_product->product as $key=>$value){
+            $value->delete();
+            $value->productTranslates()->delete();
+        }
+
         return redirect(route('admin.category-products.index'));
     }
 }

@@ -33,29 +33,50 @@
                             <div class="form-group">
                                 <label for="title">Tên sản phẩm</label>
                                 <input type="text" name="name" class="form-control" id="title"
-                                    placeholder="Nhập tiêu đề">
+                                    placeholder="Nhập tên sản phẩm">
                             </div>
                             <div class="form-group">
                                 <label>Chọn ngôn ngữ</label>
-                                <select name="locale" class="custom-select">
-                                    @if (Session::get('language') === 'vi')
+                                <select name="locale" class="custom-select language">
                                     <option value="vi">Tiếng Việt</option>
-                                    @else
                                     <option value="en">Tiếng Anh</option>
-                                    @endif
                                 </select>
                             </div>
                             <div class="form-group">
                                 <label>Loại sản phẩm</label>
-                                <select name="category_id" class="custom-select">
-                                    @foreach (App\Category_product::all() as $item)
-                                    @if (!empty($item->translation(Session::get('language'))->first()->name))
-                                    <option value="{{$item->id}}">
-                                        {{ $item->translation(Session::get('language'))->first()->name }}</option>
-                                    @endif
-                                    @endforeach
+                                {{-- <div class="category">
+
+                                </div> --}}
+                                <select name="category_id" class="custom-select category">
+                                    {{-- @foreach (App\Category_product_tran::all() as $item)
+                                    <option value="{{$item->category_id}}">
+                                    {{ $item->name }}</option>
+                                    @endforeach --}}
                                 </select>
                             </div>
+                            <div class="form-group">
+                                <label for="title">Code</label>
+                                <input type="text" name="code" class="form-control" id="title"
+                                    placeholder="Nhập code sản phẩm">
+                            </div>
+                            <div class="form-group">
+                                <label for="title">Price</label>
+                                <input type="text" name="price" class="form-control" id="title"
+                                    placeholder="Nhập giá sản phẩm">
+                            </div>
+                            <div class="form-group">
+                                <label for="title">Feature</label>
+                                <input type="text" name="features" class="form-control" id="title">
+                            </div>
+                            <div class="form-group">
+                                <label for="title">Line graphs of frit thermal expansion</label>
+                                <input type="text" name="line_graph" class="form-control" id="title">
+                            </div>
+                            <div class="form-group">
+                                <label for="title">Flattening curve and characteristic temperatures</label>
+                                <input type="text" name="flattening_curve" class="form-control" id="title">
+                            </div>
+
                             <div class="form-group">
                                 <label for="description">Mô tả</label>
                                 <textarea name="description" id="description" cols="30" rows="3"
@@ -73,7 +94,6 @@
                                     <img class="w-25 img" src="" alt="">
                                 </div>
                             </div>
-
                             <div class="form-group">
                                 <label for="description">Nội dung</label>
                                 <textarea class="textarea" name="content"
@@ -128,5 +148,42 @@
                     alert("This browser does not support FileReader.");
         }
     })
+
+    $('.language').on('change', function(){
+        let locale = $('.language').val();
+        $.ajax({
+            url: "{{route('admin.getCategory')}}",
+            method: 'GET',
+            data:{
+                'locale': locale
+            },
+            success:function(data) {
+                $('.category').empty()
+                $.each(data, function(i,v){
+                    $('.category').append(
+                        `<option value="${v.category_id}">${v.name}</option>`
+                    )
+                })            }
+        })
+    })
+
+    $(document).ready(function(){
+        let locale = $('.language').val();
+    $.ajax({
+            url: "{{route('admin.getCategory')}}",
+            method: 'GET',
+            data:{
+                'locale': locale
+            },
+            success:function(data) {
+                $('.category').empty()
+                $.each(data, function(i,v){
+                    $('.category').append(
+                        `<option value="${v.category_id}">${v.name}</option>`
+                    )
+                })
+                }
+        })
+    });
 </script>
 @endpush
