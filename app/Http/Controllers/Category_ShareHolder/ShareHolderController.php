@@ -103,7 +103,7 @@ class ShareHolderController extends Controller
     public function edit($id)
     {
         $atribute = Shareholder_Tran::findOrFail($id);
-        return view('back_end.forms.shareholder.edit',compact(['atribute']));
+        return view('back_end.forms.Shareholder.edit',compact(['atribute']));
     }
     /**
      * Update the specified resource in storage.

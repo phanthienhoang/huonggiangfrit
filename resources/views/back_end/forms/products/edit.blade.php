@@ -33,7 +33,7 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="title">Tên sản phẩm</label>
-                                <input type="text" name="name" class="form-control" id="title"
+                                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="title"
                                     value="{{$product->name}}">
                                 @error('name')
                                 <p class="text-danger">{{ $errors->first('name') }}</p>
@@ -55,7 +55,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="title">Code</label>
-                                <input type="text" name="code" class="form-control" id="title"
+                                <input type="text" name="code" class="form-control @error('code') is-invalid @enderror" id="title"
                                     value="{{$product->code}}">
                                 @error('code')
                                 <p class="text-danger">{{ $errors->first('code') }}</p>
@@ -63,7 +63,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="title">Price</label>
-                                <input type="text" name="price" class="form-control" id="title"
+                                <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" id="title"
                                     value="{{$product->price}}">
                                 @error('price')
                                 <p class="text-danger">{{ $errors->first('price') }}</p>
@@ -71,7 +71,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="title">Feature</label>
-                                <input type="text" name="features" class="form-control" id="title"
+                                <input type="text" name="features" class="form-control @error('features') is-invalid @enderror" id="title"
                                     value="{{$product->features}}">
                                 @error('features')
                                 <p class="text-danger">{{ $errors->first('features') }}</p>
@@ -79,7 +79,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="title">Line graphs of frit thermal expansion</label>
-                                <input type="text" name="line_graph" class="form-control" id="title"
+                                <input type="text" name="line_graph" class="form-control @error('line_graph') is-invalid @enderror" id="title"
                                     value="{{$product->line_graph}}">
                                 @error('line_graph')
                                 <p class="text-danger">{{ $errors->first('line_graph') }}</p>
@@ -87,7 +87,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="title">Flattening curve and characteristic temperatures</label>
-                                <input type="text" name="flattening_curve" class="form-control" id="title"
+                                <input type="text" name="flattening_curve" class="form-control @error('flattening_curve') is-invalid @enderror" id="title"
                                     value="{{$product->flattening_curve}}">
                                 @error('flattening_curve')
                                 <p class="text-danger">{{ $errors->first('flattening_curve') }}</p>
@@ -96,7 +96,7 @@
                             <div class="form-group">
                                 <label for="description">Mô tả</label>
                                 <textarea name="description" id="description" cols="30" rows="3"
-                                    class="form-control">{{$product->description}}</textarea>
+                                    class="form-control @error('description') is-invalid @enderror">{{$product->description}}</textarea>
                                 @error('description')
                                 <p class="text-danger">{{ $errors->first('description') }}</p>
                                 @enderror

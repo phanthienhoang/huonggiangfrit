@@ -56,14 +56,14 @@ class CateShareHolderController extends Controller
             Category_Shareholder_Tran::create($atribute);
             $atribute['locale']='en';
             $atribute['status']=0;
-            $atribute['title']='null';
+            $atribute['title']='please update english';
             Category_Shareholder_Tran::create($atribute);
             $message = "Tạo mới thành công! xin hãy cập nhập ngôn ngữ tiếng anh";
         }else{
             Category_Shareholder_Tran::create($atribute);
             $atribute['locale']='vi';
             $atribute['status']=0;
-            $atribute['title']='null';
+            $atribute['title']='cập nhập bài viết tiếng việt';
             Category_Shareholder_Tran::create($atribute);
             $message = "create-success ! please update vietnam language";
         }

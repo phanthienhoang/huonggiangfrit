@@ -48,6 +48,8 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {   
+        $this->validateAttribute();
+
         $category_product = new Category_product;
         $input = $request->input('online');
         $category_product->online=$input;
@@ -111,6 +113,8 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validateAttribute();
+        
         $atribute = $request->all();
         if ($request->hasFile('images')) {
             $image=base64_encode(file_get_contents($request->file("images")));
@@ -149,5 +153,16 @@ class CategoryController extends Controller
         }
 
         return redirect(route('admin.category-products.index'));
+    }
+
+    public function validateAttribute()
+    {
+        return request()->validate([
+            'name' => 'required',
+            'contents' => 'required',
+            'description' => 'required',
+            'images' => 'nullable|image',
+            'locale' => 'required'
+        ]);
     }
 }
