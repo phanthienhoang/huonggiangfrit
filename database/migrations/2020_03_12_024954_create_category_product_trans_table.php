@@ -22,7 +22,6 @@ class CreateCategoryProductTransTable extends Migration
             $table->boolean('status')->default(1);
             $table->string('locale');
             $table->unsignedBigInteger('category_id');
-            $table->unique(['category_id', 'locale']);
             $table->foreign('category_id')->references('id')->on('category_products')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
