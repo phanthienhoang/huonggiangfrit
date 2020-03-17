@@ -26,7 +26,6 @@ class CreateProductTransTable extends Migration
             $table->text('description');
             $table->string('locale');
             $table->unsignedBigInteger('product_id');
-            $table->unique(['product_id', 'locale']);
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();

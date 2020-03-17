@@ -9,15 +9,15 @@
                     <div class="row d-flex justify-content-between align-items-center">
                         <div class="header-info-right">
                             <ul>     
-                                <li>HUONG GIANG FRIT JOINT STOCK COMPANY</li>
+                                <li>{{trans('header.company')}}</li>
                             </ul>
                         </div>
                         <div class="header-info-left">
                             <ul> 
                                 <li>  
                                     <div style="margin:auto;" id="language_id">
-                                        <a style='a:visited:color:red' href="{{ route('user.change-language',['en'])}}" ><img src='/assets/icon-en.png'/></a>
-                                        <a style='a:visited:color:red' href="{{ route('user.change-language',['vi'])}}" ><img src='/assets/icon-vn.png'/></a>
+                                        <a href="{{ route('user.change-language',['en'])}}" ><img src='/assets/icon-en.png'/></a>
+                                        <a href="{{ route('user.change-language',['vi'])}}" ><img src='/assets/icon-vn.png'/></a>
                                     </div>
                                 </li>    
                                 <li>+84.2343.595.695</li>
@@ -28,6 +28,23 @@
                    </div>
                    </div>
                </div>
+            </div>
+            <div class="header-top top-bg d-lg-none d-block">
+                <div class="header-info-left">
+                                <ul> 
+                                    <li style="margin:5px">huonggiangfrit@gmail.com</li>
+                                    <li>  
+                                        <a href="{{ route('user.change-language',['en'])}}" ><img src='/assets/icon-en.png'/></a>
+                                    </li>  
+                                    <li>
+                                        <a href="{{ route('user.change-language',['vi'])}}" ><img src='/assets/icon-vn.png'/></a>
+                                    </li>
+                                </ul>
+                    </div>
+                <!-- <div style="float:right" id="language_id">
+                    <a href="{{ route('user.change-language',['en'])}}" ><img src='/assets/icon-en.png'/></a>
+                    <a href="{{ route('user.change-language',['vi'])}}" ><img src='/assets/icon-vn.png'/></a>
+                </div> -->
             </div>
            <div class="header-bottom  header-sticky">
                 <div class="container">

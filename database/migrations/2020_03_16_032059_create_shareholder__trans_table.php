@@ -21,7 +21,6 @@ class CreateShareholderTransTable extends Migration
             $table->boolean('status')->default(1);
             $table->string('locale');
             $table->unsignedBigInteger('shareholder_id');
-            $table->unique(['shareholder_id', 'locale']);
             $table->foreign('shareholder_id')->references('id')->on('shareholders')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();

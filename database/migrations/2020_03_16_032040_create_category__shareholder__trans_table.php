@@ -18,7 +18,6 @@ class CreateCategoryShareholderTransTable extends Migration
             $table->string('title')->nullable();
             $table->string('locale');
             $table->unsignedBigInteger('category_id');
-            $table->unique(['category_id', 'locale']);
             $table->boolean('status')->default(1);
             $table->foreign('category_id')->references('id')->on('category__shareholders')->onDelete('cascade');
             $table->softDeletes();
