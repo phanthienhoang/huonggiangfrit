@@ -106,6 +106,9 @@ class CateShareHolderController extends Controller
         // dd($product);
         $product->update($atribute);
         // dd($product->update($atribute));
+        $message = "update thành công";
+
+        Session::flash('create-success',$message);
         return redirect()->route('admin.category-shareholder.index');
     }
     /**

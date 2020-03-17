@@ -61,7 +61,6 @@ class ShareHolderController extends Controller
             $atribute['images']="data:image/jpg;base64,".$image;
         }
         $atribute['shareholder_id']=$last_id;
-        // dd($atribute);
         if($atribute['locale']=='vi'){
             Shareholder_Tran::create($atribute);
             $atribute['locale']='en';
@@ -117,6 +116,9 @@ class ShareHolderController extends Controller
         $atribute = $request->all();
         $product = Shareholder_Tran::find($id);
         $product->update($atribute);
+        $message = "update thành công";
+
+        Session::flash('create-success',$message);
         return redirect()->route('admin.shareholder.index');
     }
     /**

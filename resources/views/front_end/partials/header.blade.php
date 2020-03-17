@@ -13,7 +13,13 @@
                             </ul>
                         </div>
                         <div class="header-info-left">
-                            <ul>     
+                            <ul> 
+                                <li>  
+                                    <div style="margin:auto;" id="language_id">
+                                        <a style='a:visited:color:red' href="{{ route('user.change-language',['en'])}}" ><img src='/assets/icon-en.png'/></a>
+                                        <a style='a:visited:color:red' href="{{ route('user.change-language',['vi'])}}" ><img src='/assets/icon-vn.png'/></a>
+                                    </div>
+                                </li>    
                                 <li>+84.2343.595.695</li>
                                 <li>huonggiangfrit@gmail.com</li>
                             </ul>
@@ -28,8 +34,8 @@
                     <div class="row align-items-center">
                         <!-- Logo -->
                         <div class="col-xl-2 col-lg-2 col-md-2">
-                            <div class="logo" style="margin-left:20px">
-                                <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                            <div class="logo" style="">
+                                <a href="/"><img width=100px src="assets/img/logo/huongiangicon.png" alt=""></a>
                             </div>
                         </div>
                         <div class="col-xl-10 col-lg-10 col-md-10">
@@ -40,13 +46,6 @@
 
                             </div>
                         </div>             
-                        {{-- <div class="col-xl-2 col-lg-3 col-md-3">
-                            <!-- Header-btn -->
-                            <div class="header-btn d-none d-lg-block">
-                                <a href="#" class="get-btn">Get A QUOTE</a>
-                            </div>
-                        </div> --}}
-                        <!-- Mobile Menu -->
                         <div class="col-12">
                             <div class="mobile_menu d-block d-lg-none"></div>
                         </div>
