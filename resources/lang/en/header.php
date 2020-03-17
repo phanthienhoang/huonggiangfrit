@@ -1,11 +1,5 @@
 <?php
     return[
-        "home" => "HOME",
-        "introduce" => "INTRODUCTION",
-        "product"   =>"PRODUCT",
-        "news"       =>"NEWS",
-        "shareholder"       =>"SHAREHOLDER",
-        "photolibrary"       =>"PHOTO LIB",
-        "contact"    =>"CONTACTS US",
-        "hiring"    => "HIRING"
+        "company" => "HUONG GIANG FRIT JOINT STOCK COMPANY",
+        "address" => "Lot CN07, Zone B, Phong Dien IZ, Phong Dien Town, Phong Dien Distrist, Thua Thien Hue Province, Vietnam."
     ];

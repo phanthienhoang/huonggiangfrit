@@ -9,7 +9,7 @@
                     <div class="row d-flex justify-content-between align-items-center">
                         <div class="header-info-right">
                             <ul>     
-                                <li>HUONG GIANG FRIT JOINT STOCK COMPANY</li>
+                                <li>{{trans('header.company')}}</li>
                             </ul>
                         </div>
                         <div class="header-info-left">

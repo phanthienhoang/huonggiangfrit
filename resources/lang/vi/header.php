@@ -1,11 +1,5 @@
 <?php
     return[
-        "home" => "HOME",
-        "introduce" => "INTRODUCTION",
-        "product"   =>"PRODUCT",
-        "news"       =>"NEWS",
-        "shareholder"       =>"SHAREHOLDER",
-        "photolibrary"       =>"PHOTO LIB",
-        "contact"    =>"CONTACTS US",
-        "hiring"    => "HIRING"
+        "company" => "CÔNG TY CỔ PHẦN FRIT HƯƠNG GIANG",
+        "address" => "ọa lạc tại Khu B, KCN Phong Điền, thị trấn Phong Điền, huyện Phong Điền, tỉnh Thừa Thiên Huế."
     ];
