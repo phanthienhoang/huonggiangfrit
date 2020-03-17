@@ -65,20 +65,25 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="inputFile">File input</label>
-                                <div class="input-group">
-                                    <div class="custom-file">
-                                        <input type="file" name="images" class="custom-file-input @error('images') is-invalid @enderror" id="inputFile">
-                                        <label class="custom-file-label" for="inputFile">Choose file</label>
+                                <div class="form-group">
+                                    <label for="exampleInputFile">File input</label>
+                                    <div class="input-group">
+                                        <div class="custom-file">
+                                            <label class="custom-file-label" for="inputFile">Choose file</label>
+                                            <input type="file" name="images"
+                                                class="custom-file-input @error('images') is-invalid @enderror"
+                                                id="inputFile" value="{{$atribute->images}}">
+                                        </div>
                                     </div>
                                     @error('images')
                                     <p class="text-danger">{{ $errors->first('images') }}</p>
                                     @enderror
                                     <div class="mt-2">
-                                        <img class="w-25 img" src="{{ $atribute->images }}" alt="">
+                                        @if (!empty($atribute->images))
+                                        <img class="w-25 img" src="{{$atribute->images}}" alt="">
+                                        @endif
                                     </div>
                                 </div>
-                            </div>
                             <div class="form-group">
                                 <label for="description">Nội dung</label>
                                 <textarea class="textarea" name="contents" placeholder="Nhập nội dung" value=""

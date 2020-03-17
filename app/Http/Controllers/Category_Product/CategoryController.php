@@ -153,13 +153,41 @@ class CategoryController extends Controller
         return redirect(route('admin.category-products.index'));
     }
 
+    public function getDeleted(){
+        $deletedCategories = Category_product_tran::onlyTrashed()->where('locale', session()->get('language'))->get();
+
+
+        return view('back_end.tables.deleted.category_product', compact('deletedCategories'));
+    }
+
+    public function restore($id)
+    {
+        $cateTrans = Category_product_tran::onlyTrashed()->find($id);
+
+        $category = Category_product::onlyTrashed()->find($cateTrans->category_id);
+        $category->restore();
+        $category->category_product_tran()->restore();
+
+        return redirect(route('admin.category-products.index'));
+    }
+
+    public function forceDelete($id)
+    {
+        $cateTrans = Category_product_tran::onlyTrashed()->find($id);
+
+        $category = Category_product::onlyTrashed()->find($cateTrans->category_id);
+        $category->forceDelete();
+        $category->category_product_tran()->forceDelete();
+
+        return redirect(route('admin.category-products.index'));
+    }
+
     public function validateAttribute()
     {
         return request()->validate([
             'name' => 'required',
             'contents' => 'required',
             'description' => 'required',
-            'status' =>'required',
             'images' => 'nullable|image',
             'locale' => 'required'
         ]);
