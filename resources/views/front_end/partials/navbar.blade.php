@@ -1,4 +1,5 @@
 <nav>
+
     <ul id="navigation">                                                                                                                                     
         <li><a href="#">Trang chủ</a></li>
         <li><a href="#">Giới thiệu</a>
@@ -17,12 +18,14 @@
         </li>
         <li><a href="#">Sản phẩm</a>
             <ul class="submenu">
-                <li><a href="blog.html">Frit trong</a></li>
-                <li><a href="single-blog.html">Frit đục</a></li>
+            @foreach($loai_sp as $key=>$value)
+                <li><a href="blog.html">{{$value->name}}</a></li>
+                <!-- <li><a href="single-blog.html">Frit đục</a></li>
                 <li><a href="single-blog.html">Frit bán đục</a></li>
                 <li><a href="single-blog.html">Frit matt</a></li>
                 <li><a href="single-blog.html">Frit điều chỉnh</a></li>
-                <li><a href="single-blog.html">Frit titan</a></li>
+                <li><a href="single-blog.html">Frit titan</a></li> -->
+            @endforeach
             </ul>
         </li>
         <li><a href="#">Tin tức</a>
@@ -33,8 +36,10 @@
         </li>
         <li><a href="#">Quan hệ cổ đông</a>
             <ul class="submenu">
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="elements.html">Element</a></li>
+            @foreach($quanhe_codong as $key=>$value)
+                <li><a href="contact.html">{{$value->title}}</a></li>
+                <!-- <li><a href="elements.html">Element</a></li> -->
+                @endforeach
             </ul>
         </li>
         <li><a href="#">Thư viện ảnh</a></li>
