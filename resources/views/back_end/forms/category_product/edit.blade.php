@@ -38,7 +38,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Chọn trạng thái</label>
-                                <select name="online" class="custom-select">
+                                <select name="status" class="custom-select">
                                     <option value="1">Hiện</option>
                                     <option value="0">Ẩn</option>
                                 </select>
