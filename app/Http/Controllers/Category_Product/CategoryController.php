@@ -63,8 +63,7 @@ class CategoryController extends Controller
             Category_product_tran::create($atribute);
             $atribute['locale']='en';
             $atribute['status']=0;
-            $atribute['name']='null';
-            $atribute['description']='null';
+            $atribute['description']='hãy cập nhập tiếng anh cho tôi';
             $atribute['contents']='null';
             Category_product_tran::create($atribute);
             $message = "Tạo mới thành công! xin hãy cập nhập ngôn ngữ tiếng anh";
@@ -72,8 +71,7 @@ class CategoryController extends Controller
             Category_product_tran::create($atribute);
             $atribute['locale']='vi';
             $atribute['status']=0;
-            $atribute['name']='null';
-            $atribute['description']='null';
+            $atribute['description']='hãy cập nhập tiếng việt cho tôi';
             $atribute['contents']='null';
             Category_product_tran::create($atribute);
             $message = "create-success ! please update vietnam language";
@@ -161,6 +159,7 @@ class CategoryController extends Controller
             'name' => 'required',
             'contents' => 'required',
             'description' => 'required',
+            'status' =>'required',
             'images' => 'nullable|image',
             'locale' => 'required'
         ]);

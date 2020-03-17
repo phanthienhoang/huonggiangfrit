@@ -6,7 +6,127 @@
 
 <!-- Safe Industery Start -->
 
+<div class="safe-industery-area section-padd-top30">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md pr-0">
+                        <div class="safe-caption pt-10 mb-40">
+                            <h2>HƯƠNG GIANG – Đỉnh cao của chất lượng</h2>
+                            <p class="safe-pera-one">Chắc lọc được các giá trị cốt lõi trong sản xuất frit, kết hợp với đầu tư đồng bộ trang thiết bị hiện đại để tạo ra các sản phẩm đáp ứng yêu cầu chất lượng của Khách hàng</p>
+                            <p  class="safe-pera-two">Với khẩu hiệu: đỉnh cao của chất lượng, chúng tôi cam kết cung cấp các sản phẩm với chất lượng ổn định, giá thành cạnh tranh nhất, đi kèm với việc cung cấp dịch vụ hỗ trợ kỹ thuật tốt nhất đến các khách hàng.</p>
+                            <p  class="safe-pera-three">Tinh thần hợp tác, tôn trọng và cùng nhau phát triển sẽ đưa tất cả chúng ta đến gần với nhau hơn..</p>
+                            <!-- btn -->
+                            <a href="industries.html" class="btn">Our Services</a>
+                        </div>
+                    </div>
+                    <div class="col-xl-5 offset-xl-1 col-lg-6 pl-0">
+                        <div class="safe-caption-right">
+                            <div class="safe-img">
+                                <img src="assets/img/safe_industery/safe_industery_1.jpg" alt="">
+                            </div>
+                            <!-- img TOP caption -->
+                            <div class="safe-alert-box">
+                                <div class="row">
+                                    <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 d-none d-sm-block">
+                                        
+                                        <div class="safe-alert" data-background="assets/img/safe_industery/color_bg.png">
+                                            <img src="assets/img/icon/aleart_icon.png" alt="">
+                                            <h4>Nhiệm Vụ</h4>
+                                            <p>Trách nhiệm và chất lượng đồng hành cùng nhau</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Safe Industery End -->
 
+        <!-- Gallery Start-->
+        <div class="gallery-area">
+            <div class="container-fluid p-0">
+                <div class="row no-gutters">
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                        <div class="gallery-box">
+                            <div class="single-gallery">
+                                <div class="gallery-img">
+                                    <img src="assets/img/gallery/gallery_1.png" alt="">
+                                </div>
+                                <div class="g-caption1">
+                                    <span>01.</span>
+                                    <h4>Floride Chemicals Factory</h4>
+                                </div>
+                                <div class="g-caption2">
+                                    <span>01.</span>
+                                    <h4>Floride Chemicals Factory</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur smo adipiscing elit, sed do eiusmod tempor inciut labore et dolore magna ali.</p>
+                                    <a href="work.html" class="read-btn">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                        <div class="gallery-box">
+                            <div class="single-gallery">
+                                <div class="gallery-img">
+                                    <img src="assets/img/gallery/gallery_2.png" alt="">
+                                </div>
+                                <div class="g-caption1">
+                                    <span>02.</span>
+                                    <h4>Floride Chemicals Factory</h4>
+                                </div>
+                                <div class="g-caption2">
+                                    <span>02.</span>
+                                    <h4>Floride Chemicals Factory</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur smo adipiscing elit, sed do eiusmod tempor inciut labore et dolore magna ali.</p>
+                                    <a href="work.html" class="read-btn">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                        <div class="gallery-box">
+                            <div class="single-gallery">
+                                <div class="gallery-img">
+                                    <img src="assets/img/gallery/gallery_3.png" alt="">
+                                </div>
+                                <div class="g-caption1">
+                                    <span>03.</span>
+                                    <h4>Floride Chemicals Factory</h4>
+                                </div>
+                                <div class="g-caption2">
+                                    <span>03.</span>
+                                    <h4>Floride Chemicals Factory</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur smo adipiscing elit, sed do eiusmod tempor inciut labore et dolore magna ali.</p>
+                                    <a href="work.html" class="read-btn">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                        <div class="gallery-box">
+                            <div class="single-gallery">
+                                <div class="gallery-img">
+                                    <img src="assets/img/gallery/gallery_2.png" alt="">
+                                </div>
+                                <div class="g-caption1">
+                                    <span>04.</span>
+                                    <h4>Floride Chemicals Factory</h4>
+                                </div>
+                                <div class="g-caption2">
+                                    <span>04.</span>
+                                    <h4>Floride Chemicals Factory</h4>
+                                    <p>Lorem ipsum dolor sit amet, consectetur smo adipiscing elit, sed do eiusmod tempor inciut labore et dolore magna ali.</p>
+                                    <a href="work.html" class="read-btn">Read more</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 <div class="safe-industery-area section-padd-top30">
     <div class="container">
         <div class="row">
@@ -31,12 +151,12 @@ Các sản phẩm của Công ty Cổ phần Frit Hương Giang được sản x
                 </div>
             </div>
             <div class="col-xl-4 col-lg-4 pl-0">
-                    <div class="">
-                        <img src="assets/img/safe_industery/frit.jpg" width=500px>
+                    <div style="width: 100%">
+                        <img src="assets/img/safe_industery/frit.jpg" style="width: 100%">
                     </div>
 
                     <div class="">
-                        <img src="assets/img/safe_industery/frit.jpg" width=500px>
+                        <img src="assets/img/safe_industery/frit.jpg" style="width: 100%">
                     </div>
                     <!-- img TOP caption -->
             </div>
