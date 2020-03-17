@@ -29,6 +29,10 @@ Route::name('admin.')->prefix('admin')->group(function () {
     Route::get('dashboard', 'HomeController@index')->name('dashboard');
 
     Route::get('products/categories', 'ProductController@getCategory')->name('getCategory');
+    Route::get('products/get-deleted', 'ProductController@getDeleted')->name('products.getDeleted')->middleware('locale');
+    Route::get('products/restore/{id}', 'ProductController@restore')->name('products.restore');
+    Route::delete('products/force-delete/{id}', 'ProductController@forceDelete')->name('products.forceDelete')->middleware('locale');
+
     Route::resource('products', 'ProductController')->middleware('locale');
     Route::resource('category_new', 'Category_newController');
 
@@ -46,6 +50,10 @@ Route::name('admin.')->prefix('admin')->group(function () {
     // Route::put('category/update/{id}', 'Category_Product\CategoryController@update')->name('category.update');
     // Route::delete('category/destroy/{id}', 'Category_Product\CategoryController@destroy')->name('category.destroy');
     Route::get('shareholder/categories', 'Category_ShareHolder\ShareHolderController@getShareholderCategory')->name('getShareholderCategory');
+
+    Route::get('category-products/get-deleted', 'Category_Product\CategoryController@getDeleted')->name('category-products.getDelete')->middleware('locale');
+    Route::get('category-products/restore/{id}', 'Category_Product\CategoryController@restore')->name('category-products.restore')->middleware('locale');
+    Route::delete('category-products/force-delete/{id}', 'Category_Product\CategoryController@forceDelete')->name('category-products.forceDelete')->middleware('locale');
 
     Route::resource('category-products', 'Category_Product\CategoryController')->middleware('locale');
     Route::resource('category-shareholder', 'Category_ShareHolder\CateShareHolderController')->middleware('locale');

@@ -16,7 +16,7 @@
       <!-- ========================================================================================================================== -->
       <!-- ========================================================================================================================== -->
 
-      
+
       <!-- ========================================================================================================================== -->
       <!-- ========================================================================================================================== -->
 
@@ -31,9 +31,10 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="{{route('admin.category_new.index')}}" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+            <a href="{{route('admin.category_new.index')}}"
+              class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
               <i class="far fa-circle nav-icon"></i>
-              <p>CRUD TIN TỨC</p>
+              <p>Thùng rác</p>
             </a>
           </li>
           <li class="nav-item">
@@ -58,9 +59,10 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="{{route('admin.category_new.index')}}" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+            <a href="{{route('admin.category_new.index')}}"
+              class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
               <i class="far fa-circle nav-icon"></i>
-              <p>CRUD</p>
+              <p>Thùng rác</p>
             </a>
           </li>
           <li class="nav-item">
@@ -85,15 +87,17 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-          <a href="{{ route('admin.products.create') }}" class="nav-link {{ Request::segment(3) === '#' ? 'active' : null }}">
+            <a href="{{ route('admin.products.index')}}"
+              class="nav-link {{ Request::segment(3) === '#' ? 'active' : null }}">
               <i class="far fa-circle nav-icon"></i>
-              <p>CRUD</p>
+              <p>List</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('admin.products.index')}}" class="nav-link {{ Request::segment(3) === '#' ? 'active' : null }}">
+            <a href="{{ route('admin.products.getDeleted') }}"
+              class="nav-link {{ Request::segment(3) === '#' ? 'active' : null }}">
               <i class="far fa-circle nav-icon"></i>
-              <p>List</p>
+              <p>Thùng rác</p>
             </a>
           </li>
         </ul>
@@ -112,42 +116,46 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-          <a href="{{route('admin.category-products.create')}}" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
-              <i class="far fa-circle nav-icon"></i>
-              <p>CRUD</p>
-            </a>
-          </li>
-          <li class="nav-item">
-          <a href="{{route('admin.category-products.index')}}" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
-              <i class="far fa-circle nav-icon"></i>
-              <p>List</p>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li
-        class="nav-item has-treeview {{ Request::segment(2) === '#' || Request::segment(2) === '#' || Request::segment(2) === '#' ? 'menu-open' : null }}">
-        <a href="#" class="nav-link">
-          <i class="nav-icon fa fa-fw fa-cubes"></i>
-          <p>
-            Loại cổ đông 
-            <i class="right fas fa-angle-left"></i>
-          </p>
-        </a>
-        <ul class="nav nav-treeview">
-          <li class="nav-item">
-          <a href="{{route('admin.category-shareholder.index')}}" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+            <a href="{{route('admin.category-products.index')}}"
+              class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
               <i class="far fa-circle nav-icon"></i>
               <p>List</p>
             </a>
           </li>
           <li class="nav-item">
-          <a href="{{route('admin.category-shareholder.index')}}" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+            <a href="{{route('admin.category-products.getDelete')}}"
+              class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
               <i class="far fa-circle nav-icon"></i>
               <p>Thùng rác</p>
             </a>
           </li>
         </ul>
+      </li>
+      {{-- <li
+        class="nav-item has-treeview {{ Request::segment(2) === '#' || Request::segment(2) === '#' || Request::segment(2) === '#' ? 'menu-open' : null }}">
+      <a href="#" class="nav-link">
+        <i class="nav-icon fa fa-fw fa-cubes"></i>
+        <p>
+          Loại cổ đông
+          <i class="right fas fa-angle-left"></i>
+        </p>
+      </a>
+      <ul class="nav nav-treeview">
+        <li class="nav-item">
+          <a href="{{route('admin.category-shareholder.index')}}"
+            class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+            <i class="far fa-circle nav-icon"></i>
+            <p>List</p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{route('admin.category-shareholder.index')}}"
+            class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+            <i class="far fa-circle nav-icon"></i>
+            <p>Thùng rác</p>
+          </a>
+        </li>
+      </ul>
       </li>
 
       <li
@@ -155,25 +163,27 @@
         <a href="#" class="nav-link">
           <i class="nav-icon fa fa-fw fa-cubes"></i>
           <p>
-            Quan hệ cổ đông 
+            Quan hệ cổ đông
             <i class="right fas fa-angle-left"></i>
           </p>
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-          <a href="{{route('admin.shareholder.index')}}" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+            <a href="{{route('admin.shareholder.index')}}"
+              class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
               <i class="far fa-circle nav-icon"></i>
               <p>List</p>
             </a>
           </li>
           <li class="nav-item">
-          <a href="{{route('admin.shareholder.index')}}" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+            <a href="{{route('admin.shareholder.index')}}"
+              class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
               <i class="far fa-circle nav-icon"></i>
               <p>Thùng rác</p>
             </a>
           </li>
         </ul>
-      </li>
+      </li> --}}
 
     </ul>
   </nav>
