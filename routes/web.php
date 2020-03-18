@@ -10,10 +10,19 @@
 |
 */
 
-use Illuminate\Support\Facades\App;
+// use Illuminate\Support\Facades\App;
+
 
 Route::get('/', function () {
     return view('front_end.home');
+})->middleware('locale');
+
+Route::get('/category', function () {
+    return view('front_end.productlist');
+})->middleware('locale');
+
+Route::get('/contact', function () {
+    return view('front_end.contact');
 })->middleware('locale');
 
 Auth::routes();
@@ -65,11 +74,11 @@ Route::name('admin.')->prefix('admin')->group(function () {
 
 });
 
-Route::get('/navbar', 'Front_End\HomeController@index')->middleware('locale');
 
 Route::get('change-language/{language}', 'Front_End\HomeController@changeLanguage')
 ->name('user.change-language')->middleware('locale');
 
+Route::get('/about','Front_End\HomeController@indexAbout')->name('about.web')->middleware('locale');
 
     
 

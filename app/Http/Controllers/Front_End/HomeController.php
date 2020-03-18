@@ -14,14 +14,9 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function index()
+    public function indexAbout()
     {
-        if (App::getLocale() == "en") {
-            $category_product = Category_product_tran::where('locale','en')->get();
-        } else {
-            $category_product = Category_product_tran::where('locale','vi')->get();
-        }
-        return view('front_end.partials.navbar',compact(['category_product']));
+        return view('front_end.about');
     }
 
     /**
