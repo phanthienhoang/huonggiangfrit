@@ -108,7 +108,7 @@ abbr[data-original-title] {
   cursor: help;
   border-bottom: 0;
   -webkit-text-decoration-skip-ink: none;
-          text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none; 
 }
 
 address {

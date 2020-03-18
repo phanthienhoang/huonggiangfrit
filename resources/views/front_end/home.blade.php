@@ -13,7 +13,7 @@
                 <div class="safe-caption pt-10 mb-40">
                     <h2>HƯƠNG GIANG – Đỉnh cao của chất lượng</h2>
                     <p class="safe-pera-one">Chắc lọc được các giá trị cốt lõi trong sản xuất frit, kết hợp với đầu tư đồng bộ trang thiết bị hiện đại để tạo ra các sản phẩm đáp ứng yêu cầu chất lượng của Khách hàng</p>
-                    <p  class="safe-pera-two">Với khẩu hiệu: đỉnh cao của chất lượng, chúng tôi cam kết cung cấp các sản phẩm với chất lượng ổn định, giá thành cạnh tranh nhất, đi kèm với việc cung cấp dịch vụ hỗ trợ kỹ thuật tốt nhất đến các khách hàng.</p>
+                    <p  class="safe-pera-two">Chúng tôi cam kết cung cấp các sản phẩm với chất lượng ổn định, giá thành cạnh tranh nhất, đi kèm với việc cung cấp dịch vụ hỗ trợ kỹ thuật tốt nhất đến các khách hàng.</p>
                     <p  class="safe-pera-three">Tinh thần hợp tác, tôn trọng và cùng nhau phát triển sẽ đưa tất cả chúng ta đến gần với nhau hơn..</p>
                     <!-- btn -->
                     <a href="industries.html" class="btn">Our Services</a>
