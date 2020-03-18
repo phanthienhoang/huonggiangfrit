@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Front_End;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Category_product_tran;
+use App\Product_trans;
+use App\Product;
 use App;
 class HomeController extends Controller
 {
@@ -17,6 +19,16 @@ class HomeController extends Controller
     public function indexAbout()
     {
         return view('front_end.about');
+    }
+
+
+    public function showCategory($id)
+    {    
+        $cate_gory = Category_product_tran::find($id);
+        $id_product = $cate_gory["category_id"];   
+        $product_trans = Product_trans::where('product_id',$id_product)->get();
+        // dd($product_trans); 
+        return view('front_end.productlist',compact(['cate_gory','product_trans']));
     }
 
     /**

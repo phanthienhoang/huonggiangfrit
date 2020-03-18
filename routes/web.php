@@ -17,9 +17,9 @@ Route::get('/', function () {
     return view('front_end.home');
 })->middleware('locale');
 
-Route::get('/category', function () {
-    return view('front_end.productlist');
-})->middleware('locale');
+// Route::get('/category', function () {
+//     return view('front_end.productlist');
+// })->middleware('locale');
 
 Route::get('/contact', function () {
     return view('front_end.contact');
@@ -79,6 +79,7 @@ Route::get('change-language/{language}', 'Front_End\HomeController@changeLanguag
 ->name('user.change-language')->middleware('locale');
 
 Route::get('/about','Front_End\HomeController@indexAbout')->name('about.web')->middleware('locale');
+Route::get('/sanpham/{slug}','Front_End\HomeController@showCategory')->name('category.web')->middleware('locale');
 
 Route::post('/contact', 'Front_End\SendMailController@send')->name('mail.contact');
 

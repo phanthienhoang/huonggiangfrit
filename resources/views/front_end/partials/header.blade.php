@@ -52,7 +52,9 @@
                         <!-- Logo -->
                         <div class="col-xl-2 col-lg-2 col-md-2">
                             <div class="logo" style="">
-                                <a href="/"><img width=100px src="assets/img/logo/huongiangicon.png" alt=""></a>
+                                <a href="/"><img width=100px src="{{ asset('assets/img/logo/huongiangicon.png') }}" alt=""></a>
+                                <!-- <img src="{{ asset('assets/img/logo/huongiangicon.png') }}" alt="..."> -->
+
                             </div>
                         </div>
                         <div class="col-xl-10 col-lg-10 col-md-10">

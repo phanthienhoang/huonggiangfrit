@@ -34,8 +34,8 @@
 			<h3>{{trans('navbar.photolibrary')}}</h3>
 			<div class="row gallery-item">
 				<div class="col-md-4">
-					<a href="assets/img/elements/g1.jpg" class="img-pop-up">
-						<div class="single-gallery-image" style="background: url(assets/img/elements/g1.jpg);"></div>
+					<a href="assets/img/elements/congnghiep.jpg" class="img-pop-up" >
+						<div class="single-gallery-image" style="background: url(assets/img/elements/congnghiep.jpg);"></div>
 					</a>
 				</div>
 				<div class="col-md-4">
@@ -85,7 +85,7 @@
 							Áp dụng: phù hợp cho các dòng gạch ốp tường nung 1 hoặc 2 lần.</br>
 							Bài men tham khảo: frit: 88-92%; kaolin: 8-12%
 						</p>
-						<a href="/">Xem thêm</a>
+						<a href="/"  class="btn">Xem thêm</a>
 					</div>
 				</div>
 				<div class="col-md-4">
@@ -95,7 +95,7 @@
 							Áp dụng: phù hợp cho gạch lát nhiệt nung thấp và trung bình, gạch ốp nhiệt nung cao.</br>
 							Bài men tham khảo: frit: 88-92%; kaolin: 8-12%
 						</p>
-						<a href="/">Xem thêm</a>
+						<a href="/"  class="btn">Xem thêm</a>
 					</div>
 				</div>
 				<div class="col-md-4">
@@ -105,7 +105,7 @@
 						Áp dụng: phù hợp cho gạch lát có nhung lượng nhiệt nung cao.</br>
 						Bài men tham khảo: frit: 84-88%; kaolin: 12-16%
 						</p>
-						<a href="/">Xem thêm</a>
+						<a href="/"  class="btn">Xem thêm</a>
 					</div>
 				</div>
 			</div>
