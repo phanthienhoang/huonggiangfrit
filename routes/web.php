@@ -11,7 +11,7 @@
 */
 
 // use Illuminate\Support\Facades\App;
-
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('front_end.home');
@@ -46,7 +46,7 @@ Route::name('admin.')->prefix('admin')->group(function () {
     Route::resource('category_new', 'Category_newController');
 
 
-    
+
 // =======================================================================================================================>>>
 // =======================================================================================================================>>>
 
@@ -67,10 +67,10 @@ Route::name('admin.')->prefix('admin')->group(function () {
     Route::resource('category-products', 'Category_Product\CategoryController')->middleware('locale');
     Route::resource('category-shareholder', 'Category_ShareHolder\CateShareHolderController')->middleware('locale');
     Route::resource('shareholder', 'Category_ShareHolder\ShareHolderController')->middleware('locale');
-   
 
 
-    
+
+
 
 });
 
@@ -80,5 +80,5 @@ Route::get('change-language/{language}', 'Front_End\HomeController@changeLanguag
 
 Route::get('/about','Front_End\HomeController@indexAbout')->name('about.web')->middleware('locale');
 
-    
+Route::post('/contact', 'Front_End\SendMailController@send')->name('mail.contact');
 
