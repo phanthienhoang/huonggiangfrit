@@ -17,4 +17,10 @@ class Category_product_tran extends Model
     {
         return $this->belongsTo('App\Category_product');
     }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'category_id', 'id');
+    }
+
 }

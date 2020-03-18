@@ -32,14 +32,6 @@ class ProductController extends Controller
             $products  = $this->getTranslation('vi');
         }
 
-        // if (session()->has('language')) {
-        //     $language = session()->get('language');
-        // } else {
-        //     $language = App::getLocale();
-        // }
-
-        // $products = Product_trans::where('locale', $language)->get();
-
         return view('back_end.tables.product', compact('products'));
     }
 
@@ -57,10 +49,10 @@ class ProductController extends Controller
         $attributes = $request->except(['category_id']);
 
         $attributes['images'] = 'data:image/png;base64,' . base64_encode(file_get_contents(request('images')));
+
         if ($attributes['locale'] == 'vi') {
             $product->productTranslates()->create($attributes);
             $attributes['locale'] = 'en';
-            $attributes['name'] = 'please update english';
             $attributes['description'] = 'please update english';
             $attributes['content'] = 'please update english';
             $product->productTranslates()->create($attributes);
@@ -68,14 +60,12 @@ class ProductController extends Controller
         } else {
             $product->productTranslates()->create($attributes);
             $attributes['locale'] = 'vi';
-            $attributes['name'] = 'cập nhập bài viết tiếng việt';
             $attributes['description'] = 'cập nhập bài viết tiếng việt';
             $attributes['content'] = 'cập nhập bài viết tiếng việt';
             $product->productTranslates()->create($attributes);
             $message = "create-success ! please update vietnam language";
         }
 
-        // $product->translation(request('locale'))->update($attributes);
 
         Session::flash('create-success',$message);
         return redirect()->route('admin.products.index');
@@ -143,7 +133,7 @@ class ProductController extends Controller
             'flattening_curve' => 'required',
             'content' => 'required',
             'description' => 'required',
-            'images' => 'nullable|image',
+            'images' => 'required|image',
             'locale' => 'required'
         ]);
     }

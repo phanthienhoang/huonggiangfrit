@@ -10,8 +10,13 @@
 
     <!-- CSS here -->
         <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="/assets/css/gijgo.css">
+        <!-- <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+        <link rel="stylesheet" href="/assets/css/gijgo.css"> -->
+
+        <link rel="stylesheet" href=" {{ asset('assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href=" {{ asset('assets/css/gijgo.css') }}">
+
+
         <link rel="stylesheet" href="/assets/css/slicknav.css">
         <link rel="stylesheet" href="/assets/css/animate.min.css">
         <link rel="stylesheet" href="/assets/css/magnific-popup.css">

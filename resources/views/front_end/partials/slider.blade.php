@@ -38,7 +38,11 @@
         <div class="carousel-inner" style="">
             <div class="carousel-item active img-fluid">
             <div class="image__wrapper">
-                    <img src="assets/img/gallery/8797.jpg" alt="...">
+                    <!-- <img src="assets/img/gallery/8797.jpg" alt="..."> -->
+                    <img src="{{ asset('assets/img/gallery/8797.jpg') }}" alt="...">
+
+
+                    
                 </div>
                 <div class="carousel-caption d-none d-md-block">
                     <h5>First slide label</h5>
@@ -47,7 +51,10 @@
             </div>
             <div class="carousel-item img-fluid">
             <div class="image__wrapper">
-                    <img src="assets/img/gallery/8797.jpg" alt="...">
+                
+                    <!-- <img src="assets/img/gallery/8797.jpg" alt="..."> -->
+                    <img src="{{ asset('assets/img/gallery/8797.jpg') }}" alt="...">
+
                 </div>
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Second slide label</h5>
@@ -56,7 +63,9 @@
             </div>
             <div class="carousel-item img-fluid">
                 <div class="image__wrapper">
-                    <img src="assets/img/gallery/8797.jpg" alt="...">
+                    <!-- <img src="assets/img/gallery/8797.jpg" alt="..."> -->
+                    <img src="{{ asset('assets/img/gallery/8797.jpg') }}" alt="...">
+
                 </div>
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Third slide label</h5>
