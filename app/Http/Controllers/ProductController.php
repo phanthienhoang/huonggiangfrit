@@ -67,7 +67,7 @@ class ProductController extends Controller
         }
 
 
-        Session::flash('create-success',$message);
+        Session::flash('create-success', $message);
         return redirect()->route('admin.products.index');
     }
 
@@ -93,7 +93,8 @@ class ProductController extends Controller
         $product->update($attributes);
         $message = "update thành công";
 
-        Session::flash('create-success',$message);
+        Session::flash('create-success', $message);
+
         return redirect(route('admin.products.index'));
     }
 
@@ -106,20 +107,54 @@ class ProductController extends Controller
 
     public function destroy($id)
     {
-        Product_trans::destroy($id);
+        $productTrans = Product_trans::find($id);
+
+        $product = Product::find($productTrans->product_id);
+        $product->productTranslates()->delete();
+
 
         return redirect(route('admin.products.index'));
     }
 
-    public function getCategory(){
+    public function getCategory()
+    {
 
         $locale = request('locale');
 
         $data = Category_product_tran::where('locale', $locale)->get();
 
-        if(request()->ajax()){
+        if (request()->ajax()) {
             return response()->json($data);
         }
+    }
+
+    public function getDeleted()
+    {
+        $deletedProduct = Product_trans::onlyTrashed()->where('locale', session()->get('language'))->get();
+
+
+        return view('back_end.tables.deleted.product', compact('deletedProduct'));
+    }
+
+    public function restore($id)
+    {
+        $productTrans = Product_trans::onlyTrashed()->find($id);
+
+        $product = Product::find($productTrans->product_id);
+        $product->productTranslates()->restore();
+
+        return redirect(route('admin.products.index'));
+    }
+
+    public function forceDelete($id)
+    {
+        $productTrans = Product_trans::onlyTrashed()->find($id);
+
+        $product = Product::find($productTrans->product_id);
+        $product->productTranslates()->forceDelete();
+
+
+        return redirect(route('admin.products.index'));
     }
 
     public function validateAttribute()
