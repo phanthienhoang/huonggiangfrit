@@ -51,33 +51,27 @@
                                         @endif
                                         <td>
                                             <div class="btn-group-vertical">
-                                                <div class="dropdown d-inline-block ">
-                                                    <button class="btn btn-warning dropdown-toggle"
-                                                            style="width: 90px" type="button"
-                                                            id="dropdownMenuButton" data-toggle="dropdown"
-                                                            aria-haspopup="true"
-                                                            aria-expanded="false"><i class="fa fa-edit"></i>
-                                                    </button>
-                                                    <div class="dropdown-menu bg-warning"
-                                                         aria-labelledby="dropdownMenuButton">
-                                                        <a class="dropdown-item"
-                                                           href="{{ route('admin.category_new.edit',$category_new_tran->id) }}">Vi</a>
-                                                        <a class="dropdown-item"
-                                                           href="{{ route('admin.category_new.edit', $category_new_tran->id +1)}}">Eng</a>
-                                                    </div>
+                                                <div>
+                                                    <a class="btn bg-success" style="width: 120px"
+                                                       onclick="return confirm('bạn có thực sự muốn khôi phục lại không?')"
+                                                       href="{{route('admin.category_new.restore',$category_new_tran->id)}}">Khôi
+                                                        phục</a>
                                                 </div>
-                                                <form
-                                                    action="{{route('admin.category_new.destroy',$category_new_tran->id)}}"
-                                                    method="post">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <input type="submit" style="width: 90px"
-                                                           onclick="return confirm('bạn có thực sự muốn xóa')"
-                                                           class="btn bg-danger text-dark"
-                                                           value="Xóa">
-                                                </form>
-
-                                                <a href="{{ route('admin.category_new.show',$category_new_tran->id) }}" style="width: 90px" class="btn bg-info">chi tiết</a>
+                                                <div>
+                                                    <a href="{{ route('admin.category_new.view_deleted_at',$category_new_tran->id) }}"
+                                                       style="width: 120px" class="btn bg-info">chi tiết</a>
+                                                </div>
+                                                <div>
+                                                    <form class="d-inline"
+                                                          action="{{route('admin.category_new.forceDelete',$category_new_tran->id)}}"
+                                                          method="post">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <input type="submit" style="width: 120px"
+                                                               onclick="return confirm('bạn có thực sự muốn xóa')"
+                                                               class="btn bg-danger text-dark" value="Xóa">
+                                                    </form>
+                                                </div>
 
                                             </div>
                                         </td>
@@ -117,3 +111,4 @@
         });
     </script>
 @endpush
+

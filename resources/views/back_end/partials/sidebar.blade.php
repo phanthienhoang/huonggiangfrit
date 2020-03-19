@@ -31,14 +31,14 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="{{route('admin.category_new.index')}}"
+            <a href="{{route('admin.new.deleted_at')}}"
               class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
               <i class="far fa-circle nav-icon"></i>
-              <p>Thùng rác</p>
+              <p>Tin tức đã xóa</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+            <a href="{{ route('admin.new.index')}}" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
               <i class="far fa-circle nav-icon"></i>
               <p>Danh sách Tin Tức</p>
             </a>
@@ -59,14 +59,14 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="{{route('admin.category_new.index')}}"
+            <a href="{{route('admin.category_new.deleted_at')}}"
               class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
               <i class="far fa-circle nav-icon"></i>
-              <p>Thùng rác</p>
+              <p>Loại tin tức đã xóa</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="admin/category" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+            <a href="{{route('admin.category_new.index')}}" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
               <i class="far fa-circle nav-icon"></i>
               <p>Danh sách Thể Loại</p>
             </a>
@@ -87,17 +87,17 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="{{ route('admin.products.index')}}"
-              class="nav-link {{ Request::segment(3) === '#' ? 'active' : null }}">
-              <i class="far fa-circle nav-icon"></i>
-              <p>List</p>
-            </a>
-          </li>
-          <li class="nav-item">
             <a href="{{ route('admin.products.getDeleted') }}"
               class="nav-link {{ Request::segment(3) === '#' ? 'active' : null }}">
               <i class="far fa-circle nav-icon"></i>
-              <p>Thùng rác</p>
+              <p>Sản phẩm đã xóa</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('admin.products.index')}}"
+              class="nav-link {{ Request::segment(3) === '#' ? 'active' : null }}">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Danh sách sản phẩm</p>
             </a>
           </li>
         </ul>
@@ -116,17 +116,17 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="{{route('admin.category-products.index')}}"
-              class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
-              <i class="far fa-circle nav-icon"></i>
-              <p>List</p>
-            </a>
-          </li>
-          <li class="nav-item">
             <a href="{{route('admin.category-products.getDelete')}}"
               class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
               <i class="far fa-circle nav-icon"></i>
-              <p>Thùng rác</p>
+              <p>Loại sản phẩm đã xóa</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{route('admin.category-products.index')}}"
+              class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Danh sách loại sản phẩm</p>
             </a>
           </li>
         </ul>

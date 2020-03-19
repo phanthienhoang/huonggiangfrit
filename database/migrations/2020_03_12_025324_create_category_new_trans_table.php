@@ -15,7 +15,7 @@ class CreateCategoryNewTransTable extends Migration
     {
         Schema::create('category_new_trans', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->string('locale');
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('category_news')->onDelete('cascade');

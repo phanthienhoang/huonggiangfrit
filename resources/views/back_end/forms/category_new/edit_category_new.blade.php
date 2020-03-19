@@ -15,7 +15,6 @@
 @endsection
 
 @section('content')
-
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -27,22 +26,14 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" action="{{route('admin.category_new.update',$category_new->id)}}" method="post">
+                        <form role="form" action="{{route('admin.category_new.update',$category_new_tran->id)}}" method="post">
                             @csrf
                             @method('PUT')
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="title">Tên loại tin tức tiếng Việt</label>
+                                    <label for="title">Tên loại tin tức </label>
                                     <input type="text" name="name" class="form-control " id="title"
-                                           value="{{$category_new->name}}"><br>
-                                    <label for="title">Tên loại tin tức tiếng Anh</label>
-
-                                    <input type="text" name="nameEn" class="form-control " id="title"
                                            value="{{$category_new_tran->name}}"><br>
-                                    <select name="online" id="">
-                                        <option value="1">online</option>
-                                        <option value="0"> not online</option>
-                                    </select>
                                 </div>
                             </div>
                             <!-- /.card-body -->

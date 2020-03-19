@@ -84,6 +84,7 @@
                                         @endif
                                     </div>
                                 </div>
+                            </div>
                             <div class="form-group">
                                 <label for="description">Nội dung</label>
                                 <textarea class="textarea" name="contents" placeholder="Nhập nội dung" value=""
