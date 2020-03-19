@@ -43,10 +43,23 @@ Route::name('admin.')->prefix('admin')->group(function () {
     Route::delete('products/force-delete/{id}', 'ProductController@forceDelete')->name('products.forceDelete')->middleware('locale');
 
     Route::resource('products', 'ProductController')->middleware('locale');
-    Route::resource('category_new', 'Category_newController');
+
+    Route::resource('category_new', 'Category_newController')->middleware('locale');
+    Route::get('category_new_deleted', 'Category_newController@show_deletad_at')->name('category_new.deleted_at')->middleware('locale');
+    Route::get('category_new_restore/{id}', 'Category_newController@restore')->name('category_new.restore')->middleware('locale');
+    Route::get('category_new_view/{id}', 'Category_newController@view_deleted_at')->name('category_new.view_deleted_at')->middleware('locale');
+    Route::delete('category_new_forceDelete/{id}', 'Category_newController@forceDelete')->name('category_new.forceDelete')->middleware('locale');
+
+    Route::resource('new', 'NewController')->middleware('locale');
+    Route::get('new_deleted', 'NewController@show_deletad_at')->name('new.deleted_at')->middleware('locale');
+    Route::get('new_restore/{id}', 'NewController@restore')->name('new.restore')->middleware('locale');
+    Route::get('new_view/{id}', 'NewController@view_deleted_at')->name('new.view_deleted_at')->middleware('locale');
+    Route::delete('new_forceDelete/{id}', 'NewController@forceDelete')->name('new.forceDelete')->middleware('locale');
 
 
-    
+
+
+
 // =======================================================================================================================>>>
 // =======================================================================================================================>>>
 
@@ -67,10 +80,10 @@ Route::name('admin.')->prefix('admin')->group(function () {
     Route::resource('category-products', 'Category_Product\CategoryController')->middleware('locale');
     Route::resource('category-shareholder', 'Category_ShareHolder\CateShareHolderController')->middleware('locale');
     Route::resource('shareholder', 'Category_ShareHolder\ShareHolderController')->middleware('locale');
-   
 
 
-    
+
+
 
 });
 
@@ -80,5 +93,5 @@ Route::get('change-language/{language}', 'Front_End\HomeController@changeLanguag
 
 Route::get('/about','Front_End\HomeController@indexAbout')->name('about.web')->middleware('locale');
 
-    
+
 

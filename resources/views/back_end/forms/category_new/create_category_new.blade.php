@@ -31,14 +31,14 @@
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="title">Tên loại tin tức tiêng Việt</label>
-                                    <input type="text" name="name" class="form-control" id="title"
-                                           placeholder="Nhập tên loại tin tức tiếng Việt">
-                                </div>
-                                <div class="form-group">
-                                    <label for="title">Tên loại tin tức tiêng Anh</label>
-                                    <input type="text" name="nameEn" class="form-control" id="title"
-                                           placeholder="Nhập tên loại tin tức tiếng Anh">
+                                    <select name="locale"  id="">
+                                    <option for="title"  value="vi">Tên loại tin tức tiêng Việt</option>
+
+                                    <option for="title" value="en">Tên loại tin tức tiêng Anh</option>
+                                    </select>
+
+                                    <input type="text" name="name" class="form-control mt-4" id="title"
+                                           placeholder="Nhập tên loại tin tức ">
                                 </div>
                             </div>
                             <!-- /.card-body -->
