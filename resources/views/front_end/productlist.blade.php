@@ -11,10 +11,10 @@
                <aside class="single_sidebar_widget post_category_widget">
                   <h4 class="widget_title">Sản phẩm thuộc dòng {{$cate_gory->name}}</h4>
                   <ul class="list cat-list">
-                     @foreach($product_trans as $key =>$value)
+                     @foreach($cate_gory->product_trans as $key => $value)
                      <li>
                         <a href="#" class="d-flex">
-                           <p>{{$value->name}}</p>
+                           <p>{{ $value->name }}</p>
                         </a>
                      </li>
                      @endforeach

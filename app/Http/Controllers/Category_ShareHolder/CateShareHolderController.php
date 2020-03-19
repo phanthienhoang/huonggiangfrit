@@ -19,7 +19,7 @@ class CateShareHolderController extends Controller
         return Category_Shareholder_Tran::where('locale',$locale)->get();
     }
     public function index()
-    {   
+    {
         if (App::getLocale() == "en") {
             $atributes  = $this->getTranslation('en');
         } else {
@@ -44,7 +44,7 @@ class CateShareHolderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
+    {
         $category_Shareholder = new Category_Shareholder;
         $input = $request->input('online');
         $category_Shareholder->online=$input;
