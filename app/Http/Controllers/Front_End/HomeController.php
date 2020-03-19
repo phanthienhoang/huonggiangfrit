@@ -22,13 +22,23 @@ class HomeController extends Controller
     }
 
 
-    public function showCategory($id)
-    {    
-        $cate_gory = Category_product_tran::find($id);
-        $id_product = $cate_gory["category_id"];   
-        $product_trans = Product_trans::where('product_id',$id_product)->get();
-        // dd($product_trans); 
-        return view('front_end.productlist',compact(['cate_gory','product_trans']));
+    public function showCategory(Category_product_tran $category_product_tran)
+    {
+        if (App::getLocale() == "vi")
+
+            return view('front_end.productlist', [
+                'cate_gory' => $category_product_tran->load(['product_trans' => function ($pro) {
+                    $pro->where('locale', '=', 'vi');
+                }])
+            ]);
+
+
+        return view('front_end.productlist', [
+                'cate_gory' => $category_product_tran->load(['product_trans' => function ($pro) {
+                    $pro->where('locale', '=', 'en');
+                }])
+            ]);
+
     }
 
     /**
