@@ -11,15 +11,15 @@
 */
 
 // use Illuminate\Support\Facades\App;
-
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('front_end.home');
 })->middleware('locale');
 
-Route::get('/category', function () {
-    return view('front_end.productlist');
-})->middleware('locale');
+// Route::get('/category', function () {
+//     return view('front_end.productlist');
+// })->middleware('locale');
 
 Route::get('/contact', function () {
     return view('front_end.contact');
@@ -57,20 +57,9 @@ Route::name('admin.')->prefix('admin')->group(function () {
     Route::delete('new_forceDelete/{id}', 'NewController@forceDelete')->name('new.forceDelete')->middleware('locale');
 
 
-
-
-
 // =======================================================================================================================>>>
 // =======================================================================================================================>>>
-
-
-    // Route::get('category', 'Category_Product\CategoryController@index')->name('category')->middleware('locale');
-    // Route::get('category/create', 'Category_Product\CategoryController@create')->name('category.create');
-    // Route::post('category/create', 'Category_Product\CategoryController@store')->name('category.store');
-    // Route::get('category/show/{id}', 'Category_Product\CategoryController@show')->name('category.show');
-    // Route::get('category/edit/{id}', 'Category_Product\CategoryController@edit')->name('category.edit');
-    // Route::put('category/update/{id}', 'Category_Product\CategoryController@update')->name('category.update');
-    // Route::delete('category/destroy/{id}', 'Category_Product\CategoryController@destroy')->name('category.destroy');
+  
     Route::get('shareholder/categories', 'Category_ShareHolder\ShareHolderController@getShareholderCategory')->name('getShareholderCategory');
 
     Route::get('category-products/get-deleted', 'Category_Product\CategoryController@getDeleted')->name('category-products.getDelete')->middleware('locale');
@@ -92,6 +81,7 @@ Route::get('change-language/{language}', 'Front_End\HomeController@changeLanguag
 ->name('user.change-language')->middleware('locale');
 
 Route::get('/about','Front_End\HomeController@indexAbout')->name('about.web')->middleware('locale');
+Route::get('/sanpham/{category_product_tran}','Front_End\HomeController@showCategory')->name('category.web')->middleware('locale');
 
-
+Route::post('/contact', 'Front_End\SendMailController@send')->name('mail.contact');
 

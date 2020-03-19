@@ -51,8 +51,6 @@ class CategoryController extends Controller
         $this->validateAttribute();
 
         $category_product = new Category_product;
-        $input = $request->input('online');
-        $category_product->online=$input;
         $category_product->save();
         $last_id =$category_product->id;
         $atribute = $request->all();
@@ -188,7 +186,8 @@ class CategoryController extends Controller
             'name' => 'required',
             'contents' => 'required',
             'description' => 'required',
-            'images' => 'nullable|image',
+            'status' =>'required',
+            'images' => 'required|image',
             'locale' => 'required'
         ]);
     }

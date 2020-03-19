@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Front_End;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Category_product_tran;
+use App\Product_trans;
+use App\Product;
 use App;
 class HomeController extends Controller
 {
@@ -17,6 +19,26 @@ class HomeController extends Controller
     public function indexAbout()
     {
         return view('front_end.about');
+    }
+
+
+    public function showCategory(Category_product_tran $category_product_tran)
+    {
+        if (App::getLocale() == "vi")
+
+            return view('front_end.productlist', [
+                'cate_gory' => $category_product_tran->load(['product_trans' => function ($pro) {
+                    $pro->where('locale', '=', 'vi');
+                }])
+            ]);
+
+
+        return view('front_end.productlist', [
+                'cate_gory' => $category_product_tran->load(['product_trans' => function ($pro) {
+                    $pro->where('locale', '=', 'en');
+                }])
+            ]);
+
     }
 
     /**
