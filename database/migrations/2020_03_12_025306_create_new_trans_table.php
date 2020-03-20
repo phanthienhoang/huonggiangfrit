@@ -17,7 +17,7 @@ class CreateNewTransTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->text('description')->nullable();
-            $table->text('content')->nullable();
+            $table->longText('content')->nullable();
             $table->longText('image')->nullable();
             $table->string('locale');
             $table->unsignedBigInteger('new_id');

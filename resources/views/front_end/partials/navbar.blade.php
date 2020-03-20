@@ -12,8 +12,9 @@
         </li>
         <li><a href="#">{{trans('navbar.news')}}</a>
             <ul class="submenu">
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="single-blog.html">Blog Details</a></li>
+                @foreach($loai_tin as $key=>$value)
+                <li><a href="{{route('category.web.new', $value->id)}}">{{$value->name}}</a></li>
+                @endforeach
             </ul>
         </li>
 

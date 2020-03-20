@@ -59,7 +59,7 @@ Route::name('admin.')->prefix('admin')->group(function () {
 
 // =======================================================================================================================>>>
 // =======================================================================================================================>>>
-  
+
     Route::get('shareholder/categories', 'Category_ShareHolder\ShareHolderController@getShareholderCategory')->name('getShareholderCategory');
 
     Route::get('category-products/get-deleted', 'Category_Product\CategoryController@getDeleted')->name('category-products.getDelete')->middleware('locale');
@@ -82,6 +82,8 @@ Route::get('change-language/{language}', 'Front_End\HomeController@changeLanguag
 
 Route::get('/about','Front_End\HomeController@indexAbout')->name('about.web')->middleware('locale');
 Route::get('/sanpham/{category_product_tran}','Front_End\HomeController@showCategory')->name('category.web')->middleware('locale');
+Route::get('/tintuc/{id}','Front_End\HomeController@showNew')->name('category.web.new')->middleware('locale');
+Route::get('/tintuc/{id}/show','Front_End\HomeController@showNewList')->name('category.web.new.show')->middleware('locale');
 
 Route::post('/contact', 'Front_End\SendMailController@send')->name('mail.contact');
 
