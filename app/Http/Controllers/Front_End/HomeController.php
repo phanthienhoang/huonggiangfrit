@@ -24,7 +24,6 @@ class HomeController extends Controller
 
     public function showCategory(Category_product_tran $category_product_tran)
     {
-        // dd($category_product_tran->product_trans);
         if (App::getLocale() == "vi")
 
             return view('front_end.productlist', [
@@ -34,9 +33,6 @@ class HomeController extends Controller
                 }])
             ]);
 
-        // dd($category_product_tran->load(['product_trans' => function ($pro) {
-        //     $pro->where('locale', '=', 'en');
-        // }]));
         return view('front_end.productlist', [
                 'category_product_tran' => $category_product_tran,
                 'cate_gory' => $category_product_tran->load(['product_trans' => function ($pro) {
