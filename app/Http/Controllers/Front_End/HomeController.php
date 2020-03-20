@@ -87,6 +87,11 @@ class HomeController extends Controller
         }
         return view('front_end.showNewList', compact('new_tran', 'name','news1','new_trans1','category_new_tran1','image','name1','descrip','content'));
     }
+    public function show_home()
+    {
+
+    }
+
 
     /**
      * Show the form for creating a new resource.
