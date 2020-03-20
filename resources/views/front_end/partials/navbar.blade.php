@@ -6,7 +6,7 @@
         <li><a href="#">{{trans('navbar.product')}}</a>
             <ul class="submenu">
             @foreach($loai_sp as $key=>$value)
-                <li><a href="{{route('category.web', $value)}}">{{$value->name}}</a></li>
+                <li><a href="{{route('category.web', $value->slug)}}">{{$value->name}}</a></li>
             @endforeach
             </ul>
         </li>

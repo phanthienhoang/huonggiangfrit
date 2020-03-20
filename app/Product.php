@@ -24,12 +24,4 @@ class Product extends Model
     {
         return $this->hasMany(Product_trans::class);
     }
-
-    // public function translation($language = null)
-    // {
-    //     if ($language === null) {
-    //         $language = App::getLocale();
-    //     }
-    //     return $this->hasMany(Product_trans::class)->where('locale', $language);
-    // }
 }

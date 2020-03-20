@@ -39,6 +39,13 @@
                                 @enderror
                             </div>
                             <div class="form-group">
+                                <label>Chọn trạng thái</label>
+                                <select name="status" class="custom-select">
+                                    <option value="1">Hiện</option>
+                                    <option value="0">Ẩn</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label>Chọn ngôn ngữ</label>
                                 <select name="locale" class="custom-select language">
                                     <option value="vi">Tiếng Việt</option>
@@ -50,7 +57,7 @@
                                 <select name="category_id" class="custom-select category"></select>
                             </div>
                             <div class="form-group">
-                                <label for="title">Code</label>
+                                <label for="title">Mã frit</label>
                                 <input type="text" name="code" class="form-control @error('code') is-invalid @enderror"
                                     id="title" placeholder="Nhập code sản phẩm" value="{{ old('code') }}">
                                 @error('code')
@@ -58,16 +65,7 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="title">Price</label>
-                                <input type="text" name="price"
-                                    class="form-control @error('price') is-invalid @enderror" id="title"
-                                    placeholder="Nhập giá sản phẩm" value="{{ old('price') }}">
-                                @error('price')
-                                <p class="text-danger">{{ $errors->first('price') }}</p>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label for="title">Feature</label>
+                                <label for="title">Đặc điểm</label>
                                 <input type="text" name="features"
                                     class="form-control @error('features') is-invalid @enderror" id="title"
                                     value="{{ old('features') }}">
@@ -76,30 +74,21 @@
                                 @enderror
                             </div>
                             <div class="form-group">
-                                <label for="title">Line graphs of frit thermal expansion</label>
-                                <input type="text" name="line_graph"
-                                    class="form-control @error('line_graph') is-invalid @enderror" id="title"
-                                    value="{{ old('line_graph') }}">
-                                @error('line_graph')
-                                <p class="text-danger">{{ $errors->first('line_graph') }}</p>
+                                <label for="title">Áp dụng</label>
+                                <input type="text" name="apply"
+                                    class="form-control @error('apply') is-invalid @enderror" id="title"
+                                    value="{{ old('apply') }}">
+                                @error('apply')
+                                <p class="text-danger">{{ $errors->first('apply') }}</p>
                                 @enderror
-                            </div>
+                            </div> 
                             <div class="form-group">
-                                <label for="title">Flattening curve and characteristic temperatures</label>
-                                <input type="text" name="flattening_curve"
-                                    class="form-control @error('flattening_curve') is-invalid @enderror" id="title"
-                                    value="{{ old('flattening_curve') }}">
-                                @error('flattening_curve')
-                                <p class="text-danger">{{ $errors->first('flattening_curve') }}</p>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <label for="description">Mô tả</label>
-                                <textarea name="description" id="description" cols="30" rows="3"
-                                    class="form-control @error('description') is-invalid @enderror">{{ old('description') }}</textarea>
-                                @error('description')
-                                <p class="text-danger">{{ $errors->first('description') }}</p>
+                                <label for="title">Bài men tham khảo</label>
+                                <input type="text" name="refer_frit"
+                                    class="form-control @error('refer_frit') is-invalid @enderror" id="title"
+                                    value="{{ old('refer_frit') }}">
+                                @error('refer_frit')
+                                <p class="text-danger">{{ $errors->first('refer_frit') }}</p>
                                 @enderror
                             </div>
                             <div class="form-group">
@@ -120,11 +109,11 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="description">Nội dung</label>
-                                <textarea class="textarea @error('content') is-invalid @enderror" name="content"
+                                <label for="description">Thông số kỉ thuật</label>
+                                <textarea class="textarea @error('specifications') is-invalid @enderror" name="specifications"
                                     style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">{{ old('content') }}</textarea>
-                                @error('content')
-                                <p class="text-danger">{{ $errors->first('content') }}</p>
+                                @error('specifications')
+                                <p class="text-danger">{{ $errors->first('specifications') }}</p>
                                 @enderror
                             </div>
                         </div>

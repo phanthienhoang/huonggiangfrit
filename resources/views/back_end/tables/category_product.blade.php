@@ -62,8 +62,8 @@
                                                 method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <input type="submit" onclick="return confirm('bạn có thực sự muốn xóa')"
-                                                    class="btn bg-danger text-dark" value="Xóa&nbsp&nbsp&nbsp&nbsp"/>
+                                                <input type="submit" onclick="return confirm('Hành động này sẽ xóa luôn bản dịch tương ứng')"
+                                                    class="btn bg-danger text-dark" value="Delete"/>
                                             </form>
                                         </div>
                                     </td>
