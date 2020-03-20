@@ -81,9 +81,12 @@ Route::get('change-language/{language}', 'Front_End\HomeController@changeLanguag
 ->name('user.change-language')->middleware('locale');
 
 Route::get('/about','Front_End\HomeController@indexAbout')->name('about.web')->middleware('locale');
-Route::get('/sanpham/{category_product_tran}','Front_End\HomeController@showCategory')->name('category.web')->middleware('locale');
+
+Route::get('/product/{category_product_tran:slug}','Front_End\HomeController@showCategory')->name('category.web')->middleware('locale');
+
 Route::get('/tintuc/{id}','Front_End\HomeController@showNew')->name('category.web.new')->middleware('locale');
 Route::get('/tintuc/{id}/show','Front_End\HomeController@showNewList')->name('category.web.new.show')->middleware('locale');
+
 
 Route::post('/contact', 'Front_End\SendMailController@send')->name('mail.contact');
 

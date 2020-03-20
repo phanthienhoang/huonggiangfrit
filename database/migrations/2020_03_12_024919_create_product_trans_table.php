@@ -17,20 +17,19 @@ class CreateProductTransTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('code');
-            $table->string('price')->default('Contact us');
+            $table->boolean('status');
             $table->string('features');
-            $table->string('line_graph');
-            $table->string('flattening_curve');
-            $table->text('content');
+            $table->string('apply');
+            $table->string('refer_frit');
+            $table->text('specifications');
             $table->longText('images');
-            $table->text('description');
             $table->string('locale');
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });
-    }
+    } 
 
     /**
      * Reverse the migrations.

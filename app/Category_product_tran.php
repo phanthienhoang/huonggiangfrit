@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Category_product_tran extends Model
 {
+
     use SoftDeletes;
 
     protected $guarded = [];
     protected $table = 'category_product_trans';
-    protected $fillable=['name','images','description','contents','locale','category_id','status'];
+    protected $fillable=['name','images','description','contents','locale','category_id','status','slug'];
 
     public function category_product()
     {
@@ -25,7 +26,10 @@ class Category_product_tran extends Model
 
     public function product_trans()
     {
-        return $this->hasManyThrough(Product_trans::class, Product::class, 'category_id', 'product_id', 'id', 'id');
+        return $this->hasManyThrough(Product_trans::class, Product::class, 'category_id', 'product_id', 'category_id', 'id');
     }
-
+   
+    public function getRouteKeyName(){
+        return 'slug';
+    }
 }

@@ -37,7 +37,8 @@
                                 <tr>
                                     <th>Tên sản phẩm</th>
                                     <th>Loại sản phẩm</th>
-                                    <th>Mô tả</th>
+                                    <th>Đặc điểm</th>
+                                    <th>Áp dụng</th>
                                     <th>Ảnh</th>
                                     <th class="action">Action</th>
                                 </tr>
@@ -46,12 +47,16 @@
                                 @foreach ($products as $product)
                                 <tr>
                                     <td>{{ $product->name }}</td>
+                                    
                                 <td>{{ $product->product->category_product->category_product_tran->where('locale', Session::get('language'))->first()->name}}</td>
                                     <div>
                                         <td style="max-width: 200px;">
-                                            {{ $product->description }}
+                                            {{ $product->features}}
                                         </td>
                                     </div>
+                                    <td style="max-width: 200px;">
+                                        {{ $product->apply}}
+                                    </td>
                                     <td><img src="{{ $product->images }}" width=100px height=100px /></td>
                                     <td>
                                         <div class="d-inline-block">
@@ -63,8 +68,8 @@
                                                 action="{{route('admin.products.destroy',$product->id)}}" method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <input type="submit" onclick="return confirm('bạn có thực sự muốn xóa')"
-                                                    class="btn bg-danger text-dark" value="Xóa">
+                                                <input type="submit" onclick="return confirm('Hành động này sẽ xóa luôn bản dịch tương ứng')"
+                                                    class="btn bg-danger text-dark" value="Delete">
                                             </form>
                                         </div>
                                     </td>
