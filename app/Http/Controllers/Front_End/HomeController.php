@@ -8,6 +8,7 @@ use App\Category_product_tran;
 use App\Product_trans;
 use App\Product;
 use App;
+
 class HomeController extends Controller
 {
     /**
@@ -34,11 +35,57 @@ class HomeController extends Controller
 
 
         return view('front_end.productlist', [
-                'cate_gory' => $category_product_tran->load(['product_trans' => function ($pro) {
-                    $pro->where('locale', '=', 'en');
-                }])
-            ]);
+            'cate_gory' => $category_product_tran->load(['product_trans' => function ($pro) {
+                $pro->where('locale', '=', 'en');
+            }])
+        ]);
 
+    }
+
+
+    public function showNew($id)
+    {
+        $category_new_tran = App\Category_new_tran::find($id);
+        $name = $category_new_tran->name;
+        $news = App\News::where('category_id', $category_new_tran->category_id)->get();
+        $news1 = App\News::all();
+        if (App::getLocale() == "vi") {
+            $new_trans = App\New_tran::where('locale', 'vi')->get();
+            $category_new_tran1 = App\Category_new_tran::where('locale','vi')->get();
+
+        } else {
+            $new_trans = App\New_tran::where('locale', 'en')->get();
+            $category_new_tran1 = App\Category_new_tran::where('locale','en')->get();
+        }
+        return view('front_end.newlist', compact('new_trans', 'name', 'news','category_new_tran1','news1'));
+    }
+
+    public function showNewList($id)
+    {
+        $news1 = App\News::all();
+        if (App::getLocale() == "vi") {
+            $new_tran = App\New_tran::find($id);
+            $image = $new_tran->image;$name1 = $new_tran->name;$descrip = $new_tran->description;$content = $new_tran->content;
+            $category_new_tran1 = App\Category_new_tran::where('locale','vi')->get();
+            $new_trans1 = App\New_tran::where('locale', 'vi')->get();
+            foreach (App\Category_new_tran::all() as $category_new_tran)
+                    if ($category_new_tran->category_id == App\News::find($new_tran->new_id)->category_id &&
+                    $category_new_tran->locale == 'vi')
+                    {$name = $category_new_tran->name;}
+        } else {
+            $new_tran = App\New_tran::find($id);
+            $image = $new_tran->image;$name1 = $new_tran->name;$descrip = $new_tran->description;$content = $new_tran->content;
+            $new_trans1 = App\New_tran::where('locale', 'en')->get();
+            $category_new_tran1 = App\Category_new_tran::where('locale','en')->get();
+            foreach (App\Category_new_tran::all() as $category_new_tran)
+
+                    if ($category_new_tran->category_id == App\News::find($new_tran->new_id)->category_id
+                        && $category_new_tran->locale == 'en')
+                    {$name = $category_new_tran->name;
+
+                    }
+        }
+        return view('front_end.showNewList', compact('new_tran', 'name','news1','new_trans1','category_new_tran1','image','name1','descrip','content'));
     }
 
     /**
@@ -54,7 +101,7 @@ class HomeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -65,7 +112,7 @@ class HomeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -76,7 +123,7 @@ class HomeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -87,8 +134,8 @@ class HomeController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -99,7 +146,7 @@ class HomeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
