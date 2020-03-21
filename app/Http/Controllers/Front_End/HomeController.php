@@ -25,8 +25,7 @@ class HomeController extends Controller
 
     public function showCategory(Category_product_tran $category_product_tran)
     {
-          if (App::getLocale() == "vi")
-
+        if (App::getLocale() == "vi")
             return view('front_end.productlist', [
                 'category_product_tran' => $category_product_tran,
                 'cate_gory' => $category_product_tran->load(['product_trans' => function ($pro) {

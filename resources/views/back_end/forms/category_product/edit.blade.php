@@ -98,7 +98,7 @@
                         </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Submit</button>
-                            <a class="btn btn-secondary" href="{{route('admin.products.index')}}"><i
+                            <a class="btn btn-secondary" href="{{route('admin.category-products.index')}}"><i
                                     class="fa fa-times"></i> Cancel</a>
                         </div>
                     </form>
