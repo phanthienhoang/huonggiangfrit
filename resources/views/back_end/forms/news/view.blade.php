@@ -7,7 +7,7 @@
                 <div class="col-sm-12">
                     <h1 class="m-0 text-dark">Chi tiết
                         <div class=" float-right">
-                            <a href="{{ route('admin.new.create')}}" type="button" id="create_room_type"
+                            <a href="{{ route('new.create')}}" type="button" id="create_room_type"
                                class="btn btn-primary"><i class="fa fa-plus"></i>Thêm sản phẩm</a>
                         </div>
                     </h1>

@@ -8,7 +8,7 @@
                 <div class="col-sm-12">
                     <h1 class="m-0 text-dark">Sản phẩm
                         <div class=" float-right">
-                            <a href="{{ route('admin.new.create')}}" type="button" id="create_room_type"
+                            <a href="{{ route('new.create')}}" type="button" id="create_room_type"
                                class="btn btn-primary"><i class="fa fa-plus"></i>Thêm tin tức mới</a>
                         </div>
                     </h1>
@@ -95,12 +95,12 @@
                                                         <div class="dropdown-menu bg-warning" style="width: 90px"
                                                              aria-labelledby="dropdownMenuButton">
                                                             <a class="dropdown-item"
-                                                               href="{{ route('admin.new.edit',$new_tran->id) }}">Vi</a>
+                                                               href="{{ route('new.edit',$new_tran->id) }}">Vi</a>
                                                             <a class="dropdown-item"
-                                                               href="{{ route('admin.new.edit', ($new_tran->id)+1 )}}">Eng</a>
+                                                               href="{{ route('new.edit', ($new_tran->id)+1 )}}">Eng</a>
                                                         </div>
                                                     </div>
-                                                    <form action="{{route('admin.new.destroy',$new_tran->id)}}"
+                                                    <form action="{{route('new.destroy',$new_tran->id)}}"
                                                           method="post">
                                                         @csrf
                                                         @method('DELETE')
@@ -119,9 +119,9 @@
                                                         <div class="dropdown-menu bg-info" style="width: 90px"
                                                              aria-labelledby="dropdownMenuButton">
                                                             <a class="dropdown-item"
-                                                               href="{{ route('admin.new.show',$new_tran->id) }}">Vi</a>
+                                                               href="{{ route('new.show',$new_tran->id) }}">Vi</a>
                                                             <a class="dropdown-item"
-                                                               href="{{ route('admin.new.show', ($new_tran->id)+1 )}}">Eng</a>
+                                                               href="{{ route('new.show', ($new_tran->id)+1 )}}">Eng</a>
                                                         </div>
                                                     </div>
                                                 </div>

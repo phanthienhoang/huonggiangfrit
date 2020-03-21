@@ -85,7 +85,7 @@
 							Áp dụng: phù hợp cho các dòng gạch ốp tường nung 1 hoặc 2 lần.</br>
 							Bài men tham khảo: frit: 88-92%; kaolin: 8-12%
 						</p>
-						<a href="/"  class="btn">Xem thêm</a>
+						<a href="/product/frit-trong"  class="btn">Xem thêm</a>
 					</div>
 				</div>
 				<div class="col-md-4">
@@ -95,7 +95,7 @@
 							Áp dụng: phù hợp cho gạch lát nhiệt nung thấp và trung bình, gạch ốp nhiệt nung cao.</br>
 							Bài men tham khảo: frit: 88-92%; kaolin: 8-12%
 						</p>
-						<a href="/"  class="btn">Xem thêm</a>
+						<a href="/product/frit-trong"  class="btn">Xem thêm</a>
 					</div>
 				</div>
 				<div class="col-md-4">
@@ -105,7 +105,7 @@
 						Áp dụng: phù hợp cho gạch lát có nhung lượng nhiệt nung cao.</br>
 						Bài men tham khảo: frit: 84-88%; kaolin: 12-16%
 						</p>
-						<a href="/"  class="btn">Xem thêm</a>
+						<a href="/product/frit-trong"  class="btn">Xem thêm</a>
 					</div>
 				</div>
 			</div>

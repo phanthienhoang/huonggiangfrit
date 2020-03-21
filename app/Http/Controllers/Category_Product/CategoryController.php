@@ -131,7 +131,7 @@ class CategoryController extends Controller
 
         Session::flash('create-success',$message);
 
-        return redirect()->route('admin.category-products.index');
+        return redirect()->route('category-products.index');
     }
     /**
      * Remove the specified resource from storage.
@@ -157,7 +157,7 @@ class CategoryController extends Controller
             $value->productTranslates()->delete();
         }
 
-        return redirect(route('admin.category-products.index'));
+        return redirect(route('category-products.index'));
     }
 
     public function getDeleted(){
@@ -175,7 +175,7 @@ class CategoryController extends Controller
         $category->restore();
         $category->category_product_tran()->restore();
 
-        return redirect(route('admin.category-products.index'));
+        return redirect(route('category-products.index'));
     }
 
     public function forceDelete($id)
@@ -186,7 +186,7 @@ class CategoryController extends Controller
         $category->forceDelete();
         $category->category_product_tran()->forceDelete();
 
-        return redirect(route('admin.category-products.index'));
+        return redirect(route('category-products.index'));
     }
 
     public function validateAttribute()

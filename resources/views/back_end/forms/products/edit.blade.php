@@ -26,7 +26,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form role="form" action="{{ route('admin.products.update', $product->id) }}" method="POST"
+                    <form role="form" action="{{ route('products.update', $product->id) }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
                         @method('PATCH')
@@ -128,7 +128,7 @@
 
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Submit</button>
-                            <a class="btn btn-secondary" href="{{route('admin.products.index')}}"><i
+                            <a class="btn btn-secondary" href="{{route('products.index')}}"><i
                                     class="fa fa-times"></i> Cancel</a>
                         </div>
                     </form>

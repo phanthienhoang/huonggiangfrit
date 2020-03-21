@@ -85,7 +85,7 @@ class NewController extends Controller
         }
 
 
-        return redirect()->route('admin.new.index');
+        return redirect()->route('new.index');
 
     }
 
@@ -107,7 +107,7 @@ class NewController extends Controller
         $new_tran->update($atribute);
 //        dd($new_tran);
 
-        return redirect(route('admin.new.index'));
+        return redirect(route('new.index'));
     }
 
     public function validateAttribute()
@@ -153,7 +153,7 @@ class NewController extends Controller
         $kq->restore();
         $kq1->restore();
 
-        return redirect()->route('admin.new.index');
+        return redirect()->route('new.index');
     }
 
     public function forceDelete($id)
@@ -162,7 +162,7 @@ class NewController extends Controller
         $kq1 = New_tran::withTrashed()->find($id+1);
         $kq->forceDelete();
         $kq1->forceDelete();
-        return redirect()->route('admin.new.index');
+        return redirect()->route('new.index');
     }
     public function view_deleted_at($id)
     {
