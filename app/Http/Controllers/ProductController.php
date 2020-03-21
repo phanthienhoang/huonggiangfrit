@@ -73,7 +73,7 @@ class ProductController extends Controller
 
 
         Session::flash('create-success', $message);
-        return redirect()->route('admin.products.index');
+        return redirect()->route('products.index');
     }
 
     public function edit($id)
@@ -100,7 +100,7 @@ class ProductController extends Controller
 
         Session::flash('create-success', $message);
 
-        return redirect(route('admin.products.index'));
+        return redirect(route('products.index'));
     }
 
     public function show($id)
@@ -117,7 +117,7 @@ class ProductController extends Controller
         $product->productTranslates()->delete();
 
 
-        return redirect(route('admin.products.index'));
+        return redirect(route('products.index'));
     }
 
     public function getCategory()
@@ -147,7 +147,7 @@ class ProductController extends Controller
         $product = Product::find($productTrans->product_id);
         $product->productTranslates()->restore();
 
-        return redirect(route('admin.products.index'));
+        return redirect(route('products.index'));
     }
 
     public function forceDelete($id)
@@ -158,7 +158,7 @@ class ProductController extends Controller
         $product->productTranslates()->forceDelete();
 
 
-        return redirect(route('admin.products.index'));
+        return redirect(route('products.index'));
     }
 
     public function validateAttribute()

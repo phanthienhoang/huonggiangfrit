@@ -21,7 +21,7 @@
                         <p class="safe-pera-three">Tinh thần hợp tác, tôn trọng và cùng nhau phát triển sẽ đưa tất cả
                             chúng ta đến gần với nhau hơn..</p>
                         <!-- btn -->
-                        <a href="industries.html" class="btn">Our Services</a>
+                        <a href="product/frit-trong" class="btn">Our Services</a>
                     </div>
                 </div>
                 <div class="col-xl-5 offset-xl-1 col-lg-6 pl-0">
@@ -60,7 +60,7 @@
                                     <p>Công ty Cổ phần Frit Hương Giang là đơn vị chuyên sản xuất các mặt hàng thủy tinh
                                         và các sản phẩm từ thủy tinh, trong đó sản xuất các loại men Frit là mặt hàng
                                         chủ yếu</p>
-                                    <a href="industries.html" class="btn">Xem thêm</a>
+                                    <a href="/about" class="btn">Xem thêm</a>
                                 </div>
                             </div>
                         </div>
@@ -72,7 +72,7 @@
                                     <p>Tọa lạc tại Khu B, KCN Phong Điền, thị trấn Phong Điền, huyện Phong Điền, tỉnh
                                         Thừa Thiên Huế, thành lập vào ngày 03 tháng 01 năm 2019, là chủ đầu tư dự án nhà
                                         máy sản xuất men Frit với công suất 20,000 tấn sản phẩm/năm.</p>
-                                    <a href="industries.html" class="btn">Xem thêm</a>
+                                    <a href="/about" class="btn">Xem thêm</a>
                                 </div>
                             </div>
                         </div>

@@ -9,7 +9,7 @@
                 <div class="col-sm-12">
                     <h1 class="m-0 text-dark">Chi tiết 
                         <div class=" float-right">
-                            <a href="{{ route('admin.category-products.create')}}" type="button" id="create_room_type"
+                            <a href="{{ route('category-products.create')}}" type="button" id="create_room_type"
                                class="btn btn-primary"><i class="fa fa-plus"></i>Thêm Loại sản phẩm</a>
                         </div>
                     </h1>

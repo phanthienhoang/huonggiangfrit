@@ -26,7 +26,7 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" action="{{ route('admin.new.store') }}" method="POST" enctype="multipart/form-data">
+                        <form role="form" action="{{ route('new.store') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">

@@ -8,7 +8,7 @@
             <div class="col-sm-12">
                 <h1 class="m-0 text-dark">Sản phẩm
                     <div class=" float-right">
-                        <a href="{{ route('admin.category-products.create')}}" type="button" id="create_room_type"
+                        <a href="{{ route('category-products.create')}}" type="button" id="create_room_type"
                             class="btn btn-primary"><i class="fa fa-plus"></i>Thêm sản phẩm mới</a>
                     </div>
                 </h1>
@@ -53,12 +53,12 @@
                                     <!-- <td><?= $categoryProduct['locale'] ?></td> -->
                                     <td>
                                         <div class="d-inline-block">
-                                            <a href="{{ route('admin.category-products.show', $categoryProduct->id) }}"
+                                            <a href="{{ route('category-products.show', $categoryProduct->id) }}"
                                                 class="btn btn-primary"><i class="fa fa-eye"></i> View</a>
-                                            <a href="{{ route('admin.category-products.edit', $categoryProduct->id) }}"
+                                            <a href="{{ route('category-products.edit', $categoryProduct->id) }}"
                                                 class="btn btn-warning"><i class="fa fa-edit"></i> Edit</a>
                                             <form class="d-inline"
-                                                action="{{route('admin.category-products.destroy',$categoryProduct->id)}}"
+                                                action="{{route('category-products.destroy',$categoryProduct->id)}}"
                                                 method="post">
                                                 @csrf
                                                 @method('DELETE')
