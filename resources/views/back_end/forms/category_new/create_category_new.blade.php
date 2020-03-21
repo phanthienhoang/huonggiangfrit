@@ -27,7 +27,7 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" action="{{route('admin.category_new.store')}}" method="post">
+                        <form role="form" action="{{route('category_new.store')}}" method="post">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">

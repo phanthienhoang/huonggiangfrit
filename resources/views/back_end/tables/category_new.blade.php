@@ -8,7 +8,7 @@
                 <div class="col-sm-12">
                     <h1 class="m-0 text-dark"> Loại tin tức
                         <div class=" float-right">
-                            <a href="{{ route('admin.category_new.create')}}" type="button" id="create_room_type"
+                            <a href="{{ route('category_new.create')}}" type="button" id="create_room_type"
                                class="btn btn-primary"><i class="fa fa-plus"></i>Thêm loại Tin tức mới</a>
                         </div>
                     </h1>
@@ -51,33 +51,44 @@
                                         @endif
                                         <td>
                                             <div class="btn-group-vertical">
-                                                <div class="dropdown d-inline-block ">
-                                                    <button class="btn btn-warning dropdown-toggle"
-                                                            style="width: 90px" type="button"
-                                                            id="dropdownMenuButton" data-toggle="dropdown"
-                                                            aria-haspopup="true"
-                                                            aria-expanded="false"><i class="fa fa-edit"></i>
-                                                    </button>
-                                                    <div class="dropdown-menu bg-warning"
-                                                         aria-labelledby="dropdownMenuButton">
-                                                        <a class="dropdown-item"
-                                                           href="{{ route('admin.category_new.edit',$category_new_tran->id) }}">Vi</a>
-                                                        <a class="dropdown-item"
-                                                           href="{{ route('admin.category_new.edit', $category_new_tran->id +1)}}">Eng</a>
-                                                    </div>
+
+
+                                                <div class="btn bg-warning" style="width: 90px">
+                                                    @if(App::getLocale() == "vi")
+                                                        <a class="text-center"
+                                                           href="{{ route('category_new.edit',$category_new_tran->id) }}">Sửa</a>
+                                                    @else
+                                                        <a class="text-center"
+                                                           href="{{ route('category_new.edit',$category_new_tran->id) }}">Edit</a>
+                                                    @endif
                                                 </div>
                                                 <form
-                                                    action="{{route('admin.category_new.destroy',$category_new_tran->id)}}"
+                                                    action="{{route('category_new.destroy',$category_new_tran->id)}}"
                                                     method="post">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <input type="submit" style="width: 90px"
-                                                           onclick="return confirm('bạn có thực sự muốn xóa')"
-                                                           class="btn bg-danger text-dark"
-                                                           value="Xóa">
+                                                    @if(App::getLocale() == "vi")
+                                                        <input type="submit" style="width: 90px"
+                                                               onclick="return confirm('bạn có thực sự muốn xóa')"
+                                                               class="btn bg-danger text-dark"
+                                                               value="Xóa">
+                                                    @else
+                                                        <input type="submit" style="width: 90px"
+                                                               onclick="return confirm('bạn có thực sự muốn xóa')"
+                                                               class="btn bg-danger text-dark"
+                                                               value="Delete">
+                                                    @endif
                                                 </form>
+                                                <div style="width: 90px">
+                                                    @if(App::getLocale() == "vi")
+                                                        <a href="{{ route('category_new.show',$category_new_tran->id) }}"
+                                                           style="width: 90px" class="btn bg-info">chi tiết</a>
+                                                    @else
+                                                        <a href="{{ route('category_new.show',$category_new_tran->id) }}"
+                                                           style="width: 90px" class="btn bg-info">Detail</a>
+                                                    @endif
+                                                </div>
 
-                                                <a href="{{ route('admin.category_new.show',$category_new_tran->id) }}" style="width: 90px" class="btn bg-info">chi tiết</a>
 
                                             </div>
                                         </td>

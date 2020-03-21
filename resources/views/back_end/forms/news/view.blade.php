@@ -46,14 +46,18 @@
                             <div class="content">
 
                                 {!!$new_tran->content!!}
-                                {{-- <textarea class="textarea" name="contents"
-                                    style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #DDDDDD; padding: 10px;">
-                                        {{$product->content}}
-                                </textarea> --}}
                             </div>
                         </div>
                         <div class="tab-pane fade" id="product-comments" role="tabpanel" aria-labelledby="product-comments-tab">
-
+                            @foreach(\App\News::all() as $new)
+                                @if($new->id == $new_tran->new_id)
+                                    @if($new->online == 1)
+                                        <option value="1">Online</option>
+                                    @else
+                                        <option value="0">Not online</option>
+                                    @endif
+                                @endif
+                            @endforeach
                         </div>
                     </div>
                 </div>

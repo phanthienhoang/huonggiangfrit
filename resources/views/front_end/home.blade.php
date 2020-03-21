@@ -97,7 +97,6 @@
                     @endif
                 </div>
             </div>
-
             <div class="row ">
                 @foreach($new_trans as $new_tran)
                     <div class="col-xl-6 col-lg-6 col-md-6">
@@ -111,7 +110,8 @@
                                     <li>{{$new_tran->created_at}} </li>
                                     <li></li>
                                 </ul>
-                                <h2><a href="{{route('category.web.new.show',$new_tran->id)}}">{{$new_tran->name}}</a>
+                                <h2 ><a class="text-truncate"
+                                                                 href="{{route('category.web.new.show',$new_tran->id)}}">{{$new_tran->name}}</a>
                                 </h2>
                                 @if (App::getLocale() == "vi")
                                     <a
@@ -119,7 +119,7 @@
                                         thêm </a>
                                 @else
                                     <a
-                                       href="{{route('category.web.new.show',$new_tran->id)}}">see
+                                        href="{{route('category.web.new.show',$new_tran->id)}}">see
                                         more </a>
                                 @endif
                             </div>
