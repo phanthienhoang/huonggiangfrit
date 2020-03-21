@@ -14,7 +14,12 @@
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('front_end.home');
+    if (App::getLocale() == "vi") {
+    $new_trans = App\New_tran::where('locale','vi')->orderBy('created_at', 'desc')->take(2)->get();
+    } else {
+        $new_trans = App\New_tran::where('locale','en')->orderBy('created_at', 'desc')->take(2)->get();
+    }
+    return view('front_end.home',compact('new_trans'));
 })->middleware('locale');
 
 // Route::get('/category', function () {
