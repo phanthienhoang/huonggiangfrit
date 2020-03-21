@@ -62,6 +62,7 @@ class Category_newController extends Controller
 
             $category_new_tran1 = new Category_new_tran();
             $category_new_tran1->locale = 'vi';
+            $category_new_tran1->status = 0;
             $category_new_tran1->category_id = $category_new->id;
             $category_new_tran1->save();
 
@@ -75,12 +76,14 @@ class Category_newController extends Controller
             $category_new_tran = new Category_new_tran();
             $category_new_tran->name = \request('name');
             $category_new_tran->locale = 'vi';
+
             $category_new_tran->category_id = $category_new->id;
             $category_new_tran->save();
 
 
             $category_new_tran1 = new Category_new_tran();
             $category_new_tran1->locale = 'en';
+            $category_new_tran1->status = 0;
             $category_new_tran1->category_id = $category_new->id;
             $category_new_tran1->save();
         }

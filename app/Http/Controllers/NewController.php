@@ -98,12 +98,14 @@ class NewController extends Controller
     public function update(Request $request, $id)
     {
         $atribute = $request->all();
-        if ($request->hasFile('image')) {
-            $image = base64_encode(file_get_contents($request->file("image")));
+        if ($request->hasFile('images')) {
+            $image = base64_encode(file_get_contents($request->file("images")));
             $atribute['image'] = "data:image/jpg;base64," . $image;
         }
+
         $new_tran = New_tran::find($id);
         $new_tran->update($atribute);
+//        dd($new_tran);
 
         return redirect(route('admin.new.index'));
     }

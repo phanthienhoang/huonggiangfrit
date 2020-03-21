@@ -38,7 +38,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('admin.new.index')}}" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+            <a href="{{ route('new.index')}}" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
               <i class="far fa-circle nav-icon"></i>
               <p>Danh sách Tin Tức</p>
             </a>
@@ -66,7 +66,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{route('admin.category_new.index')}}" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
+            <a href="{{route('category_new.index')}}" class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
               <i class="far fa-circle nav-icon"></i>
               <p>Danh sách Thể Loại</p>
             </a>
@@ -94,7 +94,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('admin.products.index')}}"
+            <a href="{{ route('products.index')}}"
               class="nav-link {{ Request::segment(3) === '#' ? 'active' : null }}">
               <i class="far fa-circle nav-icon"></i>
               <p>Danh sách sản phẩm</p>
@@ -123,7 +123,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{route('admin.category-products.index')}}"
+            <a href="{{route('category-products.index')}}"
               class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
               <i class="far fa-circle nav-icon"></i>
               <p>Danh sách loại sản phẩm</p>
@@ -131,60 +131,6 @@
           </li>
         </ul>
       </li>
-      {{-- <li
-        class="nav-item has-treeview {{ Request::segment(2) === '#' || Request::segment(2) === '#' || Request::segment(2) === '#' ? 'menu-open' : null }}">
-      <a href="#" class="nav-link">
-        <i class="nav-icon fa fa-fw fa-cubes"></i>
-        <p>
-          Loại cổ đông
-          <i class="right fas fa-angle-left"></i>
-        </p>
-      </a>
-      <ul class="nav nav-treeview">
-        <li class="nav-item">
-          <a href="{{route('admin.category-shareholder.index')}}"
-            class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
-            <i class="far fa-circle nav-icon"></i>
-            <p>List</p>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a href="{{route('admin.category-shareholder.index')}}"
-            class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
-            <i class="far fa-circle nav-icon"></i>
-            <p>Thùng rác</p>
-          </a>
-        </li>
-      </ul>
-      </li>
-
-      <li
-        class="nav-item has-treeview {{ Request::segment(2) === '#' || Request::segment(2) === '#' || Request::segment(2) === '#' ? 'menu-open' : null }}">
-        <a href="#" class="nav-link">
-          <i class="nav-icon fa fa-fw fa-cubes"></i>
-          <p>
-            Quan hệ cổ đông
-            <i class="right fas fa-angle-left"></i>
-          </p>
-        </a>
-        <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="{{route('admin.shareholder.index')}}"
-              class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
-              <i class="far fa-circle nav-icon"></i>
-              <p>List</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{route('admin.shareholder.index')}}"
-              class="nav-link {{ Request::segment(2) === '#' ? 'active' : null }}">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Thùng rác</p>
-            </a>
-          </li>
-        </ul>
-      </li> --}}
-
     </ul>
   </nav>
   <!-- /.sidebar-menu -->

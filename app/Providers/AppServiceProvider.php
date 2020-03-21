@@ -36,6 +36,10 @@ class AppServiceProvider extends ServiceProvider
                     ['locale','=', 'en'],
                     ['status', '=', '1'],
                 ])->get();
+                $loai_tin = App\Category_new_tran ::where([
+                    ['locale','=', 'en'],
+                    ['status', '=', '1'],
+                ])->get();
             } else {
                 $loai_sp = Category_product_tran::where([
                     ['locale','=', 'vi'],
@@ -46,8 +50,12 @@ class AppServiceProvider extends ServiceProvider
                     ['locale','=', 'vi'],
                     ['status', '=', '1'],
                 ])->get();
+                $loai_tin = App\Category_new_tran::where([
+                    ['locale','=', 'vi'],
+                    ['status', '=', '1'],
+                ])->get();
             }
-            $view->with(compact('loai_sp','quanhe_codong')); 
+            $view->with(compact('loai_sp','quanhe_codong','loai_tin'));
         });
     }
 }
