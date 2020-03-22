@@ -8,7 +8,7 @@
                 <div class="col-sm-12">
                     <h1 class="m-0 text-dark"> Loại tin tức
                         <div class=" float-right">
-                            <a href="{{ route('admin.category_new.create')}}" type="button" id="create_room_type"
+                            <a href="{{ route('category_new.create')}}" type="button" id="create_room_type"
                                class="btn btn-primary"><i class="fa fa-plus"></i>Thêm loại Tin tức mới</a>
                         </div>
                     </h1>
@@ -52,14 +52,29 @@
                                         <td>
                                             <div class="btn-group-vertical">
                                                 <div>
-                                                    <a class="btn bg-success" style="width: 120px"
-                                                       onclick="return confirm('bạn có thực sự muốn khôi phục lại không?')"
-                                                       href="{{route('admin.category_new.restore',$category_new_tran->id)}}">Khôi
-                                                        phục</a>
+                                                    @if(App::getLocale() == "vi")
+                                                        <a class="btn bg-success" style="width: 120px"
+                                                           onclick="return confirm('bạn có thực sự muốn khôi phục lại không?')"
+                                                           href="{{route('admin.category_new.restore',$category_new_tran->id)}}">
+                                                            <i class="fa fa-retweet"></i>Khôi
+                                                            phục</a>
+                                                    @else
+                                                        <a class="btn bg-success" style="width: 120px"
+                                                           onclick="return confirm('bạn có thực sự muốn khôi phục lại không?')"
+                                                           href="{{route('admin.category_new.restore',$category_new_tran->id)}}">
+                                                            <i class="fa fa-retweet"></i> Retore</a>
+                                                    @endif
+
                                                 </div>
                                                 <div>
-                                                    <a href="{{ route('admin.category_new.view_deleted_at',$category_new_tran->id) }}"
-                                                       style="width: 120px" class="btn bg-info">chi tiết</a>
+                                                    @if(App::getLocale() == "vi")
+                                                        <a href="{{ route('admin.category_new.view_deleted_at',$category_new_tran->id) }}"
+                                                           style="width: 120px" class="btn bg-info">chi tiết</a>
+                                                    @else
+                                                        <a href="{{ route('admin.category_new.view_deleted_at',$category_new_tran->id) }}"
+                                                           style="width: 120px" class="btn bg-info">Detail</a>
+                                                    @endif
+
                                                 </div>
                                                 <div>
                                                     <form class="d-inline"
@@ -67,9 +82,17 @@
                                                           method="post">
                                                         @csrf
                                                         @method('DELETE')
-                                                        <input type="submit" style="width: 120px"
-                                                               onclick="return confirm('bạn có thực sự muốn xóa')"
-                                                               class="btn bg-danger text-dark" value="Xóa">
+                                                        @if(App::getLocale() == "vi")
+                                                            <input type="submit" style="width: 120px"
+                                                                   onclick="return confirm('bạn có thực sự muốn xóa')"
+                                                                   class="btn bg-danger text-dark"
+                                                                   value="Xóa">
+                                                        @else
+                                                            <input type="submit" style="width: 120px"
+                                                                   onclick="return confirm('bạn có thực sự muốn xóa')"
+                                                                   class="btn bg-danger text-dark"
+                                                                   value="Delete">
+                                                        @endif
                                                     </form>
                                                 </div>
 

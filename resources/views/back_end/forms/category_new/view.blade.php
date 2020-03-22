@@ -8,11 +8,7 @@
 
     <div class="col-md-12">
                     <div class="card">
-{{--<div class="col-3">--}}
-{{--                        <a class="btn btn-warning " href="{{route('admin.category_new')}}">quay lại trang </a></div>--}}
-                        <!-- /.card-header -->
                         <div class="card-body">
-
                             <table id="example1" class="table table-bordered table-striped ">
                                 <thead class="bg-primary">
                                 <tr>
