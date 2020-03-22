@@ -51,6 +51,8 @@
                                         @endif
                                         <td>
                                             <div class="btn-group-vertical">
+​
+​
                                                 <div class="btn bg-warning" style="width: 90px">
                                                     @if(App::getLocale() == "vi")
                                                         <a class="text-center"
@@ -85,11 +87,9 @@
                                                         <a href="{{ route('category_new.show',$category_new_tran->id) }}"
                                                            style="width: 90px" class="btn bg-info">Detail</a>
                                                     @endif
-                                                </div>​
-
-
-                                                <a href="{{ route('category_new.show',$category_new_tran->id) }}" style="width: 90px" class="btn bg-info">chi tiết</a>
-
+                                                </div>
+​
+​
                                             </div>
                                         </td>
                                     </tr>
