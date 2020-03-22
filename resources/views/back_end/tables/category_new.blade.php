@@ -1,6 +1,6 @@
 @extends('back_end.layouts.app')
 @section('title', 'Form')
-
+​
 @section('content_header')
     <div class="content-header">
         <div class="container-fluid">
@@ -17,13 +17,13 @@
         </div>
     </div>
 @endsection
-
+​
 @section('content')
-
+​
     <section class="content">
         <div class="container-fluid">
             <div class="row">
-
+​
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
@@ -36,7 +36,7 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Tên loại tin tức</th>
-
+​
                                     <th class="action text-center">Action</th>
                                 </tr>
                                 </thead>
@@ -51,22 +51,8 @@
                                         @endif
                                         <td>
                                             <div class="btn-group-vertical">
-                                                <div class="dropdown d-inline-block ">
-                                                    <button class="btn btn-warning dropdown-toggle"
-                                                            style="width: 90px" type="button"
-                                                            id="dropdownMenuButton" data-toggle="dropdown"
-                                                            aria-haspopup="true"
-                                                            aria-expanded="false"><i class="fa fa-edit"></i>
-                                                    </button>
-                                                    <div class="dropdown-menu bg-warning"
-                                                         aria-labelledby="dropdownMenuButton">
-                                                        <a class="dropdown-item"
-                                                           href="{{ route('category_new.edit',$category_new_tran->id) }}">Vi</a>
-                                                        <a class="dropdown-item"
-                                                           href="{{ route('category_new.edit', $category_new_tran->id +1)}}">Eng</a>
-                                                    </div>
-
-
+​
+​
                                                 <div class="btn bg-warning" style="width: 90px">
                                                     @if(App::getLocale() == "vi")
                                                         <a class="text-center"
@@ -102,15 +88,14 @@
                                                            style="width: 90px" class="btn bg-info">Detail</a>
                                                     @endif
                                                 </div>
-
-                                                <a href="{{ route('category_new.show',$category_new_tran->id) }}" style="width: 90px" class="btn bg-info">chi tiết</a>
-
+​
+​
                                             </div>
                                         </td>
                                     </tr>
-
+​
                                 @endforeach
-
+​
                                 </tbody>
                             </table>
                         </div>
@@ -120,15 +105,15 @@
             </div>
         </div>
     </section>
-
+​
 @endsection
-
+​
 @push('style')
-
+​
     <link rel="stylesheet" href="/backend/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
-
+​
 @endpush
-
+​
 @push('script')
     <script src="/backend/plugins/datatables/jquery.dataTables.js"></script>
     <script src="/backend/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
