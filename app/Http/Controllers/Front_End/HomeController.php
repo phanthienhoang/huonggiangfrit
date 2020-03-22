@@ -164,4 +164,11 @@ class HomeController extends Controller
         // App::setLocale('vi');
         return redirect()->back();
     }
+
+    public function changeLanguageFront($language)
+    {
+        session(['language' => $language]);
+        // App::setLocale('vi');
+        return redirect('/');
+    }
 }

@@ -12,11 +12,23 @@
 					<img src="assets/img/about/frit.jpg" alt="" class="img-fluid">
 				</div>
 				<div class="col-md-9 mt-sm-20">
-					<p>Công ty Cổ phần Frit Hương Giang là đơn vị chuyên sản xuất các mặt hàng thủy tinh và các sản phẩm từ thủy tinh, trong đó sản xuất các loại men Frit là mặt hàng chủ yếu.</p>
+					<p style="font-size:20px">Công ty Cổ phần Frit Hương Giang là đơn vị chuyên sản xuất các mặt hàng thủy tinh và các sản phẩm từ thủy tinh, trong đó sản xuất các loại men Frit là mặt hàng chủ yếu.</p>
 
 					<p>Công ty Cổ phần Frit Hương Giang tọa lạc tại Khu B, KCN Phong Điền, thị trấn Phong Điền, huyện Phong Điền, tỉnh Thừa Thiên Huế, Việt Nam với diện tích hơn 3,6 hecta, công ty thành lập vào ngày 03 tháng 01 năm 2019, là chủ đầu tư dự án nhà máy sản xuất men Frit với công suất 20,000 tấn sản phẩm/năm. Là đơn vị mới thành lập, nhưng chúng tôi chắc lọc được các giá trị cốt lõi trong sản xuất frit, kết hợp với đầu tư đồng bộ trang thiết bị hiện đại để tạo ra các sản phẩm đáp ứng yêu cầu chất lượng của Khách hàng </p>
 				</div>
 			</div>
+		</div>
+		<div style="font-size:20px" >
+
+			Huế được xem là cái nôi của ngành công nghiệp sản xuất men frit ở Việt Nam, đáp ứng hơn 70% nhu cầu men frit cho các nhà máy sản xuất gốm sứ trong nước. <br>
+			
+			Được thành lập từ tháng 1 năm 2019 tại khu công nghiệp Phong Điền, tỉnh Thừa Thiên Huế, công ty Cổ phần frit Hương Giang tự hào là một đơn vị cung cấp men frit tại Huế và đã nhanh chóng góp mặt vào thị trường nguyên liệu men frit ở Việt Nam từ tháng 8 năm 2019.<br>
+
+			Là công ty thành lập trong giai đoạn phát triển đỉnh cao của ngành sản xuất frit cùng với đội ngũ quản lý giàu kinh nghiệm trong lĩnh vực sản xuất men frit, công ty Cổ phần frit Hương Giang đã áp dụng nhiều máy móc thiết bị hiện đại, cải tiến các quy trình sản xuất để tạo ra các sản phẩm men frit đảm bảo chất lượng, có độ ổn định cao.<br>
+			Với mục tiêu tăng trưởng và phát triển bền vững, chúng tôi luôn nỗ lực để khẳng định thương hiệu và tạo ra giá trị trong từng sản phẩm.<br>
+			Công ty chúng tôi chuyên sản xuất các sản phẩm frit trong, frit bán đục, frit titan và nguyên liệu cho men lót.
+
+
 		</div>
 		<div class="section-top-border">
 			<h3 class="mb-30">Dây chuyền công nghệ, thiết bị hiện đại:</h3>

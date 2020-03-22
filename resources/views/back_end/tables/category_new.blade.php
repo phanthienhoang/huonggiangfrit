@@ -51,6 +51,20 @@
                                         @endif
                                         <td>
                                             <div class="btn-group-vertical">
+                                                <div class="dropdown d-inline-block ">
+                                                    <button class="btn btn-warning dropdown-toggle"
+                                                            style="width: 90px" type="button"
+                                                            id="dropdownMenuButton" data-toggle="dropdown"
+                                                            aria-haspopup="true"
+                                                            aria-expanded="false"><i class="fa fa-edit"></i>
+                                                    </button>
+                                                    <div class="dropdown-menu bg-warning"
+                                                         aria-labelledby="dropdownMenuButton">
+                                                        <a class="dropdown-item"
+                                                           href="{{ route('category_new.edit',$category_new_tran->id) }}">Vi</a>
+                                                        <a class="dropdown-item"
+                                                           href="{{ route('category_new.edit', $category_new_tran->id +1)}}">Eng</a>
+                                                    </div>
 
 
                                                 <div class="btn bg-warning" style="width: 90px">
@@ -89,6 +103,7 @@
                                                     @endif
                                                 </div>
 
+                                                <a href="{{ route('category_new.show',$category_new_tran->id) }}" style="width: 90px" class="btn bg-info">chi tiết</a>
 
                                             </div>
                                         </td>
