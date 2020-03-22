@@ -8,7 +8,7 @@
                 <div class="col-sm-12">
                     <h1 class="m-0 text-dark"> Loại tin tức
                         <div class=" float-right">
-                            <a href="{{ route('admin.category_new.create')}}" type="button" id="create_room_type"
+                            <a href="{{ route('category_new.create')}}" type="button" id="create_room_type"
                                class="btn btn-primary"><i class="fa fa-plus"></i>Thêm loại Tin tức mới</a>
                         </div>
                     </h1>
@@ -61,13 +61,13 @@
                                                     <div class="dropdown-menu bg-warning"
                                                          aria-labelledby="dropdownMenuButton">
                                                         <a class="dropdown-item"
-                                                           href="{{ route('admin.category_new.edit',$category_new_tran->id) }}">Vi</a>
+                                                           href="{{ route('category_new.edit',$category_new_tran->id) }}">Vi</a>
                                                         <a class="dropdown-item"
-                                                           href="{{ route('admin.category_new.edit', $category_new_tran->id +1)}}">Eng</a>
+                                                           href="{{ route('category_new.edit', $category_new_tran->id +1)}}">Eng</a>
                                                     </div>
                                                 </div>
                                                 <form
-                                                    action="{{route('admin.category_new.destroy',$category_new_tran->id)}}"
+                                                    action="{{route('category_new.destroy',$category_new_tran->id)}}"
                                                     method="post">
                                                     @csrf
                                                     @method('DELETE')
@@ -77,7 +77,7 @@
                                                            value="Xóa">
                                                 </form>
 
-                                                <a href="{{ route('admin.category_new.show',$category_new_tran->id) }}" style="width: 90px" class="btn bg-info">chi tiết</a>
+                                                <a href="{{ route('category_new.show',$category_new_tran->id) }}" style="width: 90px" class="btn bg-info">chi tiết</a>
 
                                             </div>
                                         </td>

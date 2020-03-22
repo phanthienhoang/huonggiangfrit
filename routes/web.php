@@ -78,6 +78,9 @@ Route::prefix('/admin')->group(function () {
 Route::get('change-language/{language}', 'Front_End\HomeController@changeLanguage')
 ->name('user.change-language')->middleware('locale');
 
+Route::get('change-language-front/{language}', 'Front_End\HomeController@changeLanguageFront')
+->name('user.change-language-front')->middleware('locale');
+
 Route::get('/about','Front_End\HomeController@indexAbout')->name('about.web')->middleware('locale');
 
 Route::get('/product/{category_product_tran:slug}','Front_End\HomeController@showCategory')->name('category.web')->middleware('locale');

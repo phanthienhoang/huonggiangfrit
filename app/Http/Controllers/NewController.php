@@ -67,15 +67,13 @@ class NewController extends Controller
         if ($atribute['locale'] == 'vi') {
             New_tran::create($atribute);
             $atribute['locale'] = 'en';
-            $atribute['name'] = 'null';
-            $atribute['description'] = 'null';
-            $atribute['content'] = 'null';
+            $atribute['description'] = 'update tiếng anh cho tôi';
+            $atribute['content'] = 'update tiếng anh cho tôi';
             New_tran::create($atribute);
         } else {
             $atribute1 = $request->all();
             $atribute1['locale'] = 'vi';
-            $atribute1['name'] = 'null';
-            $atribute1['description'] = 'null';
+            $atribute1['description'] = 'cập nhập tiếng việt cho tôi';
             $atribute1['content'] = 'null';
             $image = base64_encode(file_get_contents($request->file("images")));
             $atribute1['image'] = "data:image/jpg;base64," . $image;
