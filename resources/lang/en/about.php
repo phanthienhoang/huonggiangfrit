@@ -7,7 +7,7 @@
         "chuyennganh"       =>"Our products include transparent frit, semi-opaque frit, titanium frit and raw materials for engobe.",
 
         "tieude" =>"Huong Giang- Pinnacle of Quality",
-        "tieude2" =>"Chắc lọc được các giá trị cốt lõi trong sản xuất frit, kết hợp với đầu tư đồng bộ trang thiết bị hiện đại để tạo ra các sản phẩm đáp ứng yêu cầu chất lượng của Khách hàng",
+        "tieude2" =>"we are sure to  the core values ​​in frit filterproduction, combined with a comprehensive investment of modern equipment to create products that satify customer quality requirements",
         "tieude3" =>"we are committed to providing products with stable quality, unbeatable prices, accompanied by providing the best technical support services to our customers.",
         "tieude4" =>"The spirit of cooperation, respect and development together will bring us closer together.",
 

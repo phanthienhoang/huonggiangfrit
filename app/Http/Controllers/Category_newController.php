@@ -88,7 +88,7 @@ class Category_newController extends Controller
             $category_new_tran1->save();
         }
 
-        return redirect()->route('admin.category_new.index');
+        return redirect()->route('category_new.index');
     }
 
     /**
@@ -130,7 +130,7 @@ class Category_newController extends Controller
         $category_new_tran->save();
 
 
-        return redirect()->route('admin.category_new.index');
+        return redirect()->route('category_new.index');
     }
 
     /**
@@ -150,7 +150,7 @@ class Category_newController extends Controller
         $cate_new_tran->delete();
 
 
-        return redirect()->route('admin.category_new.index');
+        return redirect()->route('category_new.index');
     }
 
     public function validateAttribute()
@@ -199,7 +199,7 @@ class Category_newController extends Controller
         $kq1 = Category_new_tran::withTrashed()->find($id+1);
         $kq->forceDelete();
         $kq1->forceDelete();
-        return redirect()->route('admin.category_new.index');
+        return redirect()->route('category_new.index');
     }
 
     public function view_deleted_at($id)
