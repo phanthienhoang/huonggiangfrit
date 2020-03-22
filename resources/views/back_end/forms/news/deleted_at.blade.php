@@ -1,4 +1,3 @@
-
 @extends('back_end.layouts.app')
 @section('title', 'Form')
 
@@ -56,7 +55,7 @@
 
                                                 @if($cate_new_tran->locale == $new_tran->locale && $cate_new_tran->category_id == \App\News::find($new_tran->new_id)->category_id )
                                                     @if(empty($cate_new_tran->name))
-                                                        <li  class="text-danger">
+                                                        <li class="text-danger">
                                                             dữ liệu trống
                                                         </li>
                                                     @else
@@ -86,32 +85,49 @@
                                         </td>
                                         <td>
                                             <div class="d-inline-block">
-                                                <div >
-                                                <a class="btn bg-success" style="width: 120px" onclick="return confirm('bạn có thực sự muốn khôi phục lại không?')"
-                                                   href="{{route('admin.new.restore',$new_tran->id)}}"><i class="fa fa-retweet"></i>Khôi phục</a>
+                                                <div>
+                                                    @if(App::getLocale() == "vi")
+                                                        <a class="btn bg-success" style="width: 120px"
+                                                           onclick="return confirm('bạn có thực sự muốn khôi phục lại không?')"
+                                                           href="{{route('admin.new.restore',$new_tran->id)}}"><i
+                                                                class="fa fa-retweet"></i>Khôi phục</a>
+                                                    @else
+                                                        <a class="btn bg-success" style="width: 120px"
+                                                           onclick="return confirm('bạn có thực sự muốn khôi phục lại không?')"
+                                                           href="{{route('admin.new.restore',$new_tran->id)}}"><i
+                                                                class="fa fa-retweet"></i>
+                                                            Retore</a>
+                                                    @endif
                                                 </div>
-                                                <div class="dropdown d-inline-block " >
-                                                    <button class="btn btn-info dropdown-toggle"
-                                                            style="width: 120px" type="button"
-                                                            id="dropdownMenuButton" data-toggle="dropdown"
-                                                            aria-haspopup="true"
-                                                            aria-expanded="false">Chi tiết
-                                                    </button>
-                                                    <div class="dropdown-menu bg-info "
-                                                         aria-labelledby="dropdownMenuButton">
-                                                        <a class="dropdown-item"
-                                                           href="{{ route('admin.new.view_deleted_at',$new_tran->id) }}">Vi</a>
-                                                        <a class="dropdown-item"
-                                                           href="{{ route('admin.new.view_deleted_at', ($new_tran->id)+1 )}}">Eng</a>
+                                                <div class="dropdown d-inline-block ">
+                                                    <div class="btn bg-info" style="width: 120px">
+                                                        @if(App::getLocale() == "vi")
+                                                            <a
+                                                                href="{{ route('admin.new.view_deleted_at',$new_tran->id) }}">Chi
+                                                                tiết</a>
+                                                        @else
+                                                            <a
+                                                                href="{{ route('admin.new.view_deleted_at',$new_tran->id)}}">Detail</a>
+                                                        @endif
                                                     </div>
-                                                    <div >
-                                                    <form class="d-inline"
-                                                          action="{{route('admin.new.forceDelete',$new_tran->id)}}" method="post">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <input type="submit" style="width: 120px" onclick="return confirm('bạn có thực sự muốn xóa')"
-                                                               class="btn bg-danger text-dark" value="Xóa">
-                                                    </form>
+                                                    <div>
+                                                        <form class="d-inline"
+                                                              action="{{route('admin.new.forceDelete',$new_tran->id)}}"
+                                                              method="post">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            @if(App::getLocale() == "vi")
+                                                                <input type="submit" style="width: 120px"
+                                                                       onclick="return confirm('bạn có thực sự muốn xóa')"
+                                                                       class="btn bg-danger text-dark"
+                                                                       value="Xóa">
+                                                            @else
+                                                                <input type="submit" style="width: 120px"
+                                                                       onclick="return confirm('bạn có thực sự muốn xóa')"
+                                                                       class="btn bg-danger text-dark"
+                                                                       value="Delete">
+                                                            @endif
+                                                        </form>
                                                     </div>
                                                 </div>
                                             </div>

@@ -100,7 +100,7 @@
       });
     });
     setTimeout(() => {
-            document.getElementById('banner_session').style.display = 'none';  
+            document.getElementById('banner_session').style.display = 'none';
     }, 4000);
 </script>
 @endpush

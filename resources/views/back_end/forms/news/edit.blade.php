@@ -26,7 +26,7 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" action="{{ route('admin.new.update',$new_tran->id) }}" method="POST"
+                        <form role="form" action="{{ route('new.update',$new_tran->id) }}" method="POST"
                               enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
@@ -39,12 +39,13 @@
                                 <div class="form-group">
                                     <label>Chọn ngôn ngữ</label>
                                     <select name="locale" class="custom-select">
-                                        @if( $new_tran->locale == 'vi')
+                                        @if(App::getLocale() == "vi")
                                             <option value="vi">Tiếng Việt</option>
                                             <option value="en">Tiếng Anh</option>
+
                                         @else
-                                            <option value="en">Tiếng Anh</option>
-                                            <option value="vi">Tiếng Việt</option>
+                                            <option value="en">English </option>
+                                            <option value="vi">Vietnamese</option>
                                         @endif
                                     </select>
                                 </div>
@@ -54,23 +55,43 @@
                                         @foreach(\App\Category_new_tran::all() as $category_new_tran)
                                             @if($category_new_tran->category_id == \App\News::find($new_tran->new_id)->category_id)
                                                 @if($category_new_tran->locale == 'vi')
-                                                    @switch($category_new_tran->id)
-                                                        @case(1)
-                                                        <option value="1">Sự kiện nổi bật</option>
-                                                        <option value="2">Tin trong nghành</option>
-                                                        <option value="3">Tin hoạt động công ty</option>
-                                                        @break
-                                                        @case(3)
-                                                        <option value="2">Tin trong nghành</option>
-                                                        <option value="1">Sự kiện nổi bật</option>
-                                                        <option value="3">Tin hoạt động công ty</option>
-                                                        @break
-                                                        @case(5)
-                                                        <option value="3">Tin hoạt động công ty</option>
-                                                        <option value="2">Tin trong nghành</option>
-                                                        <option value="1">Sự kiện nổi bật</option>
-                                                        @break
-                                                    @endswitch
+                                                    @if(App::getLocale() == "vi")
+                                                        @switch($category_new_tran->id)
+                                                            @case(1)
+                                                            <option value="1">Sự kiện nổi bật</option>
+                                                            <option value="2">Tin trong nghành</option>
+                                                            <option value="3">Tin hoạt động công ty</option>
+                                                            @break
+                                                            @case(3)
+                                                            <option value="2">Tin trong nghành</option>
+                                                            <option value="1">Sự kiện nổi bật</option>
+                                                            <option value="3">Tin hoạt động công ty</option>
+                                                            @break
+                                                            @case(5)
+                                                            <option value="3">Tin hoạt động công ty</option>
+                                                            <option value="2">Tin trong nghành</option>
+                                                            <option value="1">Sự kiện nổi bật</option>
+                                                            @break
+                                                        @endswitch
+                                                    @else
+                                                        @switch($category_new_tran->id)
+                                                            @case(1)
+                                                            <option value="1">BIG EVENT</option>
+                                                            <option value="2">INDUSTRY NEWS</option>
+                                                            <option value="3">COMPANY ACTIVITY NEWS</option>
+                                                            @break
+                                                            @case(3)
+                                                            <option value="2">INDUSTRY NEWS</option>
+                                                            <option value="1">BIG EVENT</option>
+                                                            <option value="3">COMPANY ACTIVITY NEWS</option>
+                                                            @break
+                                                            @case(5)
+                                                            <option value="3">COMPANY ACTIVITY NEWS</option>
+                                                            <option value="2">INDUSTRY NEWS</option>
+                                                            <option value="1">BIG EVENT</option>
+                                                            @break
+                                                        @endswitch
+                                                    @endif
                                                 @endif
                                             @endif
                                         @endforeach
@@ -154,7 +175,7 @@
             })
         })
 
-        $('#inputFile').on('change', function(){
+        $('#inputFile').on('change', function () {
             if (typeof (FileReader) != "undefined") {
                 var image_holder = $(".img");
                 image_holder.empty();
