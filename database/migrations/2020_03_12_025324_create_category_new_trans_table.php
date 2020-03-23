@@ -17,6 +17,7 @@ class CreateCategoryNewTransTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('locale');
+            $table->string('slug')->nullable();
             $table->boolean('status')->default(1);
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('category_news')->onDelete('cascade');

@@ -111,15 +111,15 @@
                                     <li></li>
                                 </ul>
                                 <h2 ><a class="text-truncate"
-                                                                 href="{{route('category.web.new.show',$new_tran->id)}}">{{$new_tran->name}}</a>
+                                                                 href="{{route('category.web.new.show',[$new_tran->id,$new_tran->slug])}}">{{$new_tran->name}}</a>
                                 </h2>
                                 @if (App::getLocale() == "vi")
                                     <a
-                                        href="{{route('category.web.new.show',$new_tran->id)}}"> xem
+                                        href="{{route('category.web.new.show',[$new_tran->id,$new_tran->slug])}}"> xem
                                         thêm </a>
                                 @else
                                     <a
-                                        href="{{route('category.web.new.show',$new_tran->id)}}">see
+                                        href="{{route('category.web.new.show',[$new_tran->id,$new_tran->slug])}}">see
                                         more </a>
                                 @endif
                             </div>

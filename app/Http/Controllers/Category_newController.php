@@ -8,6 +8,7 @@ use App\New_tran;
 use Illuminate\Http\Request;
 use App\Language;
 use App;
+use Illuminate\Support\Str;
 
 class Category_newController extends Controller
 {
@@ -60,6 +61,8 @@ class Category_newController extends Controller
         $category_new->save();
         if (\request('locale') == 'en') {
 
+
+            $atribute['slug'] = $slug;
             $category_new_tran1 = new Category_new_tran();
             $category_new_tran1->locale = 'vi';
             $category_new_tran1->status = 0;
@@ -69,6 +72,7 @@ class Category_newController extends Controller
             $category_new_tran = new Category_new_tran();
             $category_new_tran->name = \request('name');
             $category_new_tran->locale = 'en';
+            $category_new_tran->slug = Str::slug($request['name']);
             $category_new_tran->category_id = $category_new->id;
             $category_new_tran->save();
 
@@ -76,7 +80,7 @@ class Category_newController extends Controller
             $category_new_tran = new Category_new_tran();
             $category_new_tran->name = \request('name');
             $category_new_tran->locale = 'vi';
-
+            $category_new_tran->slug = Str::slug($request['name']);
             $category_new_tran->category_id = $category_new->id;
             $category_new_tran->save();
 
@@ -127,6 +131,7 @@ class Category_newController extends Controller
     {
         $category_new_tran = Category_new_tran::find($id);
         $category_new_tran->name = \request('name');
+        $category_new_tran->slug = Str::slug($request['name']);
         $category_new_tran->save();
 
 

@@ -13,11 +13,13 @@
                                 <h4 class="widget_title mt-5">{{$category_new_tran->name}}</h4>
                                 @foreach($new_trans->take(6) as $new_tran)
                                     @foreach($news1 as $new)
-                                    @if($category_new_tran->category_id == $new->category_id && $new_tran->new_id == $new->id)
-                                            <ul class="list cat-list"><a href="{{route('category.web.new.show',$new_tran->id)}}">
-                                            {{$new_tran->name}}</a>
-                                        </ul>
-                                    @endif
+                                        @if($category_new_tran->category_id == $new->category_id && $new_tran->new_id == $new->id)
+
+                                            <ul class="list cat-list"><a
+                                                    href="{{url('/tintuc/'.$new_tran->id.'/show/'.$new_tran->slug)}}">
+                                                    {{$new_tran->name}}</a>
+                                            </ul>
+                                        @endif
                                     @endforeach
                                 @endforeach
                             @endforeach
@@ -33,14 +35,14 @@
                                     <div class="single-post">
                                         <div class="row">
                                             <div class="col-4">
-                                                <a href="{{route('category.web.new.show',$value->id)}}">
+                                                <a href="{{url('/tintuc/'.$value->id.'/show/'.$value->slug)}}">
                                                     <img class="img-fluid" src="{{$value->image}}" alt=""></a>
                                                 <div class="mt-2">{{$value->created_at }}</div>
                                             </div>
                                             <div class="col-7">
                                                 <div>
                                                     <h2 class="text-gray-dark">
-                                                        <a href="{{route('category.web.new.show',$value->id)}}">{{$value->name}}</a>
+                                                        <a href="{{url('/tintuc/'.$value->id.'/show/'.$value->slug)}}">{{$value->name}}</a>
                                                     </h2>
                                                 </div>
                                                 <p class="mt-3">
@@ -48,11 +50,12 @@
                                                 </p>
                                                 @if (App::getLocale() == "vi")
                                                     <a
-                                                       href="{{route('category.web.new.show',$value->id)}}"> xem
+                                                        href="{{url('/tintuc/'.$value->id.'/show/'.$value->slug)}}">
+                                                        xem
                                                         thêm </a>
                                                 @else
                                                     <a class="btn btn-warning"
-                                                       href="{{route('category.web.new.show',$value->id)}}">see
+                                                       href="{{url('/tintuc/'.$value->id.'/show/'.$value->slug)}}">see
                                                         more </a>
                                                 @endif
 
@@ -64,11 +67,11 @@
                         @endforeach
                     @endforeach
                     <br><br>
-{{--                    @if (App::getLocale() == "vi")--}}
-{{--                        <div>Tin tức liên quan</div>--}}
-{{--                    @else--}}
-{{--                        <div> related news</div>--}}
-{{--                    @endif--}}
+                    {{--                    @if (App::getLocale() == "vi")--}}
+                    {{--                        <div>Tin tức liên quan</div>--}}
+                    {{--                    @else--}}
+                    {{--                        <div> related news</div>--}}
+                    {{--                    @endif--}}
                 </div>
 
 

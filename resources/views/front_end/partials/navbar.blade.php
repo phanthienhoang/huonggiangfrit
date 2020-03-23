@@ -12,8 +12,11 @@
         </li>
         <li><a href="#">{{trans('navbar.news')}}</a>
             <ul class="submenu">
-                @foreach($loai_tin as $key=>$value)
-                <li><a href="{{route('category.web.new', $value->id)}}">{{$value->name}}</a></li>
+                @foreach($loai_tin as $value)
+
+                <li><a href="{{url('/tintuc/'.$value->id.'/'.$value->slug)}}">
+                         <button  disabled >{{$value->name}}</button></a></li>
+
                 @endforeach
             </ul>
         </li>

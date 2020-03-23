@@ -16,7 +16,7 @@
                                     @foreach($news1 as $new)
                                         @if($category_new_tran->category_id == $new->category_id && $new_tran->new_id == $new->id)
                                             <ul class="list cat-list">
-                                                <a href="{{route('category.web.new.show',$new_tran->id)}}">
+                                                <a href="{{url('/tintuc/'.$new_tran->id.'/show/'.$new_tran->slug)}}">
                                                     {{$new_tran->name}}</a>
                                             </ul>
                                         @endif

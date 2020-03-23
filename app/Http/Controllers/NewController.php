@@ -12,6 +12,7 @@ use App\Product;
 use App\Product_trans;
 use App\Language;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class NewController extends Controller
 {
@@ -63,11 +64,15 @@ class NewController extends Controller
         $image = base64_encode(file_get_contents($request->file("images")));
         $atribute['image'] = "data:image/jpg;base64," . $image;
         $atribute['new_id'] = $last_id;
+        $slug = Str::slug($atribute['name']);
+        $atribute['slug'] = $slug;
 
         if ($atribute['locale'] == 'vi') {
+
             New_tran::create($atribute);
             $atribute['locale'] = 'en';
             $atribute['name'] = 'null';
+            $atribute['slug'] = 'null';
             $atribute['description'] = 'null';
             $atribute['content'] = 'null';
             New_tran::create($atribute);
@@ -77,6 +82,7 @@ class NewController extends Controller
             $atribute1['name'] = 'null';
             $atribute1['description'] = 'null';
             $atribute1['content'] = 'null';
+            $atribute1['slug'] = 'null';
             $image = base64_encode(file_get_contents($request->file("images")));
             $atribute1['image'] = "data:image/jpg;base64," . $image;
             $atribute1['new_id'] = $last_id;
@@ -105,7 +111,7 @@ class NewController extends Controller
 
         $new_tran = New_tran::find($id);
         $new_tran->update($atribute);
-//        dd($new_tran);
+
 
         return redirect(route('new.index'));
     }
