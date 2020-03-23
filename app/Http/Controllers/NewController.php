@@ -66,6 +66,8 @@ class NewController extends Controller
         $atribute['new_id'] = $last_id;
         $slug = Str::slug($atribute['name']);
         $atribute['slug'] = $slug;
+        $atribute['status'] = $request['online'];
+
 
         if ($atribute['locale'] == 'vi') {
 
@@ -73,6 +75,7 @@ class NewController extends Controller
             $atribute['locale'] = 'en';
             $atribute['name'] = 'null';
             $atribute['slug'] = 'null';
+            $atribute['status'] = 0;
             $atribute['description'] = 'null';
             $atribute['content'] = 'null';
             New_tran::create($atribute);
@@ -83,6 +86,7 @@ class NewController extends Controller
             $atribute1['description'] = 'null';
             $atribute1['content'] = 'null';
             $atribute1['slug'] = 'null';
+            $atribute1['status'] = 0;
             $image = base64_encode(file_get_contents($request->file("images")));
             $atribute1['image'] = "data:image/jpg;base64," . $image;
             $atribute1['new_id'] = $last_id;

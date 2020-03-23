@@ -21,6 +21,7 @@ class CreateNewTransTable extends Migration
             $table->longText('content')->nullable();
             $table->longText('image')->nullable();
             $table->string('locale');
+            $table->boolean('status')->default(1);
             $table->unsignedBigInteger('new_id');
             $table->foreign('new_id')->references('id')->on('news')->onDelete('cascade');
             $table->softDeletes();

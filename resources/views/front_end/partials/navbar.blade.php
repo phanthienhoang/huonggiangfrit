@@ -15,7 +15,7 @@
                 @foreach($loai_tin as $value)
 
                 <li><a href="{{url('/tintuc/'.$value->id.'/'.$value->slug)}}">
-                         <button  disabled >{{$value->name}}</button></a></li>
+                        {{$value->name}}</a></li>
 
                 @endforeach
             </ul>

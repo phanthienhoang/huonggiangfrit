@@ -11,9 +11,9 @@
                         <aside class="single_sidebar_widget post_category_widget">
                             @foreach($category_new_tran1 as $category_new_tran)
                                 <h4 class="widget_title mt-5">{{$category_new_tran->name}}</h4>
-                                @foreach($new_trans->take(6) as $new_tran)
+                                @foreach($new_trans->take(12) as $new_tran)
                                     @foreach($news1 as $new)
-                                        @if($category_new_tran->category_id == $new->category_id && $new_tran->new_id == $new->id)
+                                        @if($category_new_tran->category_id == $new->category_id && $new_tran->new_id == $new->id && $new_tran->status == 1)
 
                                             <ul class="list cat-list"><a
                                                     href="{{url('/tintuc/'.$new_tran->id.'/show/'.$new_tran->slug)}}">
@@ -67,14 +67,7 @@
                         @endforeach
                     @endforeach
                     <br><br>
-                    {{--                    @if (App::getLocale() == "vi")--}}
-                    {{--                        <div>Tin tức liên quan</div>--}}
-                    {{--                    @else--}}
-                    {{--                        <div> related news</div>--}}
-                    {{--                    @endif--}}
                 </div>
-
-
             </div>
         </div>
     </section>

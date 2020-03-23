@@ -44,7 +44,7 @@
                                             <option value="en">Tiếng Anh</option>
 
                                         @else
-                                            <option value="en">English </option>
+                                            <option value="en">English</option>
                                             <option value="vi">Vietnamese</option>
                                         @endif
                                     </select>
@@ -100,17 +100,13 @@
                                 <div class="form-group">
                                     <label>tình trạng online</label>
                                     <select name="online" class="custom-select">
-                                        @foreach(\App\News::all() as $new)
-                                            @if($new->id == $new_tran->new_id)
-                                                @if($new->online == 1)
-                                                    <option value="1">Online</option>
-                                                    <option value="0">Not online</option>
-                                                @else
-                                                    <option value="0">Not online</option>
-                                                    <option value="1">Online</option>
-                                                @endif
-                                            @endif
-                                        @endforeach
+                                        @if($new_tran->status == 1)
+                                            <option value="1">Online</option>
+                                            <option value="0">Not online</option>
+                                        @else
+                                            <option value="0">Not online</option>
+                                            <option value="1">Online</option>
+                                        @endif
                                     </select>
                                 </div>
                                 <div class="form-group">
