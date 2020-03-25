@@ -72,7 +72,7 @@
                             </div>
             
                             <div class="form-group">
-                                <label for="title">Feature</label>
+                                <label for="title">Đặc Điểm</label>
                                 <input type="text" name="features" class="form-control @error('features') is-invalid @enderror" id="title"
                                     value="{{$product->features}}" required>
                                 @error('features')
@@ -154,7 +154,7 @@
     $(function () {
       // Summernote
       $('.textarea').summernote({
-          height: 150
+          height: 600
       })
     })
     $('#inputFile').on('change', function(){

@@ -19,7 +19,18 @@ class HomeController extends Controller
 
     public function indexAbout()
     {
-        return view('front_end.about');
+        if (App::getLocale() == "vi") {
+            $product_trans = Product_trans::where([
+                ['locale','=', 'vi'],
+                ['status', '=', '1'],
+            ])->orderBy('created_at', 'desc')->take(3)->get();
+        } else {
+            $product_trans = Product_trans::where([
+                ['locale','=', 'en'],
+                ['status', '=', '1'],
+            ])->orderBy('created_at', 'desc')->take(3)->get();
+        }
+        return view('front_end.about',compact('product_trans'));
     }
 
 
@@ -29,14 +40,20 @@ class HomeController extends Controller
             return view('front_end.productlist', [
                 'category_product_tran' => $category_product_tran,
                 'cate_gory' => $category_product_tran->load(['product_trans' => function ($pro) {
-                    $pro->where('locale', '=', 'vi');
+                    $pro->where([
+                        ['locale','=', 'vi'],
+                        ['status', '=', '1'],
+                    ]);
                 }])
             ]);
 
         return view('front_end.productlist', [
                 'category_product_tran' => $category_product_tran,
                 'cate_gory' => $category_product_tran->load(['product_trans' => function ($pro) {
-                    $pro->where('locale', '=', 'en');
+                    $pro->where([
+                        ['locale','=', 'en'],
+                        ['status', '=', '1'],
+                    ]);
                 }])
             ]);
     }

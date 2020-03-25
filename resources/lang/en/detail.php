@@ -1,9 +1,9 @@
 <?php
     return[
         "readmore" => "READ MORE",
-        "apply" => "APPLY",
+        "apply" => "APPLYCATION",
         "include"   =>"INCLUDE",
         "characteristic"       =>"CHARACTERISTIC",
-        "reference"       =>"REFERENCE",
-        "specifications"       =>"SPECIFICATIONS",
+        "reference"       =>"REFERENCE FORMULA",
+        "specifications"       =>"CHEMICAL SPECIFICATIONS",
     ];

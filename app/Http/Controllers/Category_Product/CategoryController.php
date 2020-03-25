@@ -82,7 +82,7 @@ class CategoryController extends Controller
         }
 
         Session::flash('create-success',$message);
-        return redirect()->route('admin.category-products.index');
+        return redirect()->route('category-products.index');
     }
     /**
      * Display the specified resource.
