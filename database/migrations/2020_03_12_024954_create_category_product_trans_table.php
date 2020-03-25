@@ -16,6 +16,7 @@ class CreateCategoryProductTransTable extends Migration
         Schema::create('category_product_trans', function (Blueprint $table) {
             $table->id();
             $table->string('name')->default('');
+            $table->string('slug')->nullable();
             $table->longText('images')->nullable();
             $table->text('description')->nullable();
             $table->longText('contents')->nullable();

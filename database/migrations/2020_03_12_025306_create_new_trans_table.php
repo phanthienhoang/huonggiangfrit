@@ -15,9 +15,9 @@ class CreateNewTransTable extends Migration
     {
         Schema::create('new_trans', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->text('description');
-            $table->text('content');
+            $table->string('name')->nullable();
+            $table->text('description')->nullable();
+            $table->longText('content')->nullable();
             $table->longText('image')->nullable();
             $table->string('locale');
             $table->unsignedBigInteger('new_id');

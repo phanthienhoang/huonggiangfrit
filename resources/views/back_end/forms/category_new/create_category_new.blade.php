@@ -23,31 +23,28 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Sửa loại tin tức</h3>
+                            <h3 class="card-title">Thêm loại tin tức</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" action="{{route('admin.category_new.update',$category_new->id)}}" method="post">
+                        <form role="form" action="{{route('category_new.store')}}" method="post">
                             @csrf
-                            @method('PUT')
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="title">Tên loại tin tức tiếng Việt</label>
-                                    <input type="text" name="name" class="form-control " id="title"
-                                           value="{{$category_new->name}}"><br>
-                                    <label for="title">Tên loại tin tức tiếng Anh</label>
+                                    <select name="locale"  id="">
+                                    <option for="title"  value="vi">Tên loại tin tức tiêng Việt</option>
 
-                                    <input type="text" name="nameEn" class="form-control " id="title"
-                                           value="{{$category_new_tran->name}}"><br>
-                                    <select name="online" id="">
-                                        <option value="1">online</option>
-                                        <option value="0"> not online</option>
+                                    <option for="title" value="en">Tên loại tin tức tiêng Anh</option>
                                     </select>
+
+                                    <input type="text" name="name" class="form-control mt-4" id="title"
+                                           placeholder="Nhập tên loại tin tức ">
                                 </div>
                             </div>
                             <!-- /.card-body -->
+
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">lưu</button>
+                                <button type="submit" class="btn btn-primary">Tạo mới</button>
                             </div>
                         </form>
                     </div>

@@ -28,6 +28,8 @@ class ProductController extends Controller
     {
         if (App::getLocale() == "en") {
             $products  = $this->getTranslation('en');
+        //    dd($products[1]->product->category_product->category_product_tran->where('locale', Session::get('language'))->first()->name);
+            
         } else {
             $products  = $this->getTranslation('vi');
         }
@@ -53,34 +55,37 @@ class ProductController extends Controller
         if ($attributes['locale'] == 'vi') {
             $product->productTranslates()->create($attributes);
             $attributes['locale'] = 'en';
-            $attributes['description'] = 'please update english';
-            $attributes['content'] = 'please update english';
+            $attributes['status'] = '0';
+            $attributes['features'] = 'please update english';
+            $attributes['apply'] = 'please update english';
             $product->productTranslates()->create($attributes);
             $message = "Tạo mới thành công! xin hãy cập nhập ngôn ngữ tiếng anh";
         } else {
             $product->productTranslates()->create($attributes);
+
             $attributes['locale'] = 'vi';
-            $attributes['description'] = 'cập nhập bài viết tiếng việt';
-            $attributes['content'] = 'cập nhập bài viết tiếng việt';
+            $attributes['status'] = '0';
+            $attributes['features'] = 'cập nhập bài viết tiếng việt';
+            $attributes['apply'] = 'cập nhập bài viết tiếng việt';
             $product->productTranslates()->create($attributes);
             $message = "create-success ! please update vietnam language";
         }
 
 
         Session::flash('create-success', $message);
-        return redirect()->route('admin.products.index');
+        return redirect()->route('products.index');
     }
 
     public function edit($id)
     {
         $product = Product_trans::find($id);
-
+        
         return view('back_end.forms.products.edit', compact('product'));
     }
 
     public function update($id)
     {
-        $this->validateAttribute();
+        // $this->validateAttribute();
 
         $product = Product_trans::find($id);
 
@@ -95,7 +100,7 @@ class ProductController extends Controller
 
         Session::flash('create-success', $message);
 
-        return redirect(route('admin.products.index'));
+        return redirect(route('products.index'));
     }
 
     public function show($id)
@@ -108,12 +113,11 @@ class ProductController extends Controller
     public function destroy($id)
     {
         $productTrans = Product_trans::find($id);
-
         $product = Product::find($productTrans->product_id);
         $product->productTranslates()->delete();
 
 
-        return redirect(route('admin.products.index'));
+        return redirect(route('products.index'));
     }
 
     public function getCategory()
@@ -143,7 +147,7 @@ class ProductController extends Controller
         $product = Product::find($productTrans->product_id);
         $product->productTranslates()->restore();
 
-        return redirect(route('admin.products.index'));
+        return redirect(route('products.index'));
     }
 
     public function forceDelete($id)
@@ -154,7 +158,7 @@ class ProductController extends Controller
         $product->productTranslates()->forceDelete();
 
 
-        return redirect(route('admin.products.index'));
+        return redirect(route('products.index'));
     }
 
     public function validateAttribute()
@@ -162,14 +166,13 @@ class ProductController extends Controller
         return request()->validate([
             'name' => 'required',
             'code' => 'required',
-            'price' => 'required',
+            'status' => 'required',
             'features' => 'required',
-            'line_graph' => 'required',
-            'flattening_curve' => 'required',
-            'content' => 'required',
-            'description' => 'required',
+            'apply' => 'required',
+            'refer_frit' => 'required',
+            'specifications' => 'required',
+            'locale' => 'required',
             'images' => 'required|image',
-            'locale' => 'required'
         ]);
     }
 }

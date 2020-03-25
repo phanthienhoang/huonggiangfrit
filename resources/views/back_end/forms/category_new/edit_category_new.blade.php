@@ -15,7 +15,6 @@
 @endsection
 
 @section('content')
-
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -23,28 +22,23 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Thêm loại tin tức</h3>
+                            <h3 class="card-title">Sửa loại tin tức</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form role="form" action="{{route('admin.category_new.store')}}" method="post">
+                        <form role="form" action="{{route('category_new.update',$category_new_tran->id)}}" method="post">
                             @csrf
+                            @method('PUT')
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="title">Tên loại tin tức tiêng Việt</label>
-                                    <input type="text" name="name" class="form-control" id="title"
-                                           placeholder="Nhập tên loại tin tức tiếng Việt">
-                                </div>
-                                <div class="form-group">
-                                    <label for="title">Tên loại tin tức tiêng Anh</label>
-                                    <input type="text" name="nameEn" class="form-control" id="title"
-                                           placeholder="Nhập tên loại tin tức tiếng Anh">
+                                    <label for="title">Tên loại tin tức </label>
+                                    <input type="text" name="name" class="form-control " id="title"
+                                           value="{{$category_new_tran->name}}"><br>
                                 </div>
                             </div>
                             <!-- /.card-body -->
-
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Tạo mới</button>
+                                <button type="submit" class="btn btn-primary">lưu</button>
                             </div>
                         </form>
                     </div>

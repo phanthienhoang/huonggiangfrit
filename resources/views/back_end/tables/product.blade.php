@@ -8,7 +8,7 @@
             <div class="col-sm-12">
                 <h1 class="m-0 text-dark">Sản phẩm
                     <div class=" float-right">
-                        <a href="{{ route('admin.products.create')}}" type="button" id="create_room_type"
+                        <a href="{{ route('products.create')}}" type="button" id="create_room_type"
                             class="btn btn-primary"><i class="fa fa-plus"></i>Thêm sản phẩm mới</a>
                     </div>
                 </h1>
@@ -37,7 +37,8 @@
                                 <tr>
                                     <th>Tên sản phẩm</th>
                                     <th>Loại sản phẩm</th>
-                                    <th>Mô tả</th>
+                                    <th>Đặc điểm</th>
+                                    <th>Áp dụng</th>
                                     <th>Ảnh</th>
                                     <th class="action">Action</th>
                                 </tr>
@@ -46,25 +47,29 @@
                                 @foreach ($products as $product)
                                 <tr>
                                     <td>{{ $product->name }}</td>
+                                    
                                 <td>{{ $product->product->category_product->category_product_tran->where('locale', Session::get('language'))->first()->name}}</td>
                                     <div>
                                         <td style="max-width: 200px;">
-                                            {{ $product->description }}
+                                            {{ $product->features}}
                                         </td>
                                     </div>
+                                    <td style="max-width: 200px;">
+                                        {{ $product->apply}}
+                                    </td>
                                     <td><img src="{{ $product->images }}" width=100px height=100px /></td>
                                     <td>
                                         <div class="d-inline-block">
-                                            <a href="{{ route('admin.products.show', $product->id) }}"
+                                            <a href="{{ route('products.show', $product->id) }}"
                                                 class="btn btn-primary"><i class="fa fa-eye"></i> View</a>
-                                            <a href="{{ route('admin.products.edit', $product->id) }}"
+                                            <a href="{{ route('products.edit', $product->id) }}"
                                                 class="btn btn-warning"><i class="fa fa-edit"></i> Edit</a>
                                             <form class="d-inline"
-                                                action="{{route('admin.products.destroy',$product->id)}}" method="post">
+                                                action="{{route('products.destroy',$product->id)}}" method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <input type="submit" onclick="return confirm('bạn có thực sự muốn xóa')"
-                                                    class="btn bg-danger text-dark" value="Xóa">
+                                                <input type="submit" onclick="return confirm('Hành động này sẽ xóa luôn bản dịch tương ứng')"
+                                                    class="btn bg-danger text-dark" value="Delete">
                                             </form>
                                         </div>
                                     </td>

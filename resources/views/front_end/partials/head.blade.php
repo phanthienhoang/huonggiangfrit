@@ -8,12 +8,10 @@
     <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
 
     <!-- CSS here -->
-        <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-        <!-- <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
-        <link rel="stylesheet" href="/assets/css/gijgo.css"> -->
-
+        {{-- <link rel="stylesheet" href="/assets/css/bootstrap.min.css"> --}}
         <link rel="stylesheet" href=" {{ asset('assets/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href=" {{ asset('assets/css/gijgo.css') }}">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
         <link rel="stylesheet" href="/assets/css/slicknav.css">

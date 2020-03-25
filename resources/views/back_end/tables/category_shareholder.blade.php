@@ -8,7 +8,7 @@
                 <div class="col-sm-12">
                     <h1 class="m-0 text-dark">Tin tức
                         <div class=" float-right">
-                            <a href="{{ route('admin.category-shareholder.create')}}" type="button" id="create_room_type"
+                            <a href="{{ route('category-shareholder.create')}}" type="button" id="create_room_type"
                                class="btn btn-primary"><i class="fa fa-plus"></i>Thêm Tin tức mới</a>
                         </div>
                     </h1>
@@ -21,7 +21,7 @@
 @section('content')
 @if(Session::has('create-success'))
     <h1><div id='banner_session' style="text-align:center" class="text-primary">{{ Session::get('create-success')}}</div></h1>
-@endif  
+@endif
     <section class="content">
         <div class="container-fluid">
             <div class="row">
@@ -54,12 +54,12 @@
                                         <td>
                                             <div class="row">
                                                 <div class="col">
-                                                    <a href="{{route('admin.category-shareholder.edit', $atribute->id)}}"
+                                                    <a href="{{route('category-shareholder.edit', $atribute->id)}}"
                                                        class="btn bg-warning">Sửa</a>
                                                 </div>
                                                 <div class="col">
                                                     <form
-                                                        action="{{route('admin.category-shareholder.destroy',$atribute->id)}}"
+                                                        action="{{route('category-shareholder.destroy',$atribute->id)}}"
                                                         method="post">
                                                         @csrf
                                                         @method('DELETE')
@@ -68,7 +68,7 @@
                                                     </form>
                                                 </div>
                                                 <div class="col">
-                                                    <a href="{{route('admin.category-shareholder.show',$atribute->id)}}" class="btn bg-info">chi tiết</a>
+                                                    <a href="{{route('category-shareholder.show',$atribute->id)}}" class="btn bg-info">chi tiết</a>
                                                 </div>
                                             </div>
                                         </td>
@@ -107,7 +107,7 @@
         });
 
         setTimeout(() => {
-            document.getElementById('banner_session').style.display = 'none';  
+            document.getElementById('banner_session').style.display = 'none';
         }, 4000);
     </script>
 @endpush

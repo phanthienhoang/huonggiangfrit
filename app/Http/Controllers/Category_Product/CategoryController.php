@@ -7,6 +7,8 @@ use App\Category_product_tran;
 use App\Language;
 use App;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
+
 
 class CategoryController extends Controller
 {
@@ -57,6 +59,10 @@ class CategoryController extends Controller
         $image=base64_encode(file_get_contents($request->file("images")));
         $atribute['images']="data:image/jpg;base64,".$image;
         $atribute['category_id']=$last_id;
+
+        $slug = Str::slug($atribute['name']);
+
+        $atribute['slug'] = $slug;
         if($atribute['locale']=='vi'){
             Category_product_tran::create($atribute);
             $atribute['locale']='en';
@@ -76,7 +82,7 @@ class CategoryController extends Controller
         }
 
         Session::flash('create-success',$message);
-        return redirect()->route('admin.category-products.index');
+        return redirect()->route('category-products.index');
     }
     /**
      * Display the specified resource.
@@ -109,20 +115,23 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validateAttribute();
+        // $this->validateAttribute();
         
         $atribute = $request->all();
+        $slug = Str::slug($atribute['name']);
+        $atribute['slug'] = $slug;
         if ($request->hasFile('images')) {
             $image=base64_encode(file_get_contents($request->file("images")));
             $atribute['images']="data:image/jpg;base64,".$image;
         }
+
         $product = Category_product_tran::find($id);
         $product->update($atribute);
         $message = "update thành công";
 
         Session::flash('create-success',$message);
 
-        return redirect()->route('admin.category-products.index');
+        return redirect()->route('category-products.index');
     }
     /**
      * Remove the specified resource from storage.
@@ -148,7 +157,7 @@ class CategoryController extends Controller
             $value->productTranslates()->delete();
         }
 
-        return redirect(route('admin.category-products.index'));
+        return redirect(route('category-products.index'));
     }
 
     public function getDeleted(){
@@ -166,7 +175,7 @@ class CategoryController extends Controller
         $category->restore();
         $category->category_product_tran()->restore();
 
-        return redirect(route('admin.category-products.index'));
+        return redirect(route('category-products.index'));
     }
 
     public function forceDelete($id)
@@ -177,7 +186,7 @@ class CategoryController extends Controller
         $category->forceDelete();
         $category->category_product_tran()->forceDelete();
 
-        return redirect(route('admin.category-products.index'));
+        return redirect(route('category-products.index'));
     }
 
     public function validateAttribute()

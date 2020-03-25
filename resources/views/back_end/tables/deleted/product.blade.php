@@ -8,7 +8,7 @@
             <div class="col-sm-12">
                 <h1 class="m-0 text-dark">Sản phẩm
                     <div class=" float-right">
-                        <a href="{{ route('admin.products.create')}}" type="button" id="create_room_type"
+                        <a href="{{ route('products.create')}}" type="button" id="create_room_type"
                             class="btn btn-primary"><i class="fa fa-plus"></i>Thêm sản phẩm mới</a>
                     </div>
                 </h1>

@@ -23,7 +23,7 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form role="form" action="{{ route('admin.category-products.update',$atribute->id) }}" method="POST"
+                    <form role="form" action="{{ route('category-products.update',$atribute->id) }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
                         @method("PUT")
@@ -31,7 +31,7 @@
                             <div class="form-group">
                                 <label for="title">Tên loại sản phẩm</label>
                                 <input type="text" name="name" value="{{$atribute->name}}" class="form-control @error('name') is-invalid @enderror"
-                                    id="title">
+                                    id="title" required>
                                 @error('name')
                                 <p class="text-danger">{{ $errors->first('name') }}</p>
                                 @enderror
@@ -59,7 +59,7 @@
                             <div class="form-group">
                                 <label for="description">Mô tả</label>
                                 <textarea name="description" value="" id="description" cols="30" rows="3"
-                                    class="form-control @error('description') is-invalid @enderror">{{$atribute->description}}</textarea>
+                                    class="form-control @error('description') is-invalid @enderror" required>{{$atribute->description}}</textarea>
                                 @error('description')
                                 <p class="text-danger">{{ $errors->first('description') }}</p>
                                 @enderror
@@ -84,10 +84,11 @@
                                         @endif
                                     </div>
                                 </div>
+                            </div>
                             <div class="form-group">
                                 <label for="description">Nội dung</label>
                                 <textarea class="textarea" name="contents" placeholder="Nhập nội dung" value=""
-                                    style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">
+                                    style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" required>
                                     {{$atribute->contents}}
                                     </textarea>
                                 @error('content')
@@ -97,7 +98,7 @@
                         </div>
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Submit</button>
-                            <a class="btn btn-secondary" href="{{route('admin.products.index')}}"><i
+                            <a class="btn btn-secondary" href="{{route('category-products.index')}}"><i
                                     class="fa fa-times"></i> Cancel</a>
                         </div>
                     </form>
@@ -122,7 +123,7 @@
     $(function () {
       // Summernote
       $('.textarea').summernote({
-          height: 150
+          height: 600
       })
     })
 

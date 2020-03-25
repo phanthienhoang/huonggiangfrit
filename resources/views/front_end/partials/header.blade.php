@@ -16,8 +16,8 @@
                             <ul>
                                 <li>
                                     <div style="margin:auto;" id="language_id">
-                                        <a href="{{ route('user.change-language',['en'])}}" ><img src='/assets/icon-en.png'/></a>
-                                        <a href="{{ route('user.change-language',['vi'])}}" ><img src='/assets/icon-vn.png'/></a>
+                                        <a href="{{ route('user.change-language-front',['en'])}}" ><img src='/assets/icon-en.png'/></a>
+                                        <a href="{{ route('user.change-language-front',['vi'])}}" ><img src='/assets/icon-vn.png'/></a>
                                     </div>
                                 </li>
                                 <li>+84.2343.595.695</li>
@@ -53,7 +53,6 @@
                         <div class="col-xl-2 col-lg-2 col-md-2">
                             <div class="logo" style="">
                                 <a href="/"><img width=100px src="{{ asset('assets/img/logo/logo_2.png') }}" alt=""></a>
-
                             </div>
                         </div>
                         <div class="col-xl-10 col-lg-10 col-md-10">
