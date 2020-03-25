@@ -39,8 +39,8 @@
 
             <div class="col-12 mt-20">
                 <h2 class="contact-title">{{trans('navbar.contact')}}</h2>
-            <form class="form-contact contact_form" action="{{ route('mail.contact') }}" method="post" id="contactForm" novalidate="novalidate">
-                @csrf
+                <form class="form-contact contact_form" action="{{ route('mail.contact') }}" method="post" id="contactForm" novalidate="novalidate">
+                    @csrf
                 <div class="row">
                         <div class="col-12">
                             <div class="form-group{{ $errors->has('subject') ? ' has-error' : '' }}">

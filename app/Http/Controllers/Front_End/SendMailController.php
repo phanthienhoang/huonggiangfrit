@@ -12,7 +12,6 @@ class SendMailController extends Controller
 
     public function send(Request $request)
     {
-        // dd($request);
         $this->validate($request, [
             'subject'     =>  'required',
             'name'     =>  'required',

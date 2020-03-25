@@ -28,7 +28,7 @@
                     <div class="safe-alert-box">
                         <div class="row">
                             <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 d-none d-sm-block">
-                                
+
                                 <div class="safe-alert" data-background="assets/img/safe_industery/color_bg.png">
                                     <img src="assets/img/icon/aleart_icon.png" alt="">
                                     <h4>Nhiệm Vụ</h4>
@@ -42,6 +42,7 @@
         </div>
     </div>
 </div>
+
 <!-- Testimonial Start -->
 <div class="testimonial-area t-bg testimonial-padding">
     <div class="container ">
@@ -52,7 +53,7 @@
                         <div class="testimonial-caption ">
                             <div class="testimonial-top-cap">
                                 <p>VỀ CHÚNG TÔI</p>
-                                <p>Công ty Cổ phần Frit Hương Giang là đơn vị chuyên sản xuất các mặt hàng thủy tinh và các sản phẩm từ thủy tinh, trong đó sản xuất các loại men Frit là mặt hàng chủ yếu</p>                            
+                                <p>Công ty Cổ phần Frit Hương Giang là đơn vị chuyên sản xuất các mặt hàng thủy tinh và các sản phẩm từ thủy tinh, trong đó sản xuất các loại men Frit là mặt hàng chủ yếu</p>
                                 <a href="industries.html" class="btn">Xem thêm</a>
                             </div>
                         </div>
@@ -115,5 +116,15 @@
     </div>
 </div>
 <!-- David Droga End -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<script>
+    @if (session()->has('success'))
+        toastr.success("{{ session()->get('success') }}")
+    @endif
+</script>
 
 @endsection

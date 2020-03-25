@@ -15,7 +15,7 @@
         <link rel="stylesheet" href=" {{ asset('assets/css/bootstrap.min.css') }}">
         <link rel="stylesheet" href=" {{ asset('assets/css/gijgo.css') }}">
 
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
         <link rel="stylesheet" href="/assets/css/slicknav.css">
         <link rel="stylesheet" href="/assets/css/animate.min.css">
         <link rel="stylesheet" href="/assets/css/magnific-popup.css">
