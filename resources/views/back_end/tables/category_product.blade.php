@@ -38,8 +38,6 @@
                                     <th>Loại sản phẩm</th>
                                     <th>Ảnh</th>
                                     <th>mô tả</th>
-                                    <!-- <th>nội dung</th> -->
-                                    <!-- <th>locale</th> -->
                                     <th>action</th>
                                 </tr>
                             </thead>
@@ -49,8 +47,6 @@
                                     <td><?= $categoryProduct['name'] ?></td>
                                     <td><img src='<?=$categoryProduct['images']?>' width=100px height=100px /></td>
                                     <td><?= $categoryProduct['description'] ?></td>
-                                    <!-- <td><div><?= $categoryProduct['contents']?></div></td> -->
-                                    <!-- <td><?= $categoryProduct['locale'] ?></td> -->
                                     <td>
                                         <div class="d-inline-block">
                                             <a href="{{ route('category-products.show', $categoryProduct->id) }}"

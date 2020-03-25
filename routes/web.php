@@ -31,27 +31,23 @@ Auth::routes();
 
 Route::prefix('/admin')->group(function () {
     Route::get('/', function () {
-        if (Auth::user()) {
-            return redirect('/admin/dashboard');
-        }
-        return view('auth.login');
-    })->name('admin.login');
+        return redirect('/admin/dashboard');
+    })->name('admin.login')->middleware("auth");
 
     Route::get('dashboard', 'HomeController@index')->name('admin.dashboard');
-
     Route::get('products/categories', 'ProductController@getCategory')->name('admin.getCategory');
     Route::get('products/get-deleted', 'ProductController@getDeleted')->name('admin.products.getDeleted')->middleware('locale');
     Route::get('products/restore/{id}', 'ProductController@restore')->name('admin.products.restore');
     Route::delete('products/force-delete/{id}', 'ProductController@forceDelete')->name('admin.products.forceDelete')->middleware('locale');
-
+    
     Route::resource('products', 'ProductController')->middleware('locale');
-
     Route::resource('category_new', 'Category_newController')->middleware('locale');
+    
     Route::get('category_new_deleted', 'Category_newController@show_deletad_at')->name('admin.category_new.deleted_at')->middleware('locale');
     Route::get('category_new_restore/{id}', 'Category_newController@restore')->name('admin.category_new.restore')->middleware('locale');
     Route::get('category_new_view/{id}', 'Category_newController@view_deleted_at')->name('admin.category_new.view_deleted_at')->middleware('locale');
     Route::delete('category_new_forceDelete/{id}', 'Category_newController@forceDelete')->name('admin.category_new.forceDelete')->middleware('locale');
-
+    
     Route::resource('new', 'NewController')->middleware('locale');
     Route::get('new_deleted', 'NewController@show_deletad_at')->name('admin.new.deleted_at')->middleware('locale');
     Route::get('new_restore/{id}', 'NewController@restore')->name('admin.new.restore')->middleware('locale');

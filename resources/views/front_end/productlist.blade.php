@@ -20,6 +20,13 @@
                   <div class="col-lg-9 posts-list">
                      <div class="single-post">
                         <div class="row">
+							@if($cate_gory->name=="FRIT TRONG" || $cate_gory->name == "TRANSPARENT FRIT")
+							   	@if (App::getLocale() == "vi")
+								<div class="col-12" style ="text-align:center ; font-size:40px"> <strong>FRIT TRONG</strong> </div>
+								@else
+								<div class="col-12" style ="text-align:center ; font-size:40px"> <strong>TRANSPARENT FRIT</strong> </div>
+								@endif
+							@else
                            <div class="col-3">
                                  <img width=300px class="img-fluid" src="{{$cate_gory->images}}" alt="">
                            </div>
@@ -31,12 +38,13 @@
                                  {{$cate_gory->description}}
                                  </p>
                            </div>
-                        </div>
-                        <div class="blog_details">
-                           {!!$cate_gory->contents!!}
+							@endif
                         </div>
                      </div>
                   </div>
+				   <div class="blog_details">
+                           {!!$cate_gory->contents!!}
+                   </div>
                </div>
               @foreach($cate_gory->product_trans as $key => $value)
                   <div class="tab-pane fade" id="v-pills-{{$value->id}}" role="tabpanel" aria-labelledby="v-pills-a-tab">

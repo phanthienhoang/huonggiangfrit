@@ -123,7 +123,7 @@
     $(function () {
       // Summernote
       $('.textarea').summernote({
-          height: 150
+          height: 600
       })
     })
 

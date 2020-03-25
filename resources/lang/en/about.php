@@ -6,13 +6,25 @@
         "muctieu"       =>"With the target of growth and sustainable development, we always take efforts to assert the brand and create value in every product.",
         "chuyennganh"       =>"Our products include transparent frit, semi-opaque frit, titanium frit and raw materials for engobe.",
 
-        "tieude" =>"Huong Giang- Pinnacle of Quality",
+        "tieude" =>"HUONG GIANG – THE TOP OF QUALITY",
         "tieude2" =>"we are sure to  the core values ​​in frit filterproduction, combined with a comprehensive investment of modern equipment to create products that satify customer quality requirements",
         "tieude3" =>"we are committed to providing products with stable quality, unbeatable prices, accompanied by providing the best technical support services to our customers.",
         "tieude4" =>"The spirit of cooperation, respect and development together will bring us closer together.",
 
-        "vechungtoi" =>"Huong Giang Frit Joint Stock Company is a unit specializing in manufacturing glass goods and products from glass, in which the production of Frit enamel is the primary product.",
-        "vechungtoi2"=>"The company is located in Zone B, Phong Dien Industrial Park, Phong Dien Town, Phong Dien District, Thua Thien Hue Province, Vietnam with an area of ​​3.6 hectares, the company was established on September 3, 2019, is  Investor of Frit enamel factory project with a capacity of 20,000 tons of products / year.",
-        "vechungtoi3" =>"As a newly established unit, but we are sure to filter the core values ​​in frit production, combined with a comprehensive investment of modern equipment to create products that satify customer quality requirements.",
-        "daychuyen" =>"DÂY CHUYỀN CÔNG NGHỆ-THIẾT BỊ HIỆN ĐẠI:",
+        "vechungtoi" =>"Huong Giang Frit Joint Stock Company is a manufacturer of glass products and glass related products. We mainly specializes Frit, ceramic glaze.",
+        "vechungtoi2"=>"Huong Giang Frit locates at Lot CN07, Zone B, Phong Dien IZ, Phong Dien Town, Phong Dien Distrist, Thua Thien Hue Province, Vietnam with an area more than 3.6 hectares. Huong Giang Frit has established on 3rd January 2019. We are investor of Frit factory with capacity of 20,000 tons/year.",
+        "vechungtoi3" =>"In spite of a new established company, we have filtered the core values in frit production, and combined with synchronous investment of modern equipment to produce products that meet many different quality requirements of customers.",
+        "daychuyen" =>"THE MODERN TECHNOLOGY AND EQUIPMENT LINES",
+
+        "nhiemvu"   => "Mission",
+        "nhiemvu1"   => "Create products that balance top quality and reasonable price",
+        "dichvu"   => "Products",
+        "sanphamchuluc" => "The company's main products: ",
+
+        "congnghe1" => "The products of  Huong Giang Frit are produced based on quality raw materials then through over selection process and under the process of production with high standards to ensure stable quality for products.",
+        "congnghe2" => "We apply the wood gasifier system that help to save fuel, and the modern machines to reduce production costs, improve productivity and quality, and protect the environment. Therefore, our products have good quality with reasonable price.",
+        "congnghe3" => "The Frit furnace is applied the new technology. That makes high quality product and competitive price.",
+
+
+
     ];

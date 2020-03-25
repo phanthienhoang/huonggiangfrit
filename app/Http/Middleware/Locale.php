@@ -19,7 +19,7 @@ class Locale
     public function handle($request, Closure $next)
     {
 
-        $language = session('language', 'en');
+        $language = session('language', 'vi');
         // Lấy dữ liệu lưu trong Session, không có thì trả về default lấy trong config
 
         App::setLocale($language);
