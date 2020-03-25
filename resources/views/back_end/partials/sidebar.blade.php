@@ -131,6 +131,15 @@
           </li>
         </ul>
       </li>
+      <li  class="nav-item has-treeview {{ Request::segment(2) === '#' || Request::segment(2) === '#' || Request::segment(2) === '#' ? 'menu-open' : null }}">
+        <a href="{{ route('tuyendung.index') }}" class="nav-link">
+            <i class="nav-icon fa fa-fw fa-cubes"></i>
+            <p>
+              Tin Tuyển Dụng
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+      </li>
     </ul>
   </nav>
   <!-- /.sidebar-menu -->
