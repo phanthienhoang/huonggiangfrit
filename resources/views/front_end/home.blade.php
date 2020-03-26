@@ -92,38 +92,78 @@
                     @endif
                 </div>
             </div>
-            <div class="row ">
-                @foreach($new_trans as $new_tran)
-                    <div class="col-xl-6 col-lg-6 col-md-6">
-                        <!-- single-david -->
-                        <div class="single-david mb-30">
-                            <div class="david-img">
-                                <img src="{{$new_tran->image}}" alt="">
+
+
+
+
+            <style>
+
+                #product-list {
+                    display: flex;
+                    padding: 2rem;
+                    justify-content: center;
+                }
+
+                #product-list .product {
+                    width: 45%;
+                    float: left;
+                    margin-left: 3.3%;
+                    display: block;
+                }
+
+                #product-list .product:first-child {
+                    margin-left: 0;
+                }
+
+                #product-list .product .img {
+                    box-sizing: border-box;
+                    height: 400px;
+                    width: 300%;
+                    overflow: hidden;
+                }
+
+                .title {
+                    color: #4d4d4d;
+                }
+
+                .name {
+                    color: #808080;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    align-self: flex-end;
+                }
+
+                img {
+                    object-fit: cover;
+                    display: block;
+                    width: 100%;
+                    max-width: none;
+                    height: 100%;
+                }
+
+            </style>
+            <section class="blog_area single-post-area section-padding">
+                <div class="container-fluid">
+                    <div id="product-list">
+                        @foreach($new_trans as $new_tran)
+                            <div class="product">
+                                <div class="img"><a href="{{route('showNews.web',$new_tran->id)}}"><img
+                                            src="{{$new_tran->image}}"/></a>
+                                </div>
+                                <h3 class="title"><a href="{{route('showNews.web',$new_tran->id)}}">{{$new_tran->name}}</a></h3>
+                                <div class="name">{{$new_tran->description}}
+                                </div>
                             </div>
-                            <div class="david-captoin">
-                                <ul class="david-info">
-                                    <li>{{$new_tran->created_at}} </li>
-                                    <li></li>
-                                </ul>
-                                <h2 ><a class="text-truncate"
-                                                                 href="{{route('category.web.new.show',$new_tran->id)}}">{{$new_tran->name}}</a>
-                                </h2>
-                                @if (App::getLocale() == "vi")
-                                    <a
-                                        href="{{route('category.web.new.show',$new_tran->id)}}"> {{trans('detail.readmore')}}</a>
-                                @else
-                                    <a
-                                        href="{{route('category.web.new.show',$new_tran->id)}}">{{trans('detail.readmore')}}</a>
-                                @endif
-                            </div>
-                        </div>
+                        @endforeach
+
                     </div>
-                @endforeach
-            </div>
+                </div>
+
+            </section>
         </div>
     </div>
     <!-- David Droga End -->
-	
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>

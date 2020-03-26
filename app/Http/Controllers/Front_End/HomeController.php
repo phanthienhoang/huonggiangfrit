@@ -24,6 +24,7 @@ class HomeController extends Controller
                 ['locale', '=', 'vi'],
                 ['status', '=', '1'],
             ])->orderBy('created_at', 'desc')->take(3)->get();
+
         } else {
             $product_trans = Product_trans::where([
                 ['locale', '=', 'en'],
@@ -83,7 +84,7 @@ class HomeController extends Controller
         return view('front_end.product-detail', compact('product_trans', 'cate_gory'));
     }
 
-    
+
     /**
      * Display the specified resource.
      *
