@@ -21,7 +21,7 @@
 		<div style="font-size:22px ;line-height: 30px;" >
 
 			&emsp;&emsp;{{trans('about.hue')}}<br>
-			
+
 			&emsp;&emsp;{{trans('about.thanhlap')}}<br>
 
 			&emsp;&emsp;{{trans('about.lacongty')}}<br>
@@ -94,18 +94,19 @@
 				<div class="col-md-4">
 					<div class="single-defination">
 					<h4 class="mb-20">{{$item->name}}</h4>
-						<p>	
+						<p>
 							{{trans('detail.characteristic')}}: {{$item->features}}.</br>
 							{{trans('detail.apply')}}: {{$item->apply}}.</br>
-							{{trans('detail.reference')}}: {{$item->refer_frit}} 
+							{{trans('detail.reference')}}: {{$item->refer_frit}}
 						</p>
-						@if (App::getLocale() == "vi")
+						{{-- @if (App::getLocale() == "vi")
 						<a
 							class="btn" href="/product/frit-trong"> {{trans('detail.readmore')}}</a>
 					@else
 						<a
 						class="btn" href="/product/transparent-frit">{{trans('detail.readmore')}}</a>
-					@endif
+                    @endif --}}
+                    <a class="btn" href="{{ route('product.readmore', $item->id) }}"> {{trans('detail.readmore')}}</a>
 					</div>
 				</div>
 				@endforeach

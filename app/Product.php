@@ -24,4 +24,9 @@ class Product extends Model
     {
         return $this->hasMany(Product_trans::class);
     }
+
+    public function category_product_trans()
+    {
+        return $this->hasMany(Category_product_tran::class, 'category_id', 'category_id');
+    }
 }

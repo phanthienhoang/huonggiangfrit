@@ -68,6 +68,7 @@ Route::prefix('/admin')->group(function () {
     Route::resource('category-shareholder', 'Category_ShareHolder\CateShareHolderController')->middleware('locale');
     Route::resource('shareholder', 'Category_ShareHolder\ShareHolderController')->middleware('locale');
     Route::resource('tuyendung', 'HireController');
+
 });
 
 
@@ -86,4 +87,4 @@ Route::get('/tintuc/{id}/show','Front_End\HomeController@showNewList')->name('ca
 
 
 Route::post('/contact', 'Front_End\SendMailController@send')->name('mail.contact');
-
+Route::get('product_trans/{product_trans}', 'Front_End\HomeController@readMore')->name('product.readmore');
