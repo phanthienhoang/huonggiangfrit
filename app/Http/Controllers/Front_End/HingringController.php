@@ -36,6 +36,12 @@ class HingringController extends Controller
         return view('front_end.hiring',compact(['hires']));
     }
 
+    public function showNew($id)
+    {
+        $new_tran = New_tran::find($id);
+        return view('front_end.showNewList',compact('new_tran'));
+    }
+
 
     public function viewNews()
     {
@@ -43,15 +49,17 @@ class HingringController extends Controller
             $new_trans  = New_tran::where([
                 ['locale','=', "en"],
                 ['status', '=', '1'],
-            ])->get();
+            ])->paginate(4);
         } else {
             $new_trans  = New_tran::where([
                 ['locale','=', "vi"],
                 ['status', '=', '1'],
-            ])->get();
+            ])->paginate(4);
         }
         return view('front_end.newlist',compact(['new_trans']));
     }
+
+
 
     /**
      * Show the form for creating a new resource.
