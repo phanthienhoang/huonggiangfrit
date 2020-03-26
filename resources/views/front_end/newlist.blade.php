@@ -23,25 +23,25 @@
             margin-left: 0;
         }
 
-        #product-list .product .img {
+        #product-list .product .imgcate {
             box-sizing: border-box;
             height: 300px;
             width: 100%;
             overflow: hidden;
         }
 
-        .title{
+        .titlecate{
             color: #4d4d4d;
         }
 
-        .name{
+        .nameaaaaaa{
             color: #808080;
         overflow: hidden;
         text-overflow: ellipsis;
             align-self: flex-end;
         }
 
-        img{
+        .imgcate>img{
             object-fit: cover;
             display: block;
             width: 100%;
@@ -58,9 +58,9 @@
                 
                 @foreach($new_trans as $new_tran)
                 <div class="product">
-                  <div class="img"><img src="{{$new_tran->image}}"/></div>
-                  <h3 class="title">{{$new_tran->name}}</h3>
-                  <div class="name">{{$new_tran->description}}</div>
+                  <div class="imgcate"><img src="{{$new_tran->image}}"/></div>
+                  <h3 class="titlecate">{{$new_tran->name}}</h3>
+                  <div class="nameaaaaaa">{{$new_tran->description}}</div>
                 </div>
                 @endforeach
               
