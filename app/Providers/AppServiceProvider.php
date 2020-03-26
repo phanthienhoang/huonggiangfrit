@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Category_product_tran;
-use App\Category_Shareholder_Tran;
+use App\Product_trans;
 use App;
 
 class AppServiceProvider extends ServiceProvider
@@ -32,10 +32,6 @@ class AppServiceProvider extends ServiceProvider
                     ['locale','=', 'en'],
                     ['status', '=', '1'],
                 ])->get();
-                $quanhe_codong = Category_Shareholder_Tran::where([
-                    ['locale','=', 'en'],
-                    ['status', '=', '1'],
-                ])->get();
                 $loai_tin = App\Category_new_tran ::where([
                     ['locale','=', 'en'],
                     ['status', '=', '1'],
@@ -46,16 +42,14 @@ class AppServiceProvider extends ServiceProvider
                     ['status', '=', '1'],
                 ])->get();
                 // $loai_sp = Category_product_tran::where('locale','vi')->get();
-                $quanhe_codong = Category_Shareholder_Tran::where([
-                    ['locale','=', 'vi'],
-                    ['status', '=', '1'],
-                ])->get();
+           
                 $loai_tin = App\Category_new_tran::where([
                     ['locale','=', 'vi'],
                     ['status', '=', '1'],
                 ])->get();
             }
-            $view->with(compact('loai_sp','quanhe_codong','loai_tin'));
+            $view->with(compact('loai_sp','loai_tin'));
         });
+
     }
 }

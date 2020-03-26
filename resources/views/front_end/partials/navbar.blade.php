@@ -18,8 +18,7 @@
             </ul>
         </li>
 
-        <li><a href="#">{{trans('navbar.hiring')}}</a></li>
+        <li><a href="{{route('hiring.web')}}">{{trans('navbar.hiring')}}</a></li>
         <li><a href="/contact">{{trans('navbar.contact')}}</a></li>
-
     </ul>
 </nav>

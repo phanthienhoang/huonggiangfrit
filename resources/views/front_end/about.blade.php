@@ -99,13 +99,6 @@
 							{{trans('detail.apply')}}: {{$item->apply}}.</br>
 							{{trans('detail.reference')}}: {{$item->refer_frit}}
 						</p>
-						{{-- @if (App::getLocale() == "vi")
-						<a
-							class="btn" href="/product/frit-trong"> {{trans('detail.readmore')}}</a>
-					@else
-						<a
-						class="btn" href="/product/transparent-frit">{{trans('detail.readmore')}}</a>
-                    @endif --}}
                     <a class="btn" href="{{ route('product.readmore', $item->id) }}"> {{trans('detail.readmore')}}</a>
 					</div>
 				</div>

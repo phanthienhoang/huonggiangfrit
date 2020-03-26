@@ -8,9 +8,9 @@
       <div class="row">
          <div class="col-3">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <a class="nav-link bg-light" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">{{$cate_gory->name}} {{trans('detail.include')}} :</a>
+            <a class="nav-link bg-light" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="">{{$cate_gory->name}} {{trans('detail.include')}} :</a>
                   @foreach($cate_gory->product_trans as $key => $value)
-                     <a class="nav-link bg-light" id="v-pills-{{$value->name}}-tab" data-toggle="pill" href="#v-pills-{{$value->id}}" role="tab" aria-controls="v-pills-profile" aria-selected="false">{{$value->name}}</a>
+            <a class="nav-link bg-light" id="v-pills-{{$value->name}}-tab" data-toggle="pill" href="#v-pills-{{$value->id}}" role="tab" aria-controls="v-pills-profile" aria-selected="{{$value->id ==''}}">{{$value->name}}</a>
                   @endforeach
             </div>
          </div>

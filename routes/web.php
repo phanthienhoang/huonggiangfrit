@@ -67,7 +67,7 @@ Route::prefix('/admin')->group(function () {
     Route::resource('category-products', 'Category_Product\CategoryController')->middleware('locale');
     Route::resource('category-shareholder', 'Category_ShareHolder\CateShareHolderController')->middleware('locale');
     Route::resource('shareholder', 'Category_ShareHolder\ShareHolderController')->middleware('locale');
-    Route::resource('tuyendung', 'HireController');
+    Route::resource('tuyendung', 'HireController')->middleware('locale');
 
 });
 
@@ -81,6 +81,7 @@ Route::get('change-language-front/{language}', 'Front_End\HomeController@changeL
 Route::get('/about','Front_End\HomeController@indexAbout')->name('about.web')->middleware('locale');
 
 Route::get('/product/{category_product_tran:slug}','Front_End\HomeController@showCategory')->name('category.web')->middleware('locale');
+Route::get('/product/{id}','Front_End\HomeController@show')->name('product.detail')->middleware('locale');
 
 Route::get('/tintuc/{id}','Front_End\HomeController@showNew')->name('category.web.new')->middleware('locale');
 Route::get('/tintuc/{id}/show','Front_End\HomeController@showNewList')->name('category.web.new.show')->middleware('locale');
@@ -88,3 +89,6 @@ Route::get('/tintuc/{id}/show','Front_End\HomeController@showNewList')->name('ca
 
 Route::post('/contact', 'Front_End\SendMailController@send')->name('mail.contact');
 Route::get('product_trans/{product_trans}', 'Front_End\HomeController@readMore')->name('product.readmore');
+
+Route::get('/hiring','Front_End\HingringController@viewHires')->name('hiring.web')->middleware('locale');
+

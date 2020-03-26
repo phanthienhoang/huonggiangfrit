@@ -15,8 +15,7 @@ class CreateHiresTable extends Migration
     {
         Schema::create('hires', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 255);
-            $table->longText('content');
+            $table->boolean('online')->default(1);
             $table->timestamps();
         });
     }

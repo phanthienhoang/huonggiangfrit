@@ -24,14 +24,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('back_end.dashboard');
+        return redirect(route('products.index'));;
 
     }
 
     public function changeLanguage($language)
     {
         session(['language' => $language]);
-        // App::setLocale('vi');
         return redirect()->back();
     }
 }

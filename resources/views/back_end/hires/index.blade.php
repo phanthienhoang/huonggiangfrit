@@ -34,103 +34,59 @@
                         @else
 
                         @endif
-                        {{-- <table id="example1" class="table table-bordered table-striped">
+                        <table id="example1" class="table table-bordered table-striped">
                             <thead class="bg-primary">
                             <tr>
-                                <th>Tên tin tức</th>
-                                <th>Loại tin tức</th>
-                                <th>Mô tả</th>
-                                <th>Ảnh</th>
+                                <th>Tiêu đề</th>
+                                <th>Nội dung</th>
+                                <th>Ngày tạo</th>
                                 <th class="action">Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach ($kq as $new_tran)
+                            @foreach ($hires as $hire)
                                 <tr>
                                     <td style="max-width: 200px;">
-                                        @if (empty($new_tran->name))
+                                        @if (empty($hire->title))
                                             <li class="text-danger">dữ liệu trống</li>
                                         @else
-                                            <li class="text-truncate">{{$new_tran->name}}</li>
+                                            <li class="text-truncate">{{$hire->title}}</li>
                                         @endif
-                                    </td>
-                                    <td style="max-width: 200px;">
-                                        @foreach(\App\Category_new_tran::all() as $cate_new_tran)
-
-                                            @if($cate_new_tran->locale == $new_tran->locale && $cate_new_tran->category_id == \App\News::find($new_tran->new_id)->category_id )
-                                                @if(empty($cate_new_tran->name))
-                                                    <li class="text-danger">
-                                                        dữ liệu trống
-                                                    </li>
-                                                @else
-                                                    <li style="max-width: 200px;">
-                                                        {{$cate_new_tran->name}}
-                                                    </li>
-                                                @endif
-                                            @endif
-                                        @endforeach
                                     </td>
                                     <div>
                                         <td style="max-width: 200px;">
-                                            @if (empty($new_tran->description ))
-                                                <li class="text-danger">dữ liệu trống</li>
-                                            @else
-                                                <li class="text-truncate">{{$new_tran->description }} </li>
-                                            @endif
+                                            <li class="text-truncate">{{$hire->content }} </li>
+                                        </td>
+                                    </div>
+                                    <div>
+                                        <td style="max-width: 200px;">
+                                            <li class="text-truncate">{{$hire->created_at }} </li>
                                         </td>
                                     </div>
                                     <td>
-                                        @if (empty($new_tran->image))
-                                        @else
-                                            <img src="{{$new_tran->image}}"
-                                                 alt="sim_image"
-                                                 style="width: 150px; height: 150px">
-                                        @endif
-                                    </td>
-                                    <td>
                                         <div class="d-inline-block">
                                             <div class="btn bg-warning" style="width: 90px">
-                                                @if(App::getLocale() == "vi")
                                                     <a class=" text-center"
-                                                       href="{{ route('new.edit',$new_tran->id) }}">Sửa</a>
-                                                @else
-                                                    <a class=" text-center"
-                                                       href="{{ route('new.edit', ($new_tran->id) )}}">Edit</a>
-                                                @endif
+                                                       href="{{ route('tuyendung.edit',$hire->id) }}">cập nhập</a>
                                             </div>
                                         </div>
-                                        <form action="{{route('new.destroy',$new_tran->id)}}"
+                                        <form action="{{route('tuyendung.destroy',$hire->id)}}"
                                               method="post">
                                             @csrf
                                             @method('DELETE')
-                                            @if(App::getLocale() == "vi")
-                                                <input type="submit" style="width: 90px"
+                                            <input type="submit" style="width: 90px"
                                                        onclick="return confirm('bạn có thực sự muốn xóa')"
                                                        class="btn bg-danger text-dark"
-                                                       value="Xóa">
-                                            @else
-                                                <input type="submit" style="width: 90px"
-                                                       onclick="return confirm('bạn có thực sự muốn xóa')"
-                                                       class="btn bg-danger text-dark"
-                                                       value="Delete">
-                                            @endif
+                                            value="Xóa">
+                                          
                                         </form>
-                                        <div class="btn bg-info" style="width: 90px">
-                                            @if(App::getLocale() == "vi")
-                                                <a class=" text-center"
-                                                   href="{{ route('new.show',$new_tran->id) }}">Chi Tiết</a>
-                                            @else
-                                                <a class=" text-center"
-                                                   href="{{ route('new.show', ($new_tran->id))}}">Detail</a>
-                                            @endif
-                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
                             </tbody>
-                        </table> --}}
+                        </table>
                     </div>
-                    <!-- /.card-body -->
+
                 </div>
             </div>
         </div>

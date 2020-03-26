@@ -44,6 +44,10 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @if (count($products) === 0)
+                                <h2 class="text text-center text-info">Chưa Có Thông Tin Tuyển Dụng</h2>
+                                @else
+    
                                 @foreach ($products as $product)
                                 <tr>
                                     <td>{{ $product->name }}</td>
@@ -75,7 +79,7 @@
                                     </td>
                                 </tr>
                                 @endforeach
-
+                                @endif
                             </tbody>
                         </table>
                     </div>

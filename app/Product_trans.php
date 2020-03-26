@@ -17,11 +17,6 @@ class Product_trans extends Model
         return $this->belongsTo('App\Product');
     }
 
-    // public function category_products()
-    // {
-    //     return $this->hasManyThrought(Category_product_tran::class, Category_product::class, 'product_id', 'category_id', 'id', 'id');
-    // }
-
     public function category_product_tran()
     {
         return $this->hasOneThrough(

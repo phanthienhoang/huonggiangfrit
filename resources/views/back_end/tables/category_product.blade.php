@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-12">
-                <h1 class="m-0 text-dark">Sản phẩm
+                <h1 class="m-0 text-dark">Các Loại Sản phẩm
                     <div class=" float-right">
                         <a href="{{ route('category-products.create')}}" type="button" id="create_room_type"
                             class="btn btn-primary"><i class="fa fa-plus"></i>Thêm sản phẩm mới</a>
@@ -28,7 +28,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Danh sách sản phẩm</h3>
+                        <h3 class="card-title">Danh sách Các Loại Sản phẩm</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">

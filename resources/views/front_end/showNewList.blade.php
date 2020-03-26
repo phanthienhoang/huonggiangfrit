@@ -51,11 +51,7 @@
                     </div>
 
                     <br><br>
-{{--                    @if (App::getLocale() == "vi")--}}
-{{--                        <div>Tin tức liên quan</div>--}}
-{{--                    @else--}}
-{{--                        <div> related news</div>--}}
-{{--                    @endif--}}
+
                 </div>
             </div>
         </div>
