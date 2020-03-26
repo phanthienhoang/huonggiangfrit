@@ -34,7 +34,6 @@
                                 <thead class="bg-primary">
                                 <tr>
                                     <th>Tên tin tức</th>
-                                    <th>Loại tin tức</th>
                                     <th>Mô tả</th>
                                     <th>Ảnh</th>
                                     <th class="action">Action</th>
@@ -49,22 +48,6 @@
                                             @else
                                                 <li class="text-truncate">{{$new_tran->name}}</li>
                                             @endif
-                                        </td>
-                                        <td style="max-width: 200px;">
-                                            @foreach(\App\Category_new_tran::all() as $cate_new_tran)
-
-                                                @if($cate_new_tran->locale == $new_tran->locale && $cate_new_tran->category_id == \App\News::find($new_tran->new_id)->category_id )
-                                                    @if(empty($cate_new_tran->name))
-                                                        <li class="text-danger">
-                                                            dữ liệu trống
-                                                        </li>
-                                                    @else
-                                                        <li style="max-width: 200px;">
-                                                            {{$cate_new_tran->name}}
-                                                        </li>
-                                                    @endif
-                                                @endif
-                                            @endforeach
                                         </td>
                                         <div>
                                             <td style="max-width: 200px;">

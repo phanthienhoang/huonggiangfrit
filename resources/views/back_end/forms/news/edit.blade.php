@@ -50,54 +50,6 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label>Loại tin tức </label>
-                                    <select name="category_id" class="custom-select">
-                                        @foreach(\App\Category_new_tran::all() as $category_new_tran)
-                                            @if($category_new_tran->category_id == \App\News::find($new_tran->new_id)->category_id)
-                                                @if($category_new_tran->locale == 'vi')
-                                                    @if(App::getLocale() == "vi")
-                                                        @switch($category_new_tran->id)
-                                                            @case(1)
-                                                            <option value="1">Sự kiện nổi bật</option>
-                                                            <option value="2">Tin trong nghành</option>
-                                                            <option value="3">Tin hoạt động công ty</option>
-                                                            @break
-                                                            @case(3)
-                                                            <option value="2">Tin trong nghành</option>
-                                                            <option value="1">Sự kiện nổi bật</option>
-                                                            <option value="3">Tin hoạt động công ty</option>
-                                                            @break
-                                                            @case(5)
-                                                            <option value="3">Tin hoạt động công ty</option>
-                                                            <option value="2">Tin trong nghành</option>
-                                                            <option value="1">Sự kiện nổi bật</option>
-                                                            @break
-                                                        @endswitch
-                                                    @else
-                                                        @switch($category_new_tran->id)
-                                                            @case(1)
-                                                            <option value="1">BIG EVENT</option>
-                                                            <option value="2">INDUSTRY NEWS</option>
-                                                            <option value="3">COMPANY ACTIVITY NEWS</option>
-                                                            @break
-                                                            @case(3)
-                                                            <option value="2">INDUSTRY NEWS</option>
-                                                            <option value="1">BIG EVENT</option>
-                                                            <option value="3">COMPANY ACTIVITY NEWS</option>
-                                                            @break
-                                                            @case(5)
-                                                            <option value="3">COMPANY ACTIVITY NEWS</option>
-                                                            <option value="2">INDUSTRY NEWS</option>
-                                                            <option value="1">BIG EVENT</option>
-                                                            @break
-                                                        @endswitch
-                                                    @endif
-                                                @endif
-                                            @endif
-                                        @endforeach
-                                    </select>
-                                </div>
-                                <div class="form-group">
                                     <label>tình trạng online</label>
                                     <select name="online" class="custom-select">
                                         @foreach(\App\News::all() as $new)

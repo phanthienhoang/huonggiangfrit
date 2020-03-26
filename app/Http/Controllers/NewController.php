@@ -1,16 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-use  App;
-use App\Category_new;
-use App\Category_new_tran;
-use App\Category_product;
-use App\Category_product_tran;
+use App;
 use App\New_tran;
 use App\News;
-use App\Product;
-use App\Product_trans;
-use App\Language;
+
 use Illuminate\Http\Request;
 
 class NewController extends Controller
@@ -49,21 +43,13 @@ class NewController extends Controller
 
     public function store(Request $request)
     {
-
         $new = new News();
-        $new->category_id = \request('category_id');
-        $new->online = \request('online');
-
         $new->save();
-
         $last_id = $new->id;
-
-
         $atribute = $request->all();
         $image = base64_encode(file_get_contents($request->file("images")));
         $atribute['image'] = "data:image/jpg;base64," . $image;
         $atribute['new_id'] = $last_id;
-
         if ($atribute['locale'] == 'vi') {
             New_tran::create($atribute);
             $atribute['locale'] = 'en';
@@ -71,17 +57,12 @@ class NewController extends Controller
             $atribute['content'] = 'update tiếng anh cho tôi';
             New_tran::create($atribute);
         } else {
-            $atribute1 = $request->all();
-            $atribute1['locale'] = 'vi';
-            $atribute1['description'] = 'cập nhập tiếng việt cho tôi';
-            $atribute1['content'] = 'null';
-            $image = base64_encode(file_get_contents($request->file("images")));
-            $atribute1['image'] = "data:image/jpg;base64," . $image;
-            $atribute1['new_id'] = $last_id;
-            New_tran::create($atribute1);
+            New_tran::create($atribute);
+            $atribute['locale'] = 'vi';
+            $atribute['description'] = 'cập nhập tiếng việt cho tôi';
+            $atribute['content'] = 'null';
             New_tran::create($atribute);
         }
-
 
         return redirect()->route('new.index');
 
@@ -122,9 +103,10 @@ class NewController extends Controller
     public function destroy($id)
     {
         $new_tran = New_tran::find($id);
-        $new_tran_en =New_tran::find($id+1);
-        $new_tran->delete();
-        $new_tran_en->delete();
+        $id_delete=$new_tran['new_id'];
+        $new = News::find($id_delete);
+
+        $new->delete();
         return redirect()->back();
     }
     public function show($id)

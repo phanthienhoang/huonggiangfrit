@@ -18,11 +18,11 @@ class CreateNewTransTable extends Migration
             $table->string('name')->nullable();
             $table->text('description')->nullable();
             $table->longText('content')->nullable();
+            $table->boolean('status')->default(1);
             $table->longText('image')->nullable();
             $table->string('locale');
             $table->unsignedBigInteger('new_id');
             $table->foreign('new_id')->references('id')->on('news')->onDelete('cascade');
-            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -41,18 +41,13 @@ Route::prefix('/admin')->group(function () {
     Route::delete('products/force-delete/{id}', 'ProductController@forceDelete')->name('admin.products.forceDelete')->middleware('locale');
 
     Route::resource('products', 'ProductController')->middleware('locale');
-    Route::resource('category_new', 'Category_newController')->middleware('locale');
 
-    Route::get('category_new_deleted', 'Category_newController@show_deletad_at')->name('admin.category_new.deleted_at')->middleware('locale');
-    Route::get('category_new_restore/{id}', 'Category_newController@restore')->name('admin.category_new.restore')->middleware('locale');
-    Route::get('category_new_view/{id}', 'Category_newController@view_deleted_at')->name('admin.category_new.view_deleted_at')->middleware('locale');
-    Route::delete('category_new_forceDelete/{id}', 'Category_newController@forceDelete')->name('admin.category_new.forceDelete')->middleware('locale');
 
     Route::resource('new', 'NewController')->middleware('locale');
-    Route::get('new_deleted', 'NewController@show_deletad_at')->name('admin.new.deleted_at')->middleware('locale');
-    Route::get('new_restore/{id}', 'NewController@restore')->name('admin.new.restore')->middleware('locale');
-    Route::get('new_view/{id}', 'NewController@view_deleted_at')->name('admin.new.view_deleted_at')->middleware('locale');
-    Route::delete('new_forceDelete/{id}', 'NewController@forceDelete')->name('admin.new.forceDelete')->middleware('locale');
+    // Route::get('new_deleted', 'NewController@show_deletad_at')->name('admin.new.deleted_at')->middleware('locale');
+    // Route::get('new_restore/{id}', 'NewController@restore')->name('admin.new.restore')->middleware('locale');
+    // Route::get('new_view/{id}', 'NewController@view_deleted_at')->name('admin.new.view_deleted_at')->middleware('locale');
+    // Route::delete('new_forceDelete/{id}', 'NewController@forceDelete')->name('admin.new.forceDelete')->middleware('locale');
 
 
 // =======================================================================================================================>>>
@@ -83,8 +78,6 @@ Route::get('/about','Front_End\HomeController@indexAbout')->name('about.web')->m
 Route::get('/product/{category_product_tran:slug}','Front_End\HomeController@showCategory')->name('category.web')->middleware('locale');
 Route::get('/product/{id}','Front_End\HomeController@show')->name('product.detail')->middleware('locale');
 
-Route::get('/tintuc/{id}','Front_End\HomeController@showNew')->name('category.web.new')->middleware('locale');
-Route::get('/tintuc/{id}/show','Front_End\HomeController@showNewList')->name('category.web.new.show')->middleware('locale');
 
 
 Route::post('/contact', 'Front_End\SendMailController@send')->name('mail.contact');
@@ -92,3 +85,4 @@ Route::get('product_trans/{product_trans}', 'Front_End\HomeController@readMore')
 
 Route::get('/hiring','Front_End\HingringController@viewHires')->name('hiring.web')->middleware('locale');
 
+Route::get('news','Front_End\HingringController@viewNews')->name('news.web')->middleware('locale');
