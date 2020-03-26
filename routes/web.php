@@ -86,3 +86,4 @@ Route::get('product_trans/{product_trans}', 'Front_End\HomeController@readMore')
 Route::get('/hiring','Front_End\HingringController@viewHires')->name('hiring.web')->middleware('locale');
 
 Route::get('news','Front_End\HingringController@viewNews')->name('news.web')->middleware('locale');
+Route::get('news/{id}','Front_End\HingringController@showNew')->name('showNews.web')->middleware('locale');
