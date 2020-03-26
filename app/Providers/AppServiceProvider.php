@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Category_product_tran;
+use App\Product_trans;
 use App\Category_Shareholder_Tran;
 use App;
 
@@ -57,5 +58,6 @@ class AppServiceProvider extends ServiceProvider
             }
             $view->with(compact('loai_sp','quanhe_codong','loai_tin'));
         });
+
     }
 }

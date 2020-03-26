@@ -36,6 +36,7 @@ class HomeController extends Controller
 
     public function showCategory(Category_product_tran $category_product_tran)
     {
+        // dd($category_product_tran);
         if (App::getLocale() == "vi")
             return view('front_end.productlist', [
                 'category_product_tran' => $category_product_tran,
@@ -138,7 +139,8 @@ class HomeController extends Controller
      */
     public function show($id)
     {
-        //
+        $atribute = Product_trans::find($id);
+        return view('front_end.productlist', compact('atribute'));
     }
 
     /**

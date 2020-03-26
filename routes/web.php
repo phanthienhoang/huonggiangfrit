@@ -80,6 +80,7 @@ Route::get('change-language-front/{language}', 'Front_End\HomeController@changeL
 Route::get('/about','Front_End\HomeController@indexAbout')->name('about.web')->middleware('locale');
 
 Route::get('/product/{category_product_tran:slug}','Front_End\HomeController@showCategory')->name('category.web')->middleware('locale');
+Route::get('/product/{id}','Front_End\HomeController@show')->name('product.detail')->middleware('locale');
 
 Route::get('/tintuc/{id}','Front_End\HomeController@showNew')->name('category.web.new')->middleware('locale');
 Route::get('/tintuc/{id}/show','Front_End\HomeController@showNewList')->name('category.web.new.show')->middleware('locale');

@@ -101,10 +101,10 @@
 						</p>
 						@if (App::getLocale() == "vi")
 						<a
-							class="btn" href="/product/frit-trong"> {{trans('detail.readmore')}}</a>
+					class="btn" href="{{route('product.detail', $item->id)}}"> {{trans('detail.readmore')}}</a>
 					@else
 						<a
-						class="btn" href="/product/transparent-frit">{{trans('detail.readmore')}}</a>
+						class="btn" href="{{route('product.detail', $item->id)}}">{{trans('detail.readmore')}}</a>
 					@endif
 					</div>
 				</div>

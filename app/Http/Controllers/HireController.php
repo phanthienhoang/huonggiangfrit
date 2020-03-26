@@ -31,7 +31,7 @@ class HireController extends Controller
      */
     public function create()
     {
-        //
+        return view('back_end.index', compact('hires'));
     }
 
     /**
