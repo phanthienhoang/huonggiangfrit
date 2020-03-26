@@ -14,7 +14,7 @@ class CreateHiresTable extends Migration
     public function up()
     {
         Schema::create('hires', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->boolean('online')->default(1);
             $table->timestamps();
         });

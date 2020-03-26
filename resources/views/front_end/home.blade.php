@@ -97,8 +97,8 @@
                     <div class="col-xl-6 col-lg-6 col-md-6">
                         <!-- single-david -->
                         <div class="single-david mb-30">
-                            <div class="david-img">
-                                <img src="{{$new_tran->image}}" alt="">
+                            <div class="david-img" >
+                                <img width="100%" height="350px" src="{{$new_tran->image}}" alt="">
                             </div>
                             <div class="david-captoin">
                                 <ul class="david-info">
@@ -106,15 +106,8 @@
                                     <li></li>
                                 </ul>
                                 <h2 ><a class="text-truncate"
-                                                                 href="{{route('category.web.new.show',$new_tran->id)}}">{{$new_tran->name}}</a>
+                                    href="#">{{$new_tran->name}}</a>
                                 </h2>
-                                @if (App::getLocale() == "vi")
-                                    <a
-                                        href="{{route('category.web.new.show',$new_tran->id)}}"> {{trans('detail.readmore')}}</a>
-                                @else
-                                    <a
-                                        href="{{route('category.web.new.show',$new_tran->id)}}">{{trans('detail.readmore')}}</a>
-                                @endif
                             </div>
                         </div>
                     </div>

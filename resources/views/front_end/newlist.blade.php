@@ -23,25 +23,27 @@
             margin-left: 0;
         }
 
-        #product-list .product .img {
+        #product-list .product .imgcate {
             box-sizing: border-box;
             height: 300px;
             width: 100%;
             overflow: hidden;
         }
 
-        .title {
+        .titlecate{
             color: #4d4d4d;
         }
 
-        .name {
+        .nameaaaaaa{
             color: #808080;
             overflow: hidden;
             text-overflow: ellipsis;
             align-self: flex-end;
         }
 
-        img {
+
+        .imgcate>img{
+
             object-fit: cover;
             display: block;
             width: 100%;
@@ -56,14 +58,16 @@
         <div class="container-fluid">
             <div id="product-list">
                 @foreach($new_trans as $new_tran)
+
                     <div class="product">
-                        <div class="img"><a href="{{route('showNews.web',$new_tran->id)}}"><img
+                        <div class="imgcate"><a href="{{route('showNews.web',$new_tran->id)}}"><img
                                     src="{{$new_tran->image}}"/></a>
                         </div>
-                        <h3 class="title"><a href="{{route('showNews.web',$new_tran->id)}}">{{$new_tran->name}}</a></h3>
-                        <div class="name">{{$new_tran->description}}
+                        <h3 class="titlecate"><a href="{{route('showNews.web',$new_tran->id)}}">{{$new_tran->name}}</a></h3>
+                        <div class="nameaaaaaa">{{$new_tran->description}}
                         </div>
                     </div>
+
                 @endforeach
 
             </div>
