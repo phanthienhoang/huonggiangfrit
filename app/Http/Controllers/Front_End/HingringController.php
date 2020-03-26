@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Hire_tran;
 use App;
 
+use App\New_tran;
+
 class HingringController extends Controller
 {
     /**
@@ -35,9 +37,20 @@ class HingringController extends Controller
     }
 
 
-    public function index()
+    public function viewNews()
     {
-        //
+        if (App::getLocale() == "en") {
+            $new_trans  = New_tran::where([
+                ['locale','=', "en"],
+                ['status', '=', '1'],
+            ])->get();
+        } else {
+            $new_trans  = New_tran::where([
+                ['locale','=', "vi"],
+                ['status', '=', '1'],
+            ])->get();
+        }
+        return view('front_end.newlist',compact(['new_trans']));
     }
 
     /**

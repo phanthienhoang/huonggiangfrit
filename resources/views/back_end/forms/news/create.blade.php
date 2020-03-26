@@ -48,14 +48,6 @@
 
                                 </div>
                                 <div class="form-group">
-                                    <label>Loại tin tức </label>
-                                    <select name="category_id" class="custom-select">
-                                        <option value="1">Sự kiện nổi bật</option>
-                                        <option value="2">Tin trong nghành</option>
-                                        <option value="3">Tin hoạt động công ty</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
                                     <label for="description">Mô tả</label>
                                     <textarea name="description" id="description" cols="30" rows="3"
                                               class="form-control"></textarea>
@@ -83,7 +75,6 @@
                                               style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
                                 </div>
                             </div>
-                            <!-- /.card-body -->
 
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">Submit</button>
