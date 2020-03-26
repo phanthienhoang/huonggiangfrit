@@ -21,7 +21,7 @@ class SendMailController extends Controller
             'g-recaptcha-response' => 'required'
         ]);
 
-        Mail::to('phanthienhoang95@gmail.com')->send(new ContactMail($request));
+        Mail::to('huonggiangfrit@gmail.com')->send(new ContactMail($request));
 
 
         return redirect('/')->with('success', 'Cảm ơn đã liên lạc cho chúng tôi!');

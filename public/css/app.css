@@ -1,4 +1,7 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@charset "UTF-8";
+
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+
 
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
@@ -10880,5 +10883,9 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+.table.product-details tr, th, td {
+    border-color: red !important;
 }
 

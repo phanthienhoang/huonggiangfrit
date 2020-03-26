@@ -1,7 +1,7 @@
-<p>Hi, Tôi là {{ $data['name'] }}</p>
+<h3>Hi, Tôi là {{ $data['name'] }}</h3>
 
-<p>{{ $data['message'] }}.</p>
+<h3>{{ $data['message'] }}.</h3>
 
-<p>Email: {{ $data['email'] }}</p>
+<h3>Email: {{ $data['email'] }}</h3>
 
-<p>Rất mong nhận được phản hồi của bạn sớm</p>
+<h3>Rất mong nhận được phản hồi của bạn sớm</h3>

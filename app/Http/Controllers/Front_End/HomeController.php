@@ -21,16 +21,16 @@ class HomeController extends Controller
     {
         if (App::getLocale() == "vi") {
             $product_trans = Product_trans::where([
-                ['locale','=', 'vi'],
+                ['locale', '=', 'vi'],
                 ['status', '=', '1'],
             ])->orderBy('created_at', 'desc')->take(3)->get();
         } else {
             $product_trans = Product_trans::where([
-                ['locale','=', 'en'],
+                ['locale', '=', 'en'],
                 ['status', '=', '1'],
             ])->orderBy('created_at', 'desc')->take(3)->get();
         }
-        return view('front_end.about',compact('product_trans'));
+        return view('front_end.about', compact('product_trans'));
     }
 
 
@@ -42,23 +42,46 @@ class HomeController extends Controller
                 'category_product_tran' => $category_product_tran,
                 'cate_gory' => $category_product_tran->load(['product_trans' => function ($pro) {
                     $pro->where([
-                        ['locale','=', 'vi'],
+                        ['locale', '=', 'vi'],
                         ['status', '=', '1'],
                     ]);
                 }])
             ]);
 
         return view('front_end.productlist', [
-                'category_product_tran' => $category_product_tran,
-                'cate_gory' => $category_product_tran->load(['product_trans' => function ($pro) {
-                    $pro->where([
-                        ['locale','=', 'en'],
-                        ['status', '=', '1'],
-                    ]);
-                }])
-            ]);
+            'category_product_tran' => $category_product_tran,
+            'cate_gory' => $category_product_tran->load(['product_trans' => function ($pro) {
+                $pro->where([
+                    ['locale', '=', 'en'],
+                    ['status', '=', '1'],
+                ]);
+            }])
+        ]);
     }
 
+    public function readMore(Product_trans $product_trans)
+    {
+        // dd($product_trans);
+
+        if (App::getLocale() == "vi") {
+            $category_product_trans = $product_trans->product->category_product_trans[0];
+            $cate_gory = $category_product_trans->load(['product_trans' => function ($pro) {
+                $pro->where([
+                    ['locale', '=', 'vi'],
+                    ['status', '=', '1'],
+                ]);
+            }]);
+        } else {
+            $category_product_trans = $product_trans->product->category_product_trans[1];
+            $cate_gory = $category_product_trans->load(['product_trans' => function ($pro) {
+                $pro->where([
+                    ['locale', '=', 'en'],
+                    ['status', '=', '1'],
+                ]);
+            }]);
+        }
+        return view('front_end.product-detail', compact('product_trans', 'cate_gory'));
+    }
 
     public function showNew($id)
     {
@@ -68,13 +91,12 @@ class HomeController extends Controller
         $news1 = App\News::all();
         if (App::getLocale() == "vi") {
             $new_trans = App\New_tran::where('locale', 'vi')->get();
-            $category_new_tran1 = App\Category_new_tran::where('locale','vi')->get();
-
+            $category_new_tran1 = App\Category_new_tran::where('locale', 'vi')->get();
         } else {
             $new_trans = App\New_tran::where('locale', 'en')->get();
-            $category_new_tran1 = App\Category_new_tran::where('locale','en')->get();
+            $category_new_tran1 = App\Category_new_tran::where('locale', 'en')->get();
         }
-        return view('front_end.newlist', compact('new_trans', 'name', 'news','category_new_tran1','news1'));
+        return view('front_end.newlist', compact('new_trans', 'name', 'news', 'category_new_tran1', 'news1'));
     }
 
     public function showNewList($id)
@@ -82,31 +104,40 @@ class HomeController extends Controller
         $news1 = App\News::all();
         if (App::getLocale() == "vi") {
             $new_tran = App\New_tran::find($id);
-            $image = $new_tran->image;$name1 = $new_tran->name;$descrip = $new_tran->description;$content = $new_tran->content;
-            $category_new_tran1 = App\Category_new_tran::where('locale','vi')->get();
+            $image = $new_tran->image;
+            $name1 = $new_tran->name;
+            $descrip = $new_tran->description;
+            $content = $new_tran->content;
+            $category_new_tran1 = App\Category_new_tran::where('locale', 'vi')->get();
             $new_trans1 = App\New_tran::where('locale', 'vi')->get();
             foreach (App\Category_new_tran::all() as $category_new_tran)
-                    if ($category_new_tran->category_id == App\News::find($new_tran->new_id)->category_id &&
-                    $category_new_tran->locale == 'vi')
-                    {$name = $category_new_tran->name;}
+                if (
+                    $category_new_tran->category_id == App\News::find($new_tran->new_id)->category_id &&
+                    $category_new_tran->locale == 'vi'
+                ) {
+                    $name = $category_new_tran->name;
+                }
         } else {
             $new_tran = App\New_tran::find($id);
-            $image = $new_tran->image;$name1 = $new_tran->name;$descrip = $new_tran->description;$content = $new_tran->content;
+            $image = $new_tran->image;
+            $name1 = $new_tran->name;
+            $descrip = $new_tran->description;
+            $content = $new_tran->content;
             $new_trans1 = App\New_tran::where('locale', 'en')->get();
-            $category_new_tran1 = App\Category_new_tran::where('locale','en')->get();
+            $category_new_tran1 = App\Category_new_tran::where('locale', 'en')->get();
             foreach (App\Category_new_tran::all() as $category_new_tran)
 
-                    if ($category_new_tran->category_id == App\News::find($new_tran->new_id)->category_id
-                        && $category_new_tran->locale == 'en')
-                    {$name = $category_new_tran->name;
-
-                    }
+                if (
+                    $category_new_tran->category_id == App\News::find($new_tran->new_id)->category_id
+                    && $category_new_tran->locale == 'en'
+                ) {
+                    $name = $category_new_tran->name;
+                }
         }
-        return view('front_end.showNewList', compact('new_tran', 'name','news1','new_trans1','category_new_tran1','image','name1','descrip','content'));
+        return view('front_end.showNewList', compact('new_tran', 'name', 'news1', 'new_trans1', 'category_new_tran1', 'image', 'name1', 'descrip', 'content'));
     }
     public function show_home()
     {
-
     }
 
 
